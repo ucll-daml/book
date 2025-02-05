@@ -25,7 +25,7 @@ jobs:
           poetry run jupyter-book toc from-project DAML_book
           poetry run jupyter-book build DAML_book
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v2
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_build/html # Or ./_build/latex if you are building a latex book
