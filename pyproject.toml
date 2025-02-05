@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "data-analytics-machine-learning-book"
+version = "0.1.0"
+description = ""
+authors = [
+    "Chidi Nweke <chidi.nweke@ucll.be>", 
+    "Aimee backiel <aimeelynn.backiel@ucll.be>",
+    "Daan Nijs <daan.nijs@ucll.be>"
+    ]
+readme = "README.md"
+packages = [{include = "data_analytics_machine_learning_book"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+jupyter-book = "^0.15.1"
+jupytercards = "^2.5.5"
+jupyterquiz = "^2.6.2"
+pandas = "^2.0.2"
+scikit-learn = "^1.3.0"
+black = "^23.9.1"
+flake8 = "^6.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

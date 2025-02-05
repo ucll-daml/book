@@ -1,0 +1,54 @@
+[
+    {
+        "question": "Select all the numeric columns",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Age",
+                "correct": true,
+                "feedback": "Correct!"
+            },
+            {
+                "answer": "Country",
+                "correct": false,
+                "feedback": "Incorrect, countries are categorical"
+            },
+            {
+                "answer": "Membership status",
+                "correct": false,
+                "feedback": "Incorrect, membership status is categorical"
+            },
+            {
+                "answer": "cost",
+                "correct": true,
+                "feedback": "Correct!"
+            }
+        ]
+    },
+    {
+        "question": "Select all the categorical columns",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "guests",
+                "correct": false,
+                "feedback": "Incorrect, guests are numeric but continuous"
+            },
+            {
+                "answer": "rating",
+                "correct": false,
+                "feedback": "Incorrect, rating is numeric but continuous"
+            },
+            {
+                "answer": "destination",
+                "correct": true,
+                "feedback": "Correct!"
+            },
+            {
+                "answer": "Package_Type",
+                "correct": true,
+                "feedback": "Correct!"
+            }
+        ]
+    }
+]

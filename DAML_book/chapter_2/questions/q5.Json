@@ -1,0 +1,6 @@
+[
+    {
+        "front": "What was the difference between the data types of age and country?",
+        "back": "Age is a numeric type and country is a categorical type."
+    }
+]
