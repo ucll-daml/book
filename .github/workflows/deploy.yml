@@ -22,8 +22,8 @@ jobs:
           poetry add jupyter-book
       - name: Build Jupyter Book
         run: |
-          poetry run jupyter-book toc from-project .
-          poetry run jupyter-book build .
+          poetry run jupyter-book toc from-project DAML_book
+          poetry run jupyter-book build DAML_book
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v2
         with:
