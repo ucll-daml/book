@@ -1,0 +1,856 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Chapter 1: What makes data science, machines learn, and intelligence artificial? &#8212; Data Analytics &amp; Machine Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_1/chapter1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bringing the right equipment to start your data adventure" href="../chapter_2/chapter2.html" />
+    <link rel="prev" title="Introduction" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/Logo_UCLL_ENG_RGB.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/Logo_UCLL_ENG_RGB.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 1: What makes data science, machines learn, and intelligence artificial?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2/chapter2.html">Bringing the right equipment to start your data adventure</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucll-daml/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucll-daml/book/issues/new?title=Issue%20on%20page%20%2Fchapter_1/chapter1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_1/chapter1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 1: What makes data science, machines learn, and intelligence artificial?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analytics">Data Analytics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-the-definition-of-data-analysis">Unpacking the definition of data analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting">Inspecting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-and-transforming">Cleaning and Transforming</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discovering-useful-information">Discovering useful information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artificial-intelligence">Artificial intelligence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-the-definition-of-ai">Unpacking the definition of AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intelligence">Intelligence</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#machines">Machines</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning">Learning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-solving">Problem solving</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-based-vs-data-driven-ai">Rule-based vs. Data-driven AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-based-ai">Rule-based AI</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-data-driven-ai">Machine learning (Data-driven AI)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-short-aside-generative-ai">A Short Aside: Generative AI</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-based-ai-versus-machine-learning-chess-engines-as-a-prime-example">Rule-based AI versus Machine learning: Chess Engines as a Prime Example</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-relationship-between-data-analytics-and-machine-learning">The relationship between data analytics and machine learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summarized">Summarized</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-we-ll-be-approaching-the-course">How we’ll be approaching the course</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-prerequisites-needed-for-mathematics">No prerequisites needed for mathematics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-by-doing-in-python">Learning by doing in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#focus-on-fundamentals-of-statistics-and-analytics">Focus on fundamentals of statistics and analytics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-isn-t-magic">Machine learning isn’t magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-things-will-remain-magical-and-that-s-okay">Some things will remain magical… and that’s okay</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-words-of-the-chapter">Key words of the chapter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-should-remember">What you should remember</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-ll-be-doing-next">What we’ll be doing next</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-1-what-makes-data-science-machines-learn-and-intelligence-artificial">
+<h1>Chapter 1: What makes data science, machines learn, and intelligence artificial?<a class="headerlink" href="#chapter-1-what-makes-data-science-machines-learn-and-intelligence-artificial" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>In the current tech ecosystem, you might have come across the sudden popularity of AI-driven tools like ChatGPT, Copilot, Midjourney, and countless others. While they seem magical, underneath the hood, they are the result of data analytics, machine learning, and artificial intelligence working  together. Tools like these make certain tasks easier, yet to use them well, it’s very important to understand how they work</p>
+<p>You might ask, <em>“I’m not a mathematician, why should I care?”</em>. Here’s why:</p>
+<ol class="arabic simple">
+<li><p><strong>Integration with Everyday Applications</strong>: As applied computer science students, your main focus will be solving real world problems. Knowing the difference between data science, machine learning, and AI will allow you to better integrate these technologies into your applications where applicable.</p></li>
+<li><p><strong>Empowerment</strong>: A basic understanding will empower you to leverage existing tools and platforms more effectively. You don’t need to be a mathematician to use AI, but understanding their differences and applications will give you an edge. A primary goal of this course is to demystify AI and data science, making it feel less like magic and more like a practical tool at you can use.</p></li>
+<li><p><strong>Future-Proofing Your Skills</strong>: The tech landscape is always in evolution. This course focuses on teaching foundational topics that will always remain relevant. Your understanding of these can help you throughout your career.</p></li>
+<li><p><strong>Real benefits no matter your specialization</strong>: Some of you will be specializing in other topics such as cybersecurity or business. Data analytics is applicable in all domains and doesn’t only need to be carried out by data professionals. Throughout the course we will give examples that demonstrate this.</p></li>
+<li><p><strong>Focusing on a domain</strong>: A lot of student seems to think people specialize in a programming language : Java programmer, C# programmers, C++ programmer. This is true, to some extent. But a lot of people specialize in a domain (specific topic). For example, ai/machine learning experts used to program Lisp, and now use Python. A 60 year old programmer started out in assembly, moved on to C and C++, and is now very interested in Rust. Sometimes <em>what</em> you do is what you specialize in, rather than <em>how</em></p></li>
+</ol>
+<p>With that said, let’s try and answer some foundational questions:</p>
+<div class="admonition-try-and-answer-these-questions admonition">
+<p class="admonition-title">Try and answer these questions </p>
+<ol class="arabic simple">
+<li><p>What are data analytics and machine learning?</p></li>
+<li><p>How does machine learning relate to artificial intelligence?</p></li>
+<li><p>How does data analytics relate to machine learning?</p></li>
+</ol>
+</div>
+<p>By the end of this chapter, you’ll have a clearer understanding of these terms, how they’re related, and most importantly, why they matter to you.</p>
+</section>
+<section id="data-analytics">
+<h2>Data Analytics<a class="headerlink" href="#data-analytics" title="Permalink to this heading">#</a></h2>
+<p>When we talk about data analytics, we’re essentially discussing the various steps and methods to turn raw data into valuable insights. Data analytics aids organizations and individuals in making informed choices. The definition from Wikipedia provides an excellent framework:</p>
+<blockquote>
+<div><p><em>Data analysis is the process of inspecting, cleansing, transforming, and modeling data with the goal of discovering useful information, informing conclusions, and supporting decision-making.</em></p>
+</div></blockquote>
+<section id="unpacking-the-definition-of-data-analysis">
+<h3>Unpacking the definition of data analysis<a class="headerlink" href="#unpacking-the-definition-of-data-analysis" title="Permalink to this heading">#</a></h3>
+<section id="inspecting">
+<h4>Inspecting<a class="headerlink" href="#inspecting" title="Permalink to this heading">#</a></h4>
+<p>This is the first step in the analytics process. Think of it as taking a first look at a giant puzzle. You’re trying to see what pieces you have, which ones are missing, and getting a general sense of the data landscape. Inspection involves understanding the data’s origin, its format, its volume, and any apparent patterns or anomalies.</p>
+</section>
+<section id="cleaning-and-transforming">
+<h4>Cleaning and Transforming<a class="headerlink" href="#cleaning-and-transforming" title="Permalink to this heading">#</a></h4>
+<p>Not all data we receive is usable. Some may have errors, redundancies, or missing values. The cleaning process is like inspecting the tomatoes you bought from the store. It ensures that the data (or ingredients) are fit for purpose. This step can often involve removing duplicates, correcting errors, and filling in missing values.</p>
+<p>Once you’ve cleaned your data, you might need to change its format or structure to better suit your analysis tools or to highlight specific information. This could be as simple as converting temperatures from Fahrenheit to Celsius or as complex as restructuring datasets to better fit a specific model. In our cooking example this would be like slicing the tomatoes.</p>
+</section>
+<section id="modelling">
+<h4>Modelling<a class="headerlink" href="#modelling" title="Permalink to this heading">#</a></h4>
+<p>This is where things start to get exciting. Modelling involves applying statistical tools to the data to predict, classify, or understand patterns in the data.</p>
+<p>As you’ll see in this course, the modelling part of data analytics has become a lot more approachable. Today, a variety of tools and platforms are designed to be user-friendly, allowing individuals without an extensive background in these fields to create and utilize models effectively.</p>
+<p>However, it’s essential to note that while the entry barrier has been lowered, it is not completely gone. There are still complexities and nuances in data modelling that require careful attention. Throughout this course, we’ll highlight these “sharp corners” and guide you through them, ensuring that you have a well-rounded understanding of the field.</p>
+</section>
+<section id="discovering-useful-information">
+<h4>Discovering useful information<a class="headerlink" href="#discovering-useful-information" title="Permalink to this heading">#</a></h4>
+<p>At its heart, the goal of data analytics is discovery. Whether it’s identifying market trends, predicting customer behavior, or finding correlations among variables, this step is about extracting valuable insights that were previously hidden in the mass of raw data.</p>
+</section>
+</section>
+</section>
+<section id="artificial-intelligence">
+<h2>Artificial intelligence<a class="headerlink" href="#artificial-intelligence" title="Permalink to this heading">#</a></h2>
+<p>Wikipedia’s definition of AI is as follows:</p>
+<blockquote>
+<div><p><em>Artificial intelligence (AI) is the ability of machines to perform tasks that are typically associated with human intelligence, such as learning and problem-solving.</em></p>
+</div></blockquote>
+<section id="unpacking-the-definition-of-ai">
+<h3>Unpacking the definition of AI<a class="headerlink" href="#unpacking-the-definition-of-ai" title="Permalink to this heading">#</a></h3>
+<p>Let’s look at Wikipedia’s definition of AI to understand what it means.</p>
+<section id="intelligence">
+<h4>Intelligence<a class="headerlink" href="#intelligence" title="Permalink to this heading">#</a></h4>
+<p>Intelligence is the ability to think, understand, and make decisions. For humans, it’s how we figure things out and make choices. For machines, it’s about following set rules or processing data to determine the best action or response.</p>
+</section>
+<section id="machines">
+<h4>Machines<a class="headerlink" href="#machines" title="Permalink to this heading">#</a></h4>
+<p>In the context of AI, a machine can refer to a computer, a robot, or any other technology that can be programmed. Unlike basic tools, these machines don’t just follow instructions. Some use data to process, adapt, and even improve their performance without humans needing to change them. On the other hand, some machines rely on rule-based systems. Rather than being data-driven, these systems operate on predefined rules.</p>
+<p>Machines doesn’t automatically mean they should be robots. In one of the later chapters you’ll train a machine learning model, at that point you’ve already made some “AI”.</p>
+<p>Consider a medical diagnostic tool powered by AI. Instead of programming every single <code class="docutils literal notranslate"><span class="pre">if-then</span></code> combination of symptoms and diseases, the machine uses a set of rules. For instance, if a patient has symptoms A, B, and C, the machine might prioritize diseases X and Y as likely diagnoses, based on its rule system. The beauty here is that you don’t need to hardcode every scenario; the machine can intelligently apply its rules to make informed decisions.</p>
+</section>
+<section id="learning">
+<h4>Learning<a class="headerlink" href="#learning" title="Permalink to this heading">#</a></h4>
+<p>Learning, in AI terms, is the machine’s ability to improve its performance by gaining more experience. For example, if you use an AI tool for photo recognition, over time and with more data, it might get better at identifying objects in pictures. This “learning from experience” is typically done through algorithms and methods that fall under the umbrella of ‘machine learning’.</p>
+</section>
+<section id="problem-solving">
+<h4>Problem solving<a class="headerlink" href="#problem-solving" title="Permalink to this heading">#</a></h4>
+<p>Problem-solving means identifying and finding the best way to solve it. For AI, this often involves looking at vast amounts of data or rules to find patterns or solutions. For instance, an AI system might analyze thousands of movies to recommend one you’d like or evaluate millions of possible moves in a game like chess to choose the best one.</p>
+</section>
+</section>
+<section id="rule-based-vs-data-driven-ai">
+<h3>Rule-based vs. Data-driven AI<a class="headerlink" href="#rule-based-vs-data-driven-ai" title="Permalink to this heading">#</a></h3>
+<p>You might have noticed there are different types of AI. And you’re right, the following two types are the most common way to distinguish them is rule-based vs machine learning.</p>
+<section id="rule-based-ai">
+<h4>Rule-based AI<a class="headerlink" href="#rule-based-ai" title="Permalink to this heading">#</a></h4>
+<p>Rule-based AI is similar to cooking using a recipe. Here’s is how it works:</p>
+<ol class="arabic simple">
+<li><p><strong>Facts</strong>: These are your ingredients. Simple, straightforward pieces of information. For example, “Tomatoes are red.”</p></li>
+<li><p><strong>Rules</strong>: These are your cooking steps. If you do ‘this’ with ‘that’, you’ll get ‘this result’. Like, “If slice an onion you’ll cry.”</p></li>
+<li><p><strong>Queries</strong>: This is you tasting the food and asking, “Does this need more salt?” or “Is this spicy?”. You’re asking the system a question, and it uses its ingredients (facts) and cooking steps (rules) to give an answer.</p></li>
+</ol>
+<p>Rule-based AI is transparent. If you wonder why your food turned out a certain way, you can look back at your ingredients and steps. Similarly, with rule-based AI, if you’re curious about why it gave a particular answer, you can check the facts and rules it used.</p>
+<p>But, like with cooking, if your recipe (rules) doesn’t cover a certain situation or ingredient, you might be left scratching your head. <strong>That’s a limitation: the AI can only answer based on the rules it knows.</strong></p>
+<p>So, rule-based AI is great when we clearly know all the steps and ingredients. But if things get too complex, we might need a different approach.</p>
+<p>To better grasp Rule-based AI, let’s dive into a hands-on example. In the pseudocode provided below, we’ve outlined certain ‘facts’ about various entities like bikes, cars, and planes. Additionally, we’ve established ‘rules’ that help determine the classification of these entities. For example, whether a particular entity is a vehicle or an aircraft. Finally, we can ‘query’ or ask the system questions based on these facts and rules to get answers.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">facts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Bike&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;has_wheels&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Car&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;has_wheels&quot;</span><span class="p">,</span> <span class="s2">&quot;has_engine&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Plane&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;has_wheels&quot;</span><span class="p">,</span> <span class="s2">&quot;has_engine&quot;</span><span class="p">,</span> <span class="s2">&quot;flies&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Boat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;has_engine&quot;</span><span class="p">,</span> <span class="s2">&quot;floats_on_water&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;vehicle&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fast&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;aircraft&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expensive&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;boat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expensive&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;expensive&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;can&#39;t afford&quot;</span><span class="p">],</span>    
+<span class="p">}</span>
+
+<span class="c1"># Rule 1</span>
+<span class="k">def</span> <span class="nf">is_vehicle</span><span class="p">(</span><span class="n">entity</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">verify</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="s2">&quot;has_wheels&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">verify</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="s2">&quot;has_engine&quot;</span><span class="p">)</span>
+    
+<span class="c1"># Rule 2</span>
+<span class="k">def</span> <span class="nf">is_aircraft</span><span class="p">(</span><span class="n">entity</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">verify</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="s2">&quot;is_vehicle&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">verify</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="s2">&quot;flies&quot;</span><span class="p">)</span>
+
+<span class="c1"># Rule 3</span>
+<span class="k">def</span> <span class="nf">is_boat</span><span class="p">(</span><span class="n">entity</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">verify</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="s2">&quot;is_vehicle&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">verify</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="s2">&quot;floats_on_water&quot;</span><span class="p">)</span>
+
+<span class="c1"># Queries</span>
+<span class="n">is_vehicle</span><span class="p">(</span><span class="s2">&quot;Bike&quot;</span><span class="p">)</span>      <span class="c1"># Returns False</span>
+<span class="n">is_vehicle</span><span class="p">(</span><span class="s2">&quot;Car&quot;</span><span class="p">)</span>       <span class="c1"># Returns True</span>
+<span class="n">is_aircraft</span><span class="p">(</span><span class="s2">&quot;Plane&quot;</span><span class="p">)</span>    <span class="c1"># Returns True</span>
+<span class="n">is_aircraft</span><span class="p">(</span><span class="s2">&quot;Car&quot;</span><span class="p">)</span>      <span class="c1"># Returns False</span>
+<span class="n">is_vehicle</span><span class="p">(</span><span class="s2">&quot;Boat&quot;</span><span class="p">)</span>      <span class="c1"># Returns True</span>
+<span class="n">is_aircraft</span><span class="p">(</span><span class="s2">&quot;Boat&quot;</span><span class="p">)</span>     <span class="c1"># Returns False</span>
+<span class="n">find</span><span class="p">(</span><span class="s2">&quot;can&#39;t afford&quot;</span><span class="p">)</span>    <span class="c1"># Returns aircraft and boat</span>
+<span class="n">find</span><span class="p">([</span><span class="s2">&quot;can&#39;t afford&quot;</span><span class="p">,</span> <span class="s2">&quot;floats_on_water&quot;</span><span class="p">])</span>    <span class="c1"># Returns boat</span>
+
+<span class="n">find</span><span class="p">(</span><span class="s2">&quot;cheap&quot;</span><span class="p">)</span> <span class="c1"># Finds nothing, the AI doesn&#39;t know that cheap is the opposite of expensive.</span>
+
+<span class="n">find</span><span class="p">(</span><span class="s2">&quot;rides_on_land&quot;</span><span class="p">)</span> <span class="c1"># Also finds nothing, the AI doesn&#39;t know the relationship between land, sea, and air unless you make a new fact or rule.</span>
+</pre></div>
+</div>
+<p>In this example, verify is like a system’s internal check to see if a fact is true for a particular entity. And find is the system’s way of searching for entities with particular traits or attributes. The best part? You don’t need to know how verify or find work. The AI-system provides these.</p>
+<p>In short, this system is effective and transparent but it might not be scalable as you need to program many rules and facts.</p>
+</section>
+<section id="machine-learning-data-driven-ai">
+<h4>Machine learning (Data-driven AI)<a class="headerlink" href="#machine-learning-data-driven-ai" title="Permalink to this heading">#</a></h4>
+<p>While rule-based AI is rooted in predefined rules and facts, data-driven AI is a bit different. It recognizes patterns and makes decisions based on data. Think of it as the difference between following a recipe and cooking based on the taste and aroma. In the last one, your decision to add salt or spices comes from previous cooking and smelling, tasting, rather than a set of instructions. This is good, as it’s hard to describe in rules what makes delicious food delicious, learning it based on your eating habits might be a better strategy.</p>
+<p>Machine learning is heavily used for tasks like image recognition (e.g., automatic license plate recognition by traffic camera’s), predicting stock prices, or even recommending songs or movies on Youtube, Netflix and Spotify. The AI system is trained with a lot of data and  makes predictions or decisions based on that training.</p>
+<p>Here’s a basic example:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>House Features (Data Input)</p></th>
+<th class="head"><p>House Price (Prediction/Output)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3 bedrooms, 2 baths, 200m³</p></td>
+<td><p>€ 300,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2 bedrooms, 1 bath,  150m³</p></td>
+<td><p>€ 220,000</p></td>
+</tr>
+<tr class="row-even"><td><p>4 bedrooms, 3 baths, 250m³</p></td>
+<td><p>€ 400,000</p></td>
+</tr>
+</tbody>
+</table>
+<p>Imagine an ML (Machine Learning) model being trained on thousands of such data points about houses. Once trained, if you give it details about a new house (say, “2 bedrooms, 2 baths, 180m³”), it can predict the house’s price based on the patterns it learned during training.</p>
+<p>The core advantage of data-driven AI is its ability to handle complex scenarios that can’t be effectively covered by rules. However, its effectiveness hinges on having sufficient, good quality data to learn from. If trained on biased or incomplete data, the system’s predictions can be skewed or ineffective. Another downside is that it is generally easier to find out what the “thinking” process is of rule-based systems.</p>
+</section>
+<section id="a-short-aside-generative-ai">
+<h4>A Short Aside: Generative AI<a class="headerlink" href="#a-short-aside-generative-ai" title="Permalink to this heading">#</a></h4>
+<p>Generative AI represents a fascinating subset of machine learning techniques that focus not just on analyzing and recognizing patterns, but on actively creating new content. It’s like giving an artist a set of colors and letting them paint a unique masterpiece, rather than just identifying what’s depicted in existing paintings.</p>
+<p>This “creation” can be done in multiple media (called <em>domains</em> in computer science): from generating realistic images, composing music, crafting textual content, to even creating entirely new designs for products. Essentially, it’s about machines not just “learning” but also “imagining” and “producing”.</p>
+<p>Consider this simple illustrative example:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Training Data (Inspiration)</p></th>
+<th class="head"><p>Generative Output (Creation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Photos of various cats</p></td>
+<td><p>A new, unique image of a cat that doesn’t exist</p></td>
+</tr>
+<tr class="row-odd"><td><p>Melodies from classical music</p></td>
+<td><p>A brand-new musical piece in classical style</p></td>
+</tr>
+<tr class="row-even"><td><p>Sentences from classic literature</p></td>
+<td><p>A fresh, coherent paragraph in a similar literary style</p></td>
+</tr>
+<tr class="row-odd"><td><p>Code from thousands of Github users</p></td>
+<td><p>(Hopefully not) your assignments for all your courses</p></td>
+</tr>
+</tbody>
+</table>
+<p>ChatGPT, DALL-E, Stable Diffusion, Copilot and more are all examples of generative AI.</p>
+<p>This approach relies heavily on complex models that can understand the nuances of the input data and then create new instances that feel authentic. Popular models in this domain are typically certain types of neural networks, a method we will definitely talk more about in the future.</p>
+<p>Generative AI has immense potential, from revolutionizing design processes in industries to creating art, music and even code. However, it also brings forth ethical considerations (just like all types of AI), such as the authenticity of generated content and potential misuse in spreading misinformation.</p>
+</section>
+<section id="rule-based-ai-versus-machine-learning-chess-engines-as-a-prime-example">
+<h4>Rule-based AI versus Machine learning: Chess Engines as a Prime Example<a class="headerlink" href="#rule-based-ai-versus-machine-learning-chess-engines-as-a-prime-example" title="Permalink to this heading">#</a></h4>
+<p>Chess engines are a classical examples of AI. Chess, with its intricate strategies and countless move possibilities, offers a fascinating playground for different types of AI.</p>
+<ol class="arabic simple">
+<li><p><strong>Traditional Chess Engines (e.g., Stockfish):</strong></p>
+<ul class="simple">
+<li><p><strong>Rule-based System:</strong> These engines rely heavily on handcrafted rules and heuristics. Essentially, expert chess players and programmers come together to translate the knowledge of the game into the software.</p></li>
+<li><p><strong>Search Trees:</strong> They evaluate millions of potential moves and their outcomes, using a pre-defined set of criteria to decide on the best one. The deeper the engine looks into future moves (think of it as predicting several steps ahead), the stronger it generally is.</p></li>
+<li><p><strong>Strengths and Limitations:</strong> While incredibly powerful and capable of superhuman performance, their decision-making process is fundamentally “manual” — bound by the rules and patterns it’s been taught.</p></li>
+</ul>
+</li>
+</ol>
+<p>Stockfish, a fantastic example of rule-based AI, is a chess engine that, over the years, has been fine-tuned and optimized by a group of programmers and chess experts. Its capability to evaluate millions of positions each second, coupled with a vast repository of chess knowledge in the form of handcrafted rules, has made it very powerful. In various tournaments against other computer opponents and human grandmasters, Stockfish has consistently demonstrated its top-tier strength, often playing games put it on par with the best human chess players.</p>
+<ol class="arabic simple">
+<li><p><strong>Machine Learning-based Chess Engines (e.g., AlphaZero):</strong></p>
+<ul class="simple">
+<li><p><strong>Learning from Play:</strong> Instead of being pre-programmed with chess strategies, this engine learns by playing the game against itself many times, refining its strategies with each game. It’s like a child learning chess by playing repeatedly, except on a massively accelerated scale.</p></li>
+<li><p><strong>Experience Over Rules:</strong> While it does evaluate potential moves, it’s driven more by the patterns and strategies it has learned rather than a fixed set of rules. This often results in creative and novel gameplay, surprising even grandmasters. AlphaZero was only given the rules of chess, it had to learn all the rest.</p></li>
+<li><p><strong>Strengths and Limitations:</strong> The engine rapidly advances in skill, but requires significant computational resources during its learning phase. Once trained, however, it showcases an impressive blend of computational power and almost ‘intuitive’ chess insight.</p></li>
+</ul>
+</li>
+</ol>
+<p>AlphaZero, a product of DeepMind’s (Google) machine learning expertise, took a radically different approach and showcased the immense power of learning-based AI. Instead of relying on pre-existing chess knowledge, it learned the game from scratch through countless self-play sessions. In a shockingly short span of 4 hours of playing against itself, AlphaZero reached a level of proficiency that allowed it to challenge, and subsequently dominate, engines like Stockfish. Its gameplay, described by many chess fans, was a blend of deep computational accuracy and an almost human-like intuition, revealing moves and strategies that seemed both innovative and profound.</p>
+<p>This divergence between rule-based and learning-based systems in chess serves as an example for the broader AI landscape. It underscores the idea that while explicit rules can achieve astounding precision and power, there’s also immense potential in systems that can learn, adapt, and even “think” in more fluid ways.</p>
+</section>
+</section>
+<section id="the-relationship-between-data-analytics-and-machine-learning">
+<h3>The relationship between data analytics and machine learning<a class="headerlink" href="#the-relationship-between-data-analytics-and-machine-learning" title="Permalink to this heading">#</a></h3>
+<p>Data analytics and machine learning are both tools to understand and use data, but they serve different purposes. Let’s break down their differences and how they work together.</p>
+<p><strong>Data Analytics</strong> is about looking at data to find patterns. It’s like looking back at a game’s video replay to see what moves worked well and what didn’t. The main goal here is to understand what has already happened. It answers questions like: “How many products did we sell last month?” or “Why was there a drop in website visitors?”</p>
+<p><strong>Machine Learning (ML)</strong>, on the other hand, has a broader spectrum. Not only does it predict future scenarios, but it also uncovers patterns in the data that might not be apparent at first glance. For example, clustering, an ML method, groups similar data points together, which can be invaluable when trying to understand the structure or groups within a large dataset. Thus, ML tackles questions like “What will our sales look like next month?” but also exploratory questions such as “Are there distinct groups or segments within our customer base?”</p>
+<p>At this point, some of you might be thinking, “Wait, both sound like they involve a lot of statistics!” And you’d be right. Both data analytics and machine learning lean on statistical methods. We know statistics might not be everyone’s favorite topic (we can almost hear the collective groans), but don’t worry! We’re committed to keeping the focus on practical applications. So, while we’ll touch upon statistical concepts, our aim is to make them relatable and actionable for you.</p>
+<p>In essence: Data analytics deciphers what has happened, while machine learning predicts potential future events. Both tools exploit data but cater to different objectives. Data analytics seeks understanding, while machine learning pursues predictions. As we journey through this course, we’ll unveil how using these tools can lead to more informed decisions.</p>
+</section>
+<section id="summarized">
+<h3>Summarized<a class="headerlink" href="#summarized" title="Permalink to this heading">#</a></h3>
+<p>The image below is a summary of the field of artificial intelligence. Right now it’s fine as the image doesn’t totally make sense. Terms such as neural networks, deep learning will not totally make sense right now. What’s important to remember is that there is more to machine learning than generative AI and that there is more to artificial intelligence than machine learning.</p>
+<p>When we use AI methods our focus in this course will be machine learning. Machine learning is a vast topic with many niches. This introduction will be an introduction to ML and won’t have time to go deep into topics like deep learning and generative AI. Other courses will cover these topics in more detail.</p>
+<p><img alt="machine-learning-diagram" src="../_images/machine-learning-diagram.png" />
+<img src="images\machine-learning-diagram.png" style="width:30rem;align-self:center"></p>
+</section>
+</section>
+<section id="how-we-ll-be-approaching-the-course">
+<h2>How we’ll be approaching the course<a class="headerlink" href="#how-we-ll-be-approaching-the-course" title="Permalink to this heading">#</a></h2>
+<p>Navigating the  world of data can seem scary. We’ve structured this course to make it as accessible and engaging as possible for you, keeping in mind your unique perspectives and challenges. Here’s our game plan:</p>
+<section id="no-prerequisites-needed-for-mathematics">
+<h3>No prerequisites needed for mathematics<a class="headerlink" href="#no-prerequisites-needed-for-mathematics" title="Permalink to this heading">#</a></h3>
+<p>Let’s address the elephant in the room first. Mathematics. You might’ve heard that going into data requires strong math skills. While it’s true that some advanced concepts lean heavily on mathematical foundations, you don’t need to be a math guru to understand and apply the core principles we’ll be discussing. We’ll be walking you through the necessary concepts step by step, ensuring that they’re intuitive and relatable.</p>
+</section>
+<section id="learning-by-doing-in-python">
+<h3>Learning by doing in Python<a class="headerlink" href="#learning-by-doing-in-python" title="Permalink to this heading">#</a></h3>
+<p>Given that you’ve already been introduced to Python, we’ll be using that foundation and building upon it. We will be using the same tools as data professionals use in the field.</p>
+</section>
+<section id="focus-on-fundamentals-of-statistics-and-analytics">
+<h3>Focus on fundamentals of statistics and analytics<a class="headerlink" href="#focus-on-fundamentals-of-statistics-and-analytics" title="Permalink to this heading">#</a></h3>
+<p>While advanced techniques and algorithms are flashy, they’re built upon foundational principles of statistics and analytics. By solidifying your understanding of these basics, you’ll be better equipped to tackle more complex challenges down the road. And as promised earlier, we’ll keep the statistical parts engaging and applicable.</p>
+</section>
+<section id="machine-learning-isn-t-magic">
+<h3>Machine learning isn’t magic<a class="headerlink" href="#machine-learning-isn-t-magic" title="Permalink to this heading">#</a></h3>
+<p>It’s easy to feel that machine learning is a mysterious force. But behind the scenes, it’s a blend of logic, mathematics, and statistics. By the end of this course, our goal is for you to view machine learning as another valuable tool in your toolbox.</p>
+</section>
+<section id="some-things-will-remain-magical-and-that-s-okay">
+<h3>Some things will remain magical… and that’s okay<a class="headerlink" href="#some-things-will-remain-magical-and-that-s-okay" title="Permalink to this heading">#</a></h3>
+<p>As we journey into the details of data analytics and machine learning, it’s important to remember we won’t cover every single detail. Some concepts or techniques may be presented with a higher-level overview, and that’s by design. Follow up courses might cover some of these things in more detail. Most importantly, we want you to be able to build things after this course. Even at that point certain details may seem magical but that’s fine, some things are like that for us as well.</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>This chapter set the stage for our exploration into the world of data analytics and machine learning. We dissected terms that are often used interchangeably, striving to give each its proper definition and context. This helps in understanding not just what each term means, but also how they relate to and differentiate from each other.</p>
+<section id="key-words-of-the-chapter">
+<h3>Key words of the chapter<a class="headerlink" href="#key-words-of-the-chapter" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Artificial Intelligence (AI): the simulation of human intelligence processes by machines</p></li>
+<li><p>Data Analytics: the process of examining data to draw conclusions and support decision-making</p></li>
+<li><p>Machine Learning: a subset of AI that allows computers to improve at tasks through experience</p></li>
+<li><p>Rule-based Systems: AI systems that make decisions based on pre-set rules</p></li>
+</ul>
+</section>
+<section id="what-you-should-remember">
+<h3>What you should remember<a class="headerlink" href="#what-you-should-remember" title="Permalink to this heading">#</a></h3>
+<p>Alright, here’s a little secret. While it’d be wonderful if you could remember everything, focus on the overarching themes and the distinctions between the terms. The nuances and applications will become clearer through practice and examples throughout the course. But hey, if you could remember everything… well, more power to you! (and less studying for the exam!)</p>
+</section>
+<section id="what-we-ll-be-doing-next">
+<h3>What we’ll be doing next<a class="headerlink" href="#what-we-ll-be-doing-next" title="Permalink to this heading">#</a></h3>
+<p>The next chapter will introduce you to the case study we’ll be using throughout the book. We’ll also start using one of the most important analytics libraries. We’ll dive into some basic statistics, explore data, and set the foundation for the deeper analyses that follow. Let the data journey truly begin!</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../chapter_2/chapter2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bringing the right equipment to start your data adventure</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analytics">Data Analytics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-the-definition-of-data-analysis">Unpacking the definition of data analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting">Inspecting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-and-transforming">Cleaning and Transforming</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discovering-useful-information">Discovering useful information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artificial-intelligence">Artificial intelligence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-the-definition-of-ai">Unpacking the definition of AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intelligence">Intelligence</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#machines">Machines</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning">Learning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-solving">Problem solving</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-based-vs-data-driven-ai">Rule-based vs. Data-driven AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-based-ai">Rule-based AI</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-data-driven-ai">Machine learning (Data-driven AI)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-short-aside-generative-ai">A Short Aside: Generative AI</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-based-ai-versus-machine-learning-chess-engines-as-a-prime-example">Rule-based AI versus Machine learning: Chess Engines as a Prime Example</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-relationship-between-data-analytics-and-machine-learning">The relationship between data analytics and machine learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summarized">Summarized</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-we-ll-be-approaching-the-course">How we’ll be approaching the course</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-prerequisites-needed-for-mathematics">No prerequisites needed for mathematics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-by-doing-in-python">Learning by doing in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#focus-on-fundamentals-of-statistics-and-analytics">Focus on fundamentals of statistics and analytics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-isn-t-magic">Machine learning isn’t magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-things-will-remain-magical-and-that-s-okay">Some things will remain magical… and that’s okay</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-words-of-the-chapter">Key words of the chapter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-should-remember">What you should remember</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-ll-be-doing-next">What we’ll be doing next</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Chidi Nweke, Aimée Backiel, Daan Nijs, & Kenric Borgelioen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
