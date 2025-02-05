@@ -21,7 +21,7 @@ jobs:
           poetry install
           poetry add jupyter-book
       - name: Build Jupyter Book
-        run:
+        run: |
           poetry run jupyter-book toc from-project .
           poetry run jupyter-book build .
       - name: Deploy to GitHub Pages
