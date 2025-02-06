@@ -223,7 +223,6 @@ AlphaZero, a product of DeepMind's (Google) machine learning expertise, took a r
 
 This divergence between rule-based and learning-based systems in chess serves as an example for the broader AI landscape. It underscores the idea that while explicit rules can achieve astounding precision and power, there's also immense potential in systems that can learn, adapt, and even "think" in more fluid ways.
 
-
 ### The relationship between data analytics and machine learning
 
 Data analytics and machine learning are both tools to understand and use data, but they serve different purposes. Let's break down their differences and how they work together.
@@ -238,12 +237,11 @@ In essence: Data analytics deciphers what has happened, while machine learning p
 
 ### Summarized
 
-
 The image below is a summary of the field of artificial intelligence. Right now it's fine as the image doesn't totally make sense. Terms such as neural networks, deep learning will not totally make sense right now. What's important to remember is that there is more to machine learning than generative AI and that there is more to artificial intelligence than machine learning.
 
 When we use AI methods our focus in this course will be machine learning. Machine learning is a vast topic with many niches. This introduction will be an introduction to ML and won't have time to go deep into topics like deep learning and generative AI. Other courses will cover these topics in more detail.
 
-![artificial_intelligence_diagram](images/artificial_intelligence_diagram.JPG){width=200}
+`![artificial_intelligence_diagram](images/artificial_intelligence_diagram.JPG){width=200}`
 
 ## How we'll be approaching the course
 
@@ -270,8 +268,6 @@ As we journey into the details of data analytics and machine learning, it's impo
 ## Summary
 
 This chapter set the stage for our exploration into the world of data analytics and machine learning. We dissected terms that are often used interchangeably, striving to give each its proper definition and context. This helps in understanding not just what each term means, but also how they relate to and differentiate from each other.
-
-
 
 ### Key words of the chapter
 
