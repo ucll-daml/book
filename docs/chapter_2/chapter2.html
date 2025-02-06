@@ -360,6 +360,10 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-we-do-with-data">What can we do with data?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-our-data">Understanding our data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-versus-multivariate-analysis">Univariate versus Multivariate Analysis:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-analysis">Univariate Analysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary statistics</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-location">Summarizing location</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-a-little-bit-of-notation">Intermezzo: A little bit of notation</a><ul class="nav section-nav flex-column">
@@ -379,13 +383,19 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">Measures of Central Tendency</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-vesus-population">Sample vesus Population</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-significance-hypothesis-testing">Statistical Significance &amp; Hypothesis Testing</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-vs-causation">Correlation vs. Causation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-vs-population">Sample vs Population</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-analysis">Multivariate Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">Correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#important-consideration">Important consideration:</a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-vs-causation">Correlation vs. Causation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-significance-hypothesis-testing">Statistical Significance &amp; Hypothesis Testing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>
 </ul>
@@ -399,22 +409,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupytercards</span> <span class="kn">import</span> <span class="n">display_flashcards</span>
-<span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
+  <div class="cell tag_hide-input tag_remove-input docutils container">
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="bringing-the-right-equipment-to-start-your-data-adventure">
 <h1>Bringing the right equipment to start your data adventure<a class="headerlink" href="#bringing-the-right-equipment-to-start-your-data-adventure" title="Permalink to this heading">#</a></h1>
@@ -721,7 +716,7 @@ document.write(`
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="kPSNKyrBlxKr" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="kPSNKyrBlxKr-next" onclick="window.checkFlip('kPSNKyrBlxKr')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="DxBzTXWPLrjL" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="DxBzTXWPLrjL-next" onclick="window.checkFlip('DxBzTXWPLrjL')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -1068,22 +1063,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("kPSNKyrBlxKr")) {
-            createCards("kPSNKyrBlxKr", "True", "False");
+          if(document.getElementById("DxBzTXWPLrjL")) {
+            createCards("DxBzTXWPLrjL", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardskPSNKyrBlxKr=[
+var cardsDxBzTXWPLrjL=[
     {
         "front": "Ada has several different columns as what data types would you classify them?",
         "back": "Two groups: numeric versus categorical data."
     }
 ];
-var frontColorskPSNKyrBlxKr= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorskPSNKyrBlxKr= ["var(--dark-blue-gray)" ];
-var textColorskPSNKyrBlxKr= ["var(--snow)" ];
+var frontColorsDxBzTXWPLrjL= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsDxBzTXWPLrjL= ["var(--dark-blue-gray)" ];
+var textColorsDxBzTXWPLrjL= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <section id="numeric-and-categorical-data">
@@ -1118,13 +1113,13 @@ try_create(); </script></div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="nFavHkRcLVAR" data-shufflequestions="False"
+<div class="output text_html"><div id="zIMVHLDSSJxG" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#nFavHkRcLVAR {
+#zIMVHLDSSJxG {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1294,7 +1289,7 @@ try_create(); </script></div>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsnFavHkRcLVAR=[
+</style></div><script type="application/javascript">var questionszIMVHLDSSJxG=[
     {
         "question": "Select all the numeric columns",
         "type": "many_choice",
@@ -2096,8 +2091,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("nFavHkRcLVAR")) {
-            show_questions(questionsnFavHkRcLVAR,  nFavHkRcLVAR); 
+          if(document.getElementById("zIMVHLDSSJxG")) {
+            show_questions(questionszIMVHLDSSJxG,  zIMVHLDSSJxG); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2106,8 +2101,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("nFavHkRcLVAR");
-        // console.log(document.getElementById("nFavHkRcLVAR"));
+        //console.log("zIMVHLDSSJxG");
+        // console.log(document.getElementById("zIMVHLDSSJxG"));
 
         try_show();
         }
@@ -2139,7 +2134,7 @@ if (typeof version == 'undefined') {
 <p>Now that Ada has her data ready to go and we know what types of data there is, it’s time to start our journey. The elephant in the room remains: where are we going? Put otherwise, what can we do with data?</p>
 <div class="admonition-think-about-what-you-can-do-with-data admonition">
 <p class="admonition-title">Think about what you can do with data.</p>
-<p>Pause for a minute to think what types of things you can do with data. Discuss with your neighbor, friends or family.</p>
+<p>Pause for a minute to think what types of things you can do with data. Discuss with your neighbor, friends, or family.</p>
 <p>Come up with some examples specifically for Ada.</p>
 </div>
 <p>Generally speaking in analytics you are goal-oriented. There is a specific goal that was formulated and you want to use data to aid yourself in solving the problem. For the travel agency specifically this could be finding out how to make more profit. Methodologies exist such as a strengths, weaknesses, opportunities and threats (SWOT) analysis that can be used to enumerate a list of objectives. Data can be find or act on SWOT-items.</p>
@@ -2152,6 +2147,20 @@ if (typeof version == 'undefined') {
 </ul>
 <section id="understanding-our-data">
 <h3>Understanding our data<a class="headerlink" href="#understanding-our-data" title="Permalink to this heading">#</a></h3>
+<section id="univariate-versus-multivariate-analysis">
+<h4>Univariate versus Multivariate Analysis:<a class="headerlink" href="#univariate-versus-multivariate-analysis" title="Permalink to this heading">#</a></h4>
+<p>As we try to understand the data we have, we can divide the analysis into two categories:</p>
+<ul class="simple">
+<li><p>Univariate: one variable at a time</p></li>
+<li><p>Multivariate: more than one variable at a time</p></li>
+</ul>
+<p>Univariate analysis focuses on understanding a single variable at a time. This might involve calculating descriptive statistics like the mean, median, and standard deviation, or creating visualizations like histograms and box plots to explore the distribution of the data. We’ll see look at each of these in more detail as we go.</p>
+<p>In contrast, multivariate analysis explores relationships between multiple variables simultaneously. This can include techniques like correlation analysis to measure the strength and direction of relationships, regression analysis to model how one variable depends on others, and dimensionality reduction to identify underlying patterns in complex datasets.</p>
+<p>The choice between univariate and multivariate analysis depends on the research question and the nature of the data. Most data science projects will rely on both types to develop a complete picture of the data we have to work with.</p>
+</section>
+</section>
+<section id="univariate-analysis">
+<h3>Univariate Analysis<a class="headerlink" href="#univariate-analysis" title="Permalink to this heading">#</a></h3>
 <section id="summary-statistics">
 <h4>Summary statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this heading">#</a></h4>
 <p>Before Ada dives into answering the complex questions her parents have given her she tries to get a general understanding of the dataset. There are two general ways to do this:</p>
@@ -2432,7 +2441,7 @@ if (typeof version == 'undefined') {
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="hTkAAHpWPtbT" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="hTkAAHpWPtbT-next" onclick="window.checkFlip('hTkAAHpWPtbT')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="TJZPGhyGsmNO" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="TJZPGhyGsmNO-next" onclick="window.checkFlip('TJZPGhyGsmNO')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -2779,22 +2788,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("hTkAAHpWPtbT")) {
-            createCards("hTkAAHpWPtbT", "True", "False");
+          if(document.getElementById("TJZPGhyGsmNO")) {
+            createCards("TJZPGhyGsmNO", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardshTkAAHpWPtbT=[
+var cardsTJZPGhyGsmNO=[
     {
         "front": "how would you summarize the age column?",
         "back": "By looking at the mean value."
     }
 ];
-var frontColorshTkAAHpWPtbT= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorshTkAAHpWPtbT= ["var(--dark-blue-gray)" ];
-var textColorshTkAAHpWPtbT= ["var(--snow)" ];
+var frontColorsTJZPGhyGsmNO= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsTJZPGhyGsmNO= ["var(--dark-blue-gray)" ];
+var textColorsTJZPGhyGsmNO= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <div class="admonition note">
@@ -3158,7 +3167,7 @@ It’s even more popular for Python programmers, especially people in analytics 
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="adjhhIOcedue" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="adjhhIOcedue-next" onclick="window.checkFlip('adjhhIOcedue')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="KlZWEkXBYsjx" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="KlZWEkXBYsjx-next" onclick="window.checkFlip('KlZWEkXBYsjx')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -3505,22 +3514,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("adjhhIOcedue")) {
-            createCards("adjhhIOcedue", "True", "False");
+          if(document.getElementById("KlZWEkXBYsjx")) {
+            createCards("KlZWEkXBYsjx", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsadjhhIOcedue=[
+var cardsKlZWEkXBYsjx=[
     {
         "front": "How would you summarize the country column?",
         "back": "By looking at the mode (the most frequent value)."
     }
 ];
-var frontColorsadjhhIOcedue= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsadjhhIOcedue= ["var(--dark-blue-gray)" ];
-var textColorsadjhhIOcedue= ["var(--snow)" ];
+var frontColorsKlZWEkXBYsjx= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsKlZWEkXBYsjx= ["var(--dark-blue-gray)" ];
+var textColorsKlZWEkXBYsjx= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <div class="cell docutils container">
@@ -3788,7 +3797,7 @@ try_create(); </script></div>
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="JkkGTgWIKICM" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="JkkGTgWIKICM-next" onclick="window.checkFlip('JkkGTgWIKICM')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="VKGTVdUCVKcQ" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="VKGTVdUCVKcQ-next" onclick="window.checkFlip('VKGTVdUCVKcQ')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -4135,22 +4144,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("JkkGTgWIKICM")) {
-            createCards("JkkGTgWIKICM", "True", "False");
+          if(document.getElementById("VKGTVdUCVKcQ")) {
+            createCards("VKGTVdUCVKcQ", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsJkkGTgWIKICM=[
+var cardsVKGTVdUCVKcQ=[
     {
         "front": "What was the difference between the data types of age and country?",
         "back": "Age is a numeric type and country is a categorical type."
     }
 ];
-var frontColorsJkkGTgWIKICM= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsJkkGTgWIKICM= ["var(--dark-blue-gray)" ];
-var textColorsJkkGTgWIKICM= ["var(--snow)" ];
+var frontColorsVKGTVdUCVKcQ= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsVKGTVdUCVKcQ= ["var(--dark-blue-gray)" ];
+var textColorsVKGTVdUCVKcQ= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <p>This is a first instance of techniques being better to describe categorical data and numerical data. Even if the countries were encoded with numerical country codes from 1 to roughly 180 it wouldn’t be appropriate to calculate the mean. In that instance calculating the mode still makes more sense.</p>
@@ -4420,7 +4429,7 @@ try_create(); </script></div>
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="lDzrMfaUOkou" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="lDzrMfaUOkou-next" onclick="window.checkFlip('lDzrMfaUOkou')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="EBgVcWaRmYow" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="EBgVcWaRmYow-next" onclick="window.checkFlip('EBgVcWaRmYow')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -4767,22 +4776,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("lDzrMfaUOkou")) {
-            createCards("lDzrMfaUOkou", "True", "False");
+          if(document.getElementById("EBgVcWaRmYow")) {
+            createCards("EBgVcWaRmYow", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardslDzrMfaUOkou=[
+var cardsEBgVcWaRmYow=[
     {
         "front": "Harder question: What do you think is the drawback of the mean?",
         "back": "It is sensitive to outliers (unusual, potentially incorrect values)."
     }
 ];
-var frontColorslDzrMfaUOkou= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorslDzrMfaUOkou= ["var(--dark-blue-gray)" ];
-var textColorslDzrMfaUOkou= ["var(--snow)" ];
+var frontColorsEBgVcWaRmYow= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsEBgVcWaRmYow= ["var(--dark-blue-gray)" ];
+var textColorsEBgVcWaRmYow= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <section id="outliers">
@@ -5167,7 +5176,7 @@ We also direct you to a handy <a class="reference external" href="https://pandas
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="shoIERmRFKfC" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="shoIERmRFKfC-next" onclick="window.checkFlip('shoIERmRFKfC')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="bKGPRrqLRExv" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="bKGPRrqLRExv-next" onclick="window.checkFlip('bKGPRrqLRExv')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -5514,22 +5523,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("shoIERmRFKfC")) {
-            createCards("shoIERmRFKfC", "True", "False");
+          if(document.getElementById("bKGPRrqLRExv")) {
+            createCards("bKGPRrqLRExv", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsshoIERmRFKfC=[
+var cardsbKGPRrqLRExv=[
     {
         "front": "Can we solve this problem by using the median?",
         "back": "No, in this case the medians are exactly the same as well."
     }
 ];
-var frontColorsshoIERmRFKfC= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsshoIERmRFKfC= ["var(--dark-blue-gray)" ];
-var textColorsshoIERmRFKfC= ["var(--snow)" ];
+var frontColorsbKGPRrqLRExv= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsbKGPRrqLRExv= ["var(--dark-blue-gray)" ];
+var textColorsbKGPRrqLRExv= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <div class="cell docutils container">
@@ -5764,8 +5773,8 @@ try_create(); </script></div>
 <p>Standard deviation is used to understand how spread out data is, compare different datasets, identify unusual values, and check the quality of things like manufacturing processes. Basically, it helps us make sense of data and make better decisions.</p>
 </section>
 </section>
-<section id="sample-vesus-population">
-<h4>Sample vesus Population<a class="headerlink" href="#sample-vesus-population" title="Permalink to this heading">#</a></h4>
+<section id="sample-vs-population">
+<h4>Sample vs Population<a class="headerlink" href="#sample-vs-population" title="Permalink to this heading">#</a></h4>
 <p>Once we start talking about making decisions based on our data, it’s worth bringing up the concepts of sample and population. We often analyze samples instead of entire populations because it’s usually impossible or impractical to collect data on every single member of a population.</p>
 <ul class="simple">
 <li><p>Sample: A subset of a population that is selected for analysis. For example, if you wanted to study the average grades of students at your university, you might take a sample of 100 students rather than measuring every single student.</p></li>
@@ -5784,6 +5793,51 @@ The choice of sampling method can significantly affect the results of your analy
 <p>Examples:</p>
 <p>Opinion polls are a classic example of how sample data is used to make inferences about a population. Pollsters survey a relatively small number of people to estimate the opinions of the entire population. The accuracy of these estimates depends on the quality of the sampling method and the size of the sample. For instance, a poll with a small sample size or a biased sampling method may produce inaccurate results.</p>
 <p>Another example is clinical trials, where a sample of patients is used to test the effectiveness of a new drug. The results from the sample are then used to draw conclusions about whether the drug is likely to be effective in the broader population.</p>
+</section>
+</section>
+<section id="multivariate-analysis">
+<h3>Multivariate Analysis<a class="headerlink" href="#multivariate-analysis" title="Permalink to this heading">#</a></h3>
+<p>Here we have to start discussing multivariate analysis. We’re interested in finding relationships between different variables. We’ll start with pairs of variable, but later in the course we will also look at more complex relationships involving more than two variables.</p>
+<section id="correlation">
+<h4>Correlation<a class="headerlink" href="#correlation" title="Permalink to this heading">#</a></h4>
+<p>Correlation is a statistical measure that describes the strength and direction of the relationship between two or more variables. When variables have a positive correlation, they tend to move in the same direction (i.e., as one increases, the other increases). Conversely, a negative correlation means they move in opposite directions (i.e., as one increases, the other decreases). The strength of the correlation is represented by a correlation coefficient, which ranges from -1 to 1. A coefficient of 1 indicates a perfect positive correlation, -1 a perfect negative correlation, and 0 indicates no correlation. Correlation analysis is a powerful tool for identifying potential relationships between variables, but it’s important to remember that correlation does not equal causation.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>Positive correlations:</p>
+<ul>
+<li><p>Height and Weight: Taller people tend to be heavier.</p></li>
+<li><p>Study Time and Grades: More study time is often associated with better grades.</p></li>
+</ul>
+</li>
+<li><p>Negative correlations:</p>
+<ul>
+<li><p>Stress and Health: Higher stress levels are often associated with poorer health outcomes.</p></li>
+<li><p>Altitude and Air Pressure: Air pressure decreases as altitude increases.</p></li>
+</ul>
+</li>
+<li><p>No correlation:</p>
+<ul>
+<li><p>Hair Color and Musical Ability: Hair color doesn’t influence a person’s musical talent.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="positive_negative_correlation" src="../_images/positive_negative_correlation.JPG" /></p>
+<section id="important-consideration">
+<h5>Important consideration:<a class="headerlink" href="#important-consideration" title="Permalink to this heading">#</a></h5>
+<p>Correlation specifically measures a linear relationship. There are other kinds of important, interesting relationships that will not show a correlation.</p>
+<p><img alt="no_correlation" src="../_images/no_correlation.JPG" /></p>
+<p>While correlation is a powerful tool for understanding relationships between variables, it’s important to remember that it primarily focuses on linear relationships. This means it effectively captures how variables move together in a straight-line fashion (either increasing or decreasing together). However, correlation might not be as informative when the relationship is more complex, such as a curved or U-shaped pattern. In these cases, the correlation coefficient might be close to zero, suggesting no relationship, even though a clear pattern exists. Therefore, it’s crucial to visualize the data and consider other analysis techniques when exploring non-linear relationships. We’ll see much more about data visualizations in the next chapter.</p>
+</section>
+</section>
+<section id="correlation-vs-causation">
+<h4>Correlation vs. Causation<a class="headerlink" href="#correlation-vs-causation" title="Permalink to this heading">#</a></h4>
+<p>Correlation doesn’t imply causation. Other factors might be influencing the observed relationship. Correlation simply means there’s a linear relationship or pattern between two or more variables, but it doesn’t tell us why that relationship exists.</p>
+<p>For example, you might find a strong correlation between ice cream sales and the number of drownings. This doesn’t mean eating ice cream causes people to drown! Both are likely influenced by a third factor: hot weather. More people buy ice cream when it’s hot, and more people swim (increasing the risk of drowning) in hot weather.</p>
+<p>Another example could be a study that finds a correlation between coffee consumption and higher income. While it might be tempting to conclude that drinking coffee leads to wealth, it’s more likely that other factors, such as education level or job type, influence both coffee consumption and income.</p>
+<p>We can even talk about spurious correlations where one factor has absolutely nothing to do with the other. There’s a <a class="reference external" href="https://www.tylervigen.com/spurious-correlations">website and book by Tyler Vigen</a> showing dozens of such cases.</p>
+<img src="https://www.tylervigen.com/spurious/correlation/image/4245_google-searches-for-how-much-wood-can-a-woodchuck-chuck_correlates-with_kerosene-used-in-venezuela.svg" style="width:60rem;align-self:center">
+<p>While it’s hopefully very obvious that searching for woodchuck wood-chucking doesn’t cause Venezuelans to use more kerosene (or vice versa), when we’re working with large datasets, we can sometimes fall into the trap of believing a completely coincidental correlation is actually something meaningful.</p>
+<p>Therefore, even if a statistical test shows a significant correlation, we need to be cautious about drawing conclusions about causality. Further investigation, often involving carefully designed experiments or considering other potential factors, is usually needed to establish causality. Determining causality is out of scope entirely for this course.</p>
 </section>
 <section id="statistical-significance-hypothesis-testing">
 <h4>Statistical Significance &amp; Hypothesis Testing<a class="headerlink" href="#statistical-significance-hypothesis-testing" title="Permalink to this heading">#</a></h4>
@@ -5812,20 +5866,14 @@ The choice of sampling method can significantly affect the results of your analy
 <li><p>Effect Size: Even with statistical significance, consider the practical significance (effect size) of the result. A small effect might not be meaningful in the real world.</p></li>
 <li><p>Sample Size: Larger sample sizes generally increase the power of a test to detect significant effects.</p></li>
 <li><p>Understanding statistical significance and hypothesis testing helps us make more informed decisions based on data analysis, ensuring that we’re not drawing conclusions from random fluctuations or chance occurrences.</p></li>
-<li><p>Correlations does not indicate causation!</p></li>
+<li><p>Correlation does not indicate causation!</p></li>
 </ul>
-<section id="correlation-vs-causation">
-<h5>Correlation vs. Causation<a class="headerlink" href="#correlation-vs-causation" title="Permalink to this heading">#</a></h5>
-<p>Statistical significance doesn’t necessarily imply causation. Other factors might be influencing the observed relationship. Correlation simply means there’s a relationship or pattern between two or more things, but it doesn’t tell us why that relationship exists.</p>
-<p>For example, you might find a strong correlation between ice cream sales and the number of drownings. This doesn’t mean eating ice cream causes people to drown! Both are likely influenced by a third factor: hot weather. More people buy ice cream when it’s hot, and more people swim (increasing the risk of drowning) in hot weather.</p>
-<p>Another example could be a study that finds a correlation between coffee consumption and higher income. While it might be tempting to conclude that drinking coffee leads to wealth, it’s more likely that other factors, such as education level or job type, influence both coffee consumption and income.</p>
-<p>We can even talk about spurious correlations where one factor has absolutely nothing to do with the other. There’s a <a class="reference external" href="https://www.tylervigen.com/spurious-correlations">website and book by Tyler Vigen</a> showing dozens of such cases.</p>
-<img src="https://www.tylervigen.com/spurious/correlation/image/4245_google-searches-for-how-much-wood-can-a-woodchuck-chuck_correlates-with_kerosene-used-in-venezuela.svg" style="width:60rem;align-self:center">
-<p>While it’s hopefully very obvious that searching for woodchuck wood-chucking doesn’t cause Venezuelans to use more kerosene (or vice versa), when we’re working with large datasets, we can sometimes fall into the trap of believing a completely coincidental correlation is actually something meaningful.</p>
-<p>Therefore, even if a statistical test shows a significant correlation, we need to be cautious about drawing causal conclusions. Further investigation, often involving carefully designed experiments or considering other potential factors, is usually needed to establish causality. Determining causality is out of scope entirely for this course.</p>
-<p>This chapter provides an intuitive introduction to key data analytics concepts and techniques to help students analyze their data effectively.</p>
 </section>
 </section>
+<section id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h3>
+<p>This chapter has explored foundational concepts in data analytics, setting the stage for your journey into this exciting field.  We’ve introduced essential terminology, differentiated between data types, and discussed the difference between samples and populations. Additionally, we’ve delved into the concepts of correlation, causation, and statistical significance, providing you with a solid foundation for understanding and interpreting data relationships.</p>
+<p>Now that we’ve established a solid foundation with these core concepts, it’s time to explore how data visualization can help us gain deeper insights and communicate our findings effectively. In the next chapter, we’ll delve into the world of data visualization, exploring various techniques and tools that will enable you to bring your data to life and unlock its hidden stories.</p>
 </section>
 </section>
 </section>
@@ -5895,6 +5943,10 @@ The choice of sampling method can significantly affect the results of your analy
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-we-do-with-data">What can we do with data?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-our-data">Understanding our data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-versus-multivariate-analysis">Univariate versus Multivariate Analysis:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-analysis">Univariate Analysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary statistics</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-location">Summarizing location</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-a-little-bit-of-notation">Intermezzo: A little bit of notation</a><ul class="nav section-nav flex-column">
@@ -5914,13 +5966,19 @@ The choice of sampling method can significantly affect the results of your analy
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">Measures of Central Tendency</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-vesus-population">Sample vesus Population</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-significance-hypothesis-testing">Statistical Significance &amp; Hypothesis Testing</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-vs-causation">Correlation vs. Causation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-vs-population">Sample vs Population</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-analysis">Multivariate Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">Correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#important-consideration">Important consideration:</a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-vs-causation">Correlation vs. Causation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-significance-hypothesis-testing">Statistical Significance &amp; Hypothesis Testing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>
 </ul>
