@@ -364,16 +364,14 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-analysis">Univariate Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary statistics</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-location">Summarizing location</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-a-little-bit-of-notation">Intermezzo: A little bit of notation</a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary statistics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-location">Summarizing location</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-a-little-bit-of-notation">Intermezzo: A little bit of notation</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-numpy-and-pandas">Introduction to numpy and pandas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-tabular-versus-non-tabular-data">Intermezzo: Tabular versus non-tabular data</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-variability">Summarizing variability</a></li>
@@ -445,18 +443,7 @@ document.write(`
 <p class="admonition-title">Question 1: What data types exist in her data?</p>
 <p>Ada has a bunch of different tables and columns how would you classify them?</p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_flashcards</span><span class="p">(</span><span class="s2">&quot;chapter_2/questions/q1.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
+<div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -716,7 +703,7 @@ document.write(`
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="DxBzTXWPLrjL" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="DxBzTXWPLrjL-next" onclick="window.checkFlip('DxBzTXWPLrjL')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="cBRSlBRcNRqq" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="cBRSlBRcNRqq-next" onclick="window.checkFlip('cBRSlBRcNRqq')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -1063,22 +1050,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("DxBzTXWPLrjL")) {
-            createCards("DxBzTXWPLrjL", "True", "False");
+          if(document.getElementById("cBRSlBRcNRqq")) {
+            createCards("cBRSlBRcNRqq", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsDxBzTXWPLrjL=[
+var cardscBRSlBRcNRqq=[
     {
         "front": "Ada has several different columns as what data types would you classify them?",
         "back": "Two groups: numeric versus categorical data."
     }
 ];
-var frontColorsDxBzTXWPLrjL= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsDxBzTXWPLrjL= ["var(--dark-blue-gray)" ];
-var textColorsDxBzTXWPLrjL= ["var(--snow)" ];
+var frontColorscBRSlBRcNRqq= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorscBRSlBRcNRqq= ["var(--dark-blue-gray)" ];
+var textColorscBRSlBRcNRqq= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <section id="numeric-and-categorical-data">
@@ -1100,26 +1087,15 @@ try_create(); </script></div>
 <p>In practice ordinal (categorical) and discrete (numeric) data are quite similar.</p>
 </div>
 <p>Let’s see if we can help Ada decide which questions columns are categorical and numeric.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;chapter_2/questions/q2.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
+<div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="zIMVHLDSSJxG" data-shufflequestions="False"
+<div class="output text_html"><div id="BJUXHfIUJdCc" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#zIMVHLDSSJxG {
+#BJUXHfIUJdCc {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1289,7 +1265,7 @@ try_create(); </script></div>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionszIMVHLDSSJxG=[
+</style></div><script type="application/javascript">var questionsBJUXHfIUJdCc=[
     {
         "question": "Select all the numeric columns",
         "type": "many_choice",
@@ -2091,8 +2067,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("zIMVHLDSSJxG")) {
-            show_questions(questionszIMVHLDSSJxG,  zIMVHLDSSJxG); 
+          if(document.getElementById("BJUXHfIUJdCc")) {
+            show_questions(questionsBJUXHfIUJdCc,  BJUXHfIUJdCc); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2101,8 +2077,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("zIMVHLDSSJxG");
-        // console.log(document.getElementById("zIMVHLDSSJxG"));
+        //console.log("BJUXHfIUJdCc");
+        // console.log(document.getElementById("BJUXHfIUJdCc"));
 
         try_show();
         }
@@ -2170,18 +2146,14 @@ if (typeof version == 'undefined') {
 </ol>
 <p>We will cover both. Plots are a great way to convey information to a non-technical audience. Summary statistics on the other hand let you convey a lot of information about your dataset concisely. We will start by looking at summary statistics as a way to summarize certain variables (univariate analysis) or even the relationship between variables (bivariate analysis).</p>
 <p>In short, we want to start off by taking our entire dataset and representing it by a few values that carry most of the interesting information.</p>
+</section>
 <section id="summarizing-location">
-<h5>Summarizing location<a class="headerlink" href="#summarizing-location" title="Permalink to this heading">#</a></h5>
+<h4>Summarizing location<a class="headerlink" href="#summarizing-location" title="Permalink to this heading">#</a></h4>
 <div class="admonition-summarizing-data admonition">
 <p class="admonition-title">Summarizing data</p>
 <p>Ada would want to summarize the age and the country variables. How would you approach this?</p>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_flashcards</span><span class="p">(</span><span class="s2">&quot;chapter_2/questions/q3.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -2441,7 +2413,7 @@ if (typeof version == 'undefined') {
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="TJZPGhyGsmNO" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="TJZPGhyGsmNO-next" onclick="window.checkFlip('TJZPGhyGsmNO')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="txysUbMqQLXW" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="txysUbMqQLXW-next" onclick="window.checkFlip('txysUbMqQLXW')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -2788,22 +2760,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("TJZPGhyGsmNO")) {
-            createCards("TJZPGhyGsmNO", "True", "False");
+          if(document.getElementById("txysUbMqQLXW")) {
+            createCards("txysUbMqQLXW", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsTJZPGhyGsmNO=[
+var cardstxysUbMqQLXW=[
     {
         "front": "how would you summarize the age column?",
         "back": "By looking at the mean value."
     }
 ];
-var frontColorsTJZPGhyGsmNO= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsTJZPGhyGsmNO= ["var(--dark-blue-gray)" ];
-var textColorsTJZPGhyGsmNO= ["var(--snow)" ];
+var frontColorstxysUbMqQLXW= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorstxysUbMqQLXW= ["var(--dark-blue-gray)" ];
+var textColorstxysUbMqQLXW= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <div class="admonition note">
@@ -2814,7 +2786,6 @@ The mean is calculated as</p>
 \[\bar{X} = \frac{\sum_{i=1}^{i=n} x_{i}}{N}\]</div>
 <p>We can read this as <em>the mean is equal to the sum of all data points divided by the number of data points</em>.</p>
 </div>
-</section>
 <section id="intermezzo-a-little-bit-of-notation">
 <h5>Intermezzo: A little bit of notation<a class="headerlink" href="#intermezzo-a-little-bit-of-notation" title="Permalink to this heading">#</a></h5>
 <p>In this course we will use some mathematical notation. We chose to do this for two reasons, it’s a very concise way to express formulas and its something you will come across in documentation, presentations and more. We will assume zero prior knowledge of notation in this course. We will introduce what is necessary in a piecemeal fashion.</p>
@@ -2902,12 +2873,7 @@ The mean is calculated as</p>
 It’s even more popular for Python programmers, especially people in analytics to use the Numpy and/or Pandas packages to calculate summary statistics than using Python’s statistics package. We will be talking about Pandas a lot more in this chapter.</p>
 </div>
 <p>Using the mean value to summarize the age variable makes sense. What can she use to summarize the country?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_flashcards</span><span class="p">(</span><span class="s2">&quot;chapter_2/questions/q4.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -3167,7 +3133,7 @@ It’s even more popular for Python programmers, especially people in analytics 
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="KlZWEkXBYsjx" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="KlZWEkXBYsjx-next" onclick="window.checkFlip('KlZWEkXBYsjx')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="dFqDyoprXywF" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="dFqDyoprXywF-next" onclick="window.checkFlip('dFqDyoprXywF')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -3514,30 +3480,25 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("KlZWEkXBYsjx")) {
-            createCards("KlZWEkXBYsjx", "True", "False");
+          if(document.getElementById("dFqDyoprXywF")) {
+            createCards("dFqDyoprXywF", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsKlZWEkXBYsjx=[
+var cardsdFqDyoprXywF=[
     {
         "front": "How would you summarize the country column?",
         "back": "By looking at the mode (the most frequent value)."
     }
 ];
-var frontColorsKlZWEkXBYsjx= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsKlZWEkXBYsjx= ["var(--dark-blue-gray)" ];
-var textColorsKlZWEkXBYsjx= ["var(--snow)" ];
+var frontColorsdFqDyoprXywF= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsdFqDyoprXywF= ["var(--dark-blue-gray)" ];
+var textColorsdFqDyoprXywF= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_flashcards</span><span class="p">(</span><span class="s2">&quot;chapter_2/questions/q5.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -3797,7 +3758,7 @@ try_create(); </script></div>
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="VKGTVdUCVKcQ" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="VKGTVdUCVKcQ-next" onclick="window.checkFlip('VKGTVdUCVKcQ')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="lrflECVGJYgd" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="lrflECVGJYgd-next" onclick="window.checkFlip('lrflECVGJYgd')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -4144,32 +4105,27 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("VKGTVdUCVKcQ")) {
-            createCards("VKGTVdUCVKcQ", "True", "False");
+          if(document.getElementById("lrflECVGJYgd")) {
+            createCards("lrflECVGJYgd", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsVKGTVdUCVKcQ=[
+var cardslrflECVGJYgd=[
     {
         "front": "What was the difference between the data types of age and country?",
         "back": "Age is a numeric type and country is a categorical type."
     }
 ];
-var frontColorsVKGTVdUCVKcQ= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsVKGTVdUCVKcQ= ["var(--dark-blue-gray)" ];
-var textColorsVKGTVdUCVKcQ= ["var(--snow)" ];
+var frontColorslrflECVGJYgd= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorslrflECVGJYgd= ["var(--dark-blue-gray)" ];
+var textColorslrflECVGJYgd= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <p>This is a first instance of techniques being better to describe categorical data and numerical data. Even if the countries were encoded with numerical country codes from 1 to roughly 180 it wouldn’t be appropriate to calculate the mean. In that instance calculating the mode still makes more sense.</p>
 <p>The mean and the mode are so called <strong>estimates of location</strong>. They explain where your dataset is situated and is one of the most important summary statistic.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_flashcards</span><span class="p">(</span><span class="s2">&quot;chapter_2/questions/q6.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -4429,7 +4385,7 @@ try_create(); </script></div>
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="EBgVcWaRmYow" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="EBgVcWaRmYow-next" onclick="window.checkFlip('EBgVcWaRmYow')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="piaYRUebIVnK" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="piaYRUebIVnK-next" onclick="window.checkFlip('piaYRUebIVnK')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -4776,26 +4732,29 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("EBgVcWaRmYow")) {
-            createCards("EBgVcWaRmYow", "True", "False");
+          if(document.getElementById("piaYRUebIVnK")) {
+            createCards("piaYRUebIVnK", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsEBgVcWaRmYow=[
+var cardspiaYRUebIVnK=[
     {
         "front": "Harder question: What do you think is the drawback of the mean?",
         "back": "It is sensitive to outliers (unusual, potentially incorrect values)."
     }
 ];
-var frontColorsEBgVcWaRmYow= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsEBgVcWaRmYow= ["var(--dark-blue-gray)" ];
-var textColorsEBgVcWaRmYow= ["var(--snow)" ];
+var frontColorspiaYRUebIVnK= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorspiaYRUebIVnK= ["var(--dark-blue-gray)" ];
+var textColorspiaYRUebIVnK= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
+</section>
+</section>
+</section>
 <section id="outliers">
-<h6>Outliers<a class="headerlink" href="#outliers" title="Permalink to this heading">#</a></h6>
+<h3>Outliers<a class="headerlink" href="#outliers" title="Permalink to this heading">#</a></h3>
 <p>Outliers are data points that are sufficiently different from the rest of our dataset. These have a huge influence on some of our summary statistics. In our previous example swapping one element can have a catastrophic effect.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4833,9 +4792,6 @@ try_create(); </script></div>
 <li><p>The count per category</p></li>
 </ul>
 <p>Ada did this analysis with pen, paper and a calculator. We’ll do the same analysis as Ada did, but we’ll use Python instead. We’ll make use of the popular Pandas package.</p>
-</section>
-</section>
-</section>
 </section>
 <section id="introduction-to-numpy-and-pandas">
 <h3>Introduction to numpy and pandas<a class="headerlink" href="#introduction-to-numpy-and-pandas" title="Permalink to this heading">#</a></h3>
@@ -4911,12 +4867,7 @@ We also direct you to a handy <a class="reference external" href="https://pandas
 </div>
 <p>What do you notice about these two calculations?</p>
 <p>Even though the numbers in the arrays are very different, the mean of each is exactly the same.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_flashcards</span><span class="p">(</span><span class="s2">&quot;chapter_2/questions/q7.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -5176,7 +5127,7 @@ We also direct you to a handy <a class="reference external" href="https://pandas
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="bKGPRrqLRExv" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="bKGPRrqLRExv-next" onclick="window.checkFlip('bKGPRrqLRExv')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="ADxBYeAswRfS" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="ADxBYeAswRfS-next" onclick="window.checkFlip('ADxBYeAswRfS')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -5523,22 +5474,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("bKGPRrqLRExv")) {
-            createCards("bKGPRrqLRExv", "True", "False");
+          if(document.getElementById("ADxBYeAswRfS")) {
+            createCards("ADxBYeAswRfS", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsbKGPRrqLRExv=[
+var cardsADxBYeAswRfS=[
     {
         "front": "Can we solve this problem by using the median?",
         "back": "No, in this case the medians are exactly the same as well."
     }
 ];
-var frontColorsbKGPRrqLRExv= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsbKGPRrqLRExv= ["var(--dark-blue-gray)" ];
-var textColorsbKGPRrqLRExv= ["var(--snow)" ];
+var frontColorsADxBYeAswRfS= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsADxBYeAswRfS= ["var(--dark-blue-gray)" ];
+var textColorsADxBYeAswRfS= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <div class="cell docutils container">
@@ -5947,16 +5898,14 @@ The choice of sampling method can significantly affect the results of your analy
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-analysis">Univariate Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary statistics</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-location">Summarizing location</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-a-little-bit-of-notation">Intermezzo: A little bit of notation</a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary statistics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-location">Summarizing location</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-a-little-bit-of-notation">Intermezzo: A little bit of notation</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-numpy-and-pandas">Introduction to numpy and pandas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-tabular-versus-non-tabular-data">Intermezzo: Tabular versus non-tabular data</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-variability">Summarizing variability</a></li>

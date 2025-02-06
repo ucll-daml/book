@@ -243,7 +243,7 @@ The image below is a summary of the field of artificial intelligence. Right now 
 
 When we use AI methods our focus in this course will be machine learning. Machine learning is a vast topic with many niches. This introduction will be an introduction to ML and won't have time to go deep into topics like deep learning and generative AI. Other courses will cover these topics in more detail.
 
-![artificial_intelligence_diagram](images/artificial_intelligence_diagram.JPG)
+![artificial_intelligence_diagram](images/artificial_intelligence_diagram.JPG){width=200}
 
 ## How we'll be approaching the course
 
