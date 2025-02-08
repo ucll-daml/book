@@ -10,7 +10,7 @@
 Poetry is a dependency management tool. It creates a folder on your computer with all the relevant Python packages required for the book.
  
 
-## Pratical tips for poetry
+## Practical tips for poetry
 
 * Each time you open the project run `poetry shell` in the project root.
 * Only install packages using Poetry by using the `poetry add <package_name>` command, this adds the package to the pyproject.toml file which means we can all install it.

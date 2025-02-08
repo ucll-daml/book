@@ -64,6 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_3/chapter3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="AI Isn’t Magic, But It’s Okay If It Feels Like It" href="../chapter_4/chapter4.html" />
     <link rel="prev" title="Chapter 2: Bringing the right equipment to start your data adventure" href="../chapter_2/chapter2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -159,6 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_1/chapter1.html">Chapter 1: What makes data science, machines learn, and intelligence artificial?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_2/chapter2.html">Chapter 2: Bringing the right equipment to start your data adventure</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 3: Charting the unknown: stocking your explorer’s toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4/chapter4.html">AI Isn’t Magic, But It’s Okay If It Feels Like It</a></li>
 </ul>
 
     </div>
@@ -418,12 +420,21 @@ document.write(`
 <h3>Python’s Visualization Powerhouse: Expanding Your EDA Toolkit<a class="headerlink" href="#python-s-visualization-powerhouse-expanding-your-eda-toolkit" title="Permalink to this heading">#</a></h3>
 <p>You’ve already met Pandas, your trusty companion for data wrangling and initial exploration. Now, let’s equip ourselves with the Python visualization tools that will bring your data to life and unlock deeper insights. Building on your Pandas foundation, these libraries will become essential parts of your EDA toolkit:</p>
 <ul class="simple">
-<li><p>Matplotlib: The Foundation</p></li>
+<li><p>Matplotlib: The Foundation</p>
+<ul>
 <li><p>Think of Matplotlib as the bedrock of Python plotting. It provides a comprehensive set of functions for creating a wide range of static, interactive, and even animated visualizations. While you can use Matplotlib directly, its real strength lies in its flexibility. It’s the foundation upon which other, more specialized libraries are built, so understanding Matplotlib will give you a deeper understanding of how visualizations work in Python. From simple scatter plots to complex 3D renderings, Matplotlib can handle it all, though sometimes with a bit more code than other libraries.</p></li>
-<li><p>Seaborn: Statistical Visualization Made Easy</p></li>
+</ul>
+</li>
+<li><p>Seaborn: Statistical Visualization Made Easy</p>
+<ul>
 <li><p>Seaborn takes the power of Matplotlib and adds a layer of statistical sophistication and ease of use. It’s designed to make creating statistically informative and visually appealing graphics a breeze. With Seaborn, you can generate complex plots like heatmaps (for visualizing correlations), violin plots (combining box plots and kernel density estimations), and regression plots (for exploring relationships between variables) with just a few lines of code. Seaborn is your go-to tool for quickly and effectively exploring relationships within your data.</p></li>
-<li><p>Plotly: Interactivity Unleashed</p></li>
+</ul>
+</li>
+<li><p>Plotly: Interactivity Unleashed</p>
+<ul>
 <li><p>Sometimes, static visualizations just aren’t enough. For truly interactive exploration, Plotly is a game-changer. It allows you to create dynamic plots that users can zoom, pan, and interact with directly. Imagine being able to rotate a 3D scatter plot to see it from different angles, or hovering over a point on a line chart to see its exact value. Plotly empowers you to create engaging and informative visualizations that invite exploration.</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section id="univariate-analysis-understanding-individual-variables">
@@ -482,15 +493,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Package Type Counts:
- package_type
-Cultural      3361
-Relaxation    3360
-Adventure     3279
-Name: count, dtype: int64
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Load the travel data</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
-<img alt="../_images/84cf77f99514987cc226359f3b29b0dbd9a81430d384e31e08822b66d4643657.png" src="../_images/84cf77f99514987cc226359f3b29b0dbd9a81430d384e31e08822b66d4643657.png" />
 </div>
 </div>
 <p>The next suggestion was to look at travel seasons. Take a moment and consider how we might accomplish this, given the variables we have available.</p>
@@ -835,7 +848,7 @@ Name: count, dtype: int64
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="NusfnSuggwPT" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="NusfnSuggwPT-next" onclick="window.checkFlip('NusfnSuggwPT')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="QAXPcAfHvVag" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="QAXPcAfHvVag-next" onclick="window.checkFlip('QAXPcAfHvVag')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -1182,22 +1195,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("NusfnSuggwPT")) {
-            createCards("NusfnSuggwPT", "True", "False");
+          if(document.getElementById("QAXPcAfHvVag")) {
+            createCards("QAXPcAfHvVag", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsNusfnSuggwPT=[
+var cardsQAXPcAfHvVag=[
     {
         "front": "What can Ada say about how popular each package type is?",
         "back": "They seem to be about the same. Adventure seems slightly less popular."
     }
 ];
-var frontColorsNusfnSuggwPT= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsNusfnSuggwPT= ["var(--dark-blue-gray)" ];
-var textColorsNusfnSuggwPT= ["var(--snow)" ];
+var frontColorsQAXPcAfHvVag= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsQAXPcAfHvVag= ["var(--dark-blue-gray)" ];
+var textColorsQAXPcAfHvVag= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -1460,7 +1473,7 @@ try_create(); </script></div>
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="cCQhpwyrNlyp" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="cCQhpwyrNlyp-next" onclick="window.checkFlip('cCQhpwyrNlyp')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="UeGdiOOlvZar" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="UeGdiOOlvZar-next" onclick="window.checkFlip('UeGdiOOlvZar')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -1807,22 +1820,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("cCQhpwyrNlyp")) {
-            createCards("cCQhpwyrNlyp", "True", "False");
+          if(document.getElementById("UeGdiOOlvZar")) {
+            createCards("UeGdiOOlvZar", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardscCQhpwyrNlyp=[
+var cardsUeGdiOOlvZar=[
     {
         "front": "What do we see about travel months?",
         "back": "We only have trips in the months of January, February, June, July, August, and December. This means we only sell Winter and Summer trips."
     }
 ];
-var frontColorscCQhpwyrNlyp= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorscCQhpwyrNlyp= ["var(--dark-blue-gray)" ];
-var textColorscCQhpwyrNlyp= ["var(--snow)" ];
+var frontColorsUeGdiOOlvZar= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsUeGdiOOlvZar= ["var(--dark-blue-gray)" ];
+var textColorsUeGdiOOlvZar= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <p>So after looking at our first two categorical variables, we’ve already learned something interesting about travel seasons. This should raise some questions, such as why don’t we sell trips during Spring and Autumn? Unfortunately, we can’t answer this based on the data alone. We only have information about the trips we have sold. We don’t have any view on trips that haven’t been recorded in our dataset. So this question is something to ask people who work in the travel agency. Are those trips not popular? Not marketed enough? Do we have agreements with hotels which are only open for beach and ski holidays? This is all considered domain knowledge, that is knowledge and expertise gained by working in this field. Combining what we learn from data analysis with domain knowledge shared by experts can help enrich a study, but for the purposed of this course, we’re fousing primarily on the data side of things.</p>
@@ -1982,7 +1995,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/bebb1bb9d16b28d3b23708430f5e06539873bd890f44adad4a9be2eabc27fcc0.png" src="../_images/bebb1bb9d16b28d3b23708430f5e06539873bd890f44adad4a9be2eabc27fcc0.png" />
+<img alt="../_images/2542b547bc781bece55512e85685a5097f2559174a6ed80de9aebe0a6349ee39.png" src="../_images/2542b547bc781bece55512e85685a5097f2559174a6ed80de9aebe0a6349ee39.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -1996,7 +2009,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/4ec47a2d2db4ef5c4842dc09f9d9df1fc4c1960d789339222aafe86b9128938b.png" src="../_images/4ec47a2d2db4ef5c4842dc09f9d9df1fc4c1960d789339222aafe86b9128938b.png" />
+<img alt="../_images/d5f671cc6995a324c3c6379425ebb25d3992d767d55c7828b939afb6150c8926.png" src="../_images/d5f671cc6995a324c3c6379425ebb25d3992d767d55c7828b939afb6150c8926.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -2010,7 +2023,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/2d313035ea96d7f891aff08add8d4997057d7bdbc60d7e6d9db02398cd7284f3.png" src="../_images/2d313035ea96d7f891aff08add8d4997057d7bdbc60d7e6d9db02398cd7284f3.png" />
+<img alt="../_images/18e6f61ca1dc35466a240cd302c7fc7d5ccbd8a46b2caeba03c8e3256721e907.png" src="../_images/18e6f61ca1dc35466a240cd302c7fc7d5ccbd8a46b2caeba03c8e3256721e907.png" />
 </div>
 </div>
 <ol class="arabic simple" start="4">
@@ -2024,7 +2037,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/7fc2ef783c8a4949a52707e5cef5c49967102d9f0f31dd3575d4d2c215298de3.png" src="../_images/7fc2ef783c8a4949a52707e5cef5c49967102d9f0f31dd3575d4d2c215298de3.png" />
+<img alt="../_images/4c9ac75ad572cca4254246a89f971b429a6138a8475e1d43d2ffe1c9c3340766.png" src="../_images/4c9ac75ad572cca4254246a89f971b429a6138a8475e1d43d2ffe1c9c3340766.png" />
 </div>
 </div>
 <ol class="arabic simple" start="5">
@@ -2038,7 +2051,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/12a32d4c2071ef540eddcb177b0bcca23bdd5159b27a6aff769332319759b0c9.png" src="../_images/12a32d4c2071ef540eddcb177b0bcca23bdd5159b27a6aff769332319759b0c9.png" />
+<img alt="../_images/3c3ab8d308168ced554b333cb250b689a83f87bce884ace61a8fbbf1fce134ca.png" src="../_images/3c3ab8d308168ced554b333cb250b689a83f87bce884ace61a8fbbf1fce134ca.png" />
 </div>
 </div>
 <p>Understanding these distributions is crucial for choosing appropriate statistical methods and interpreting your results. Visualizing your data using histograms is essential for getting a sense of which distribution might be a good fit. Remember that these are just a few of the many statistical distributions available. The best distribution to use depends on the specific nature of your data and the questions you are trying to answer.</p>
@@ -2394,7 +2407,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="LFlzQRhUSmhx" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="LFlzQRhUSmhx-next" onclick="window.checkFlip('LFlzQRhUSmhx')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="nDhgZzoskFug" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="nDhgZzoskFug-next" onclick="window.checkFlip('nDhgZzoskFug')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -2741,22 +2754,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("LFlzQRhUSmhx")) {
-            createCards("LFlzQRhUSmhx", "True", "False");
+          if(document.getElementById("nDhgZzoskFug")) {
+            createCards("nDhgZzoskFug", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsLFlzQRhUSmhx=[
+var cardsnDhgZzoskFug=[
     {
         "front": "Which pair of variables has the strongest positive correlation?",
         "back": "Two pairs of variables have a 0.99 correlation coefficient:<br>stay_length and cost<br>margin and cost"
     }
 ];
-var frontColorsLFlzQRhUSmhx= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsLFlzQRhUSmhx= ["var(--dark-blue-gray)" ];
-var textColorsLFlzQRhUSmhx= ["var(--snow)" ];
+var frontColorsnDhgZzoskFug= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsnDhgZzoskFug= ["var(--dark-blue-gray)" ];
+var textColorsnDhgZzoskFug= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <div class="cell docutils container">
@@ -2867,6 +2880,15 @@ try_create(); </script></div>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Chapter 2: Bringing the right equipment to start your data adventure</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../chapter_4/chapter4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">AI Isn’t Magic, But It’s Okay If It Feels Like It</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
