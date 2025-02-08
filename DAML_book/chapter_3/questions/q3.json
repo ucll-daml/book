@@ -1,0 +1,6 @@
+[
+    {
+        "front": "Which pair of variables has the strongest positive correlation?",
+        "back": "Two pairs of variables have a 0.99 correlation coefficient:<br>stay_length and cost<br>margin and cost"
+    }
+]
