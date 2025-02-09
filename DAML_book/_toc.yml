@@ -4,6 +4,7 @@
 format: jb-book
 root: intro
 chapters:
+- file: introduction/introduction.md
 - file: chapter_1/chapter1.md
 - file: chapter_2/chapter2.ipynb
 - file: chapter_3/chapter3.ipynb
@@ -11,4 +12,4 @@ chapters:
 - file: chapter_5/chapter5.ipynb
 - file: chapter_6/chapter6.ipynb
 - file: chapter_7/chapter7.ipynb
-- file: conclusion/conclusion.ipynb
+- file: conclusion/conclusion.md
