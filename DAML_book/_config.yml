@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Data Analytics & Machine Learning
-author: Chidi Nweke, Aimée Backiel, Daan Nijs, & Kenric Borgelioen
+title: Data Analytics and Machine Learning
+author: Chidi Nweke, Aimée Backiel, Daan Nijs, and Kenric Borgelioen
 logo: Logo_UCLL_ENG_RGB.png
 
 # Force re-execution of notebooks on each build.

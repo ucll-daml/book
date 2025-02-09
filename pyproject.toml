@@ -4,7 +4,8 @@ version = "0.1.0"
 description = ""
 authors = [
     "Chidi Nweke <chidi.nweke@ucll.be>", 
-    "Aimee backiel <aimeelynn.backiel@ucll.be>",
+    "Aimee Backiel <aimeelynn.backiel@ucll.be>",
+    "Kenric Borgelioen <kenric.borgelioen@ucll.be>",
     "Daan Nijs <daan.nijs@ucll.be>"
     ]
 readme = "README.md"

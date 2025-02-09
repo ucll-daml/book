@@ -1,0 +1,1554 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Chapter 5: What makes good models good and bad models bad? &#8212; Data Analytics and Machine Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_5/chapter5';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/Logo_UCLL_ENG_RGB.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/Logo_UCLL_ENG_RGB.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1/chapter1.html">Chapter 1: What makes data science, machines learn, and intelligence artificial?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2/chapter2.html">Chapter 2: Bringing the right equipment to start your data adventure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3/chapter3.html">Chapter 3: Charting the unknown: stocking your explorer’s toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4/chapter4.html">Chapter 4: AI isn’t magic, but it’s okay if it feels like it</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucll-daml/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucll-daml/book/issues/new?title=Issue%20on%20page%20%2Fchapter_5/chapter5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_5/chapter5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 5: What makes good models good and bad models bad?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-beyond-accuracy">Introduction: Beyond Accuracy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-metrics">Performance Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-metrics-measuring-predictive-accuracy">Classification Metrics: Measuring Predictive Accuracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix-in-a-multiclass-situation">Confusion Matrix in a Multiclass Situation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-classification-performance-metrics">Summary of Classification Performance Metrics</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-metrics-measuring-predictive-accuracy">Regression Metrics: Measuring Predictive Accuracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#error-metrics">Error Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation:</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variability-metrics">Variability Metrics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interpretation:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-right-metrics">Choosing the Right Metrics</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-test-sets-the-importance-of-separation">Training and Test Sets: The Importance of Separation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-and-underfitting-finding-the-right-balance">Overfitting and Underfitting: Finding the Right Balance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-memorizing-the-training-data">Overfitting: Memorizing the Training Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underfitting-missing-the-mark">Underfitting: Missing the Mark</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#techniques-to-address-overfitting-and-underfitting">Techniques to Address Overfitting and Underfitting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-robustness-and-generalization">Cross-Validation: Robustness and Generalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bias-variance-trade-off">The Bias-Variance Trade-off</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-oversimplification">Bias: Oversimplification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-sensitivity-to-noise">Variance: Sensitivity to Noise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sweet-spot-finding-the-right-balance">The Sweet Spot: Finding the Right Balance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-the-numbers-interpretability-and-explainability">Beyond the Numbers: Interpretability and Explainability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-importance-of-understanding">The Importance of Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretable-models">Interpretable Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explainable-ai-xai-for-complex-models">Explainable AI (XAI) for Complex Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balancing-interpretability-and-performance">Balancing Interpretability and Performance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-and-bias-garbage-in-garbage-out">Data Quality and Bias: Garbage In, Garbage Out</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-impact-of-data-quality">The Impact of Data Quality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategies-for-mitigating-bias">Strategies for Mitigating Bias</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethics-inclusion-and-diversity-in-ai">Ethics, Inclusion, and Diversity in AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ethical-considerations">Ethical Considerations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#promoting-inclusion-and-diversity">Promoting Inclusion and Diversity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-building-responsible-and-effective-ai">Conclusion: Building Responsible and Effective AI</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell tag_remove-input docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-5-what-makes-good-models-good-and-bad-models-bad">
+<h1>Chapter 5: What makes good models good and bad models bad?<a class="headerlink" href="#chapter-5-what-makes-good-models-good-and-bad-models-bad" title="Permalink to this heading">#</a></h1>
+<p>We haven’t discussed much about evaluating a model’s performance yet. Based on your own intuition, what would you say makes a model good? For most people, the first answer would be if it makes correct predictions. That is what accuracy measures: the number of correct predictions out of all the predictions made.</p>
+<section id="introduction-beyond-accuracy">
+<h2>Introduction: Beyond Accuracy<a class="headerlink" href="#introduction-beyond-accuracy" title="Permalink to this heading">#</a></h2>
+<p>In our quest to build truly intelligent systems, it’s tempting to focus solely on accuracy. After all, what good is a model if it can’t predict outcomes correctly? But the reality is that accuracy is only one piece of the puzzle when it comes to evaluating the quality of a machine learning model. A model that boasts impressive accuracy on a test set might still be riddled with hidden flaws, harboring biases, lacking interpretability, or failing to generalize to new, unseen data.</p>
+<p>Just like a skilled travel agent considers more than just the price when planning a trip, we must look beyond the accuracy score when evaluating our models. We need to consider factors like:</p>
+<ul class="simple">
+<li><p>Interpretability: Can we understand how the model is making its decisions? This is crucial for building trust, debugging errors, and ensuring fairness.</p></li>
+<li><p>Robustness: Does the model perform well on a variety of data, including noisy or incomplete data? A robust model is less likely to be thrown off by unexpected inputs.</p></li>
+<li><p>Error Analysis: What types of errors does the model make, including false positives, false negatives, and their underlying causes. Sometimes one type of error is worse than another kind, so we try to minimize that kind of error even if the accuracy worsens.</p></li>
+<li><p>Fairness: Does the model treat all individuals and groups fairly, or does it perpetuate existing biases? Ethical AI development demands that we address fairness concerns.</p></li>
+<li><p>Efficiency: How much time and resources does the model require to train and make predictions? Efficiency is often a practical consideration, especially for large datasets or real-time applications.</p></li>
+</ul>
+<p>This chapter covers this broad landscape of model evaluation, providing you with the tools and knowledge to assess the strengths and weaknesses of your supervised learning models. We’ll explore a range of evaluation metrics, from classic measures like accuracy and mean squared error to more nuanced techniques like precision and recall. We’ll also tackle the critical issues of overfitting, underfitting, and bias, equipping you with strategies like validation to mitigate these challenges and build models that are both accurate and reliable.</p>
+<p>But our journey goes beyond the technical aspects of evaluation. We’ll also delve into the ethical considerations that are intertwined with AI development, emphasizing the importance of fairness, inclusion, and diversity in building responsible AI systems. By the end of this chapter, you’ll have a comprehensive understanding of what makes a good model truly “good,” empowering you to create AI solutions that are not only effective but also ethical and trustworthy.</p>
+</section>
+<section id="performance-metrics">
+<h2>Performance Metrics<a class="headerlink" href="#performance-metrics" title="Permalink to this heading">#</a></h2>
+<p>We keep returning to the fundamental differences between categorical and numerical and related classification and regression models. Here too we will need completey different metrics for evaluating classification models and regression models.</p>
+<section id="classification-metrics-measuring-predictive-accuracy">
+<h3>Classification Metrics: Measuring Predictive Accuracy<a class="headerlink" href="#classification-metrics-measuring-predictive-accuracy" title="Permalink to this heading">#</a></h3>
+<p>Let’s start with accuracy since we’ve already identified it as the intuitive performance measure.</p>
+<p>Accuracy: The overall proportion of correct predictions. Calculated as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Accuracy</span> <span class="pre">=</span> <span class="pre">Correct</span> <span class="pre">Predictions</span> <span class="pre">/</span> <span class="pre">Total</span> <span class="pre">Predictions</span></code></p>
+<p>Correct is straightforward for classification models. Imagine I’m trying to predict if a customer will book a trip. If my model predicts yes and the customer books the trip, the prediction is correct. If my model predicts no and the customer books the trip, the prediction is incorrect. There are two more possibilities: model predicts yes and customer doesn’t book or model predicts no and the customer doesn’t book.</p>
+<p>To keep track of these four possible outcomes (in a binary yes/no situation), there’s something called a confusion matrix.</p>
+<p><img alt="confusion_matrix" src="../_images/confusion_matrix.JPG" /></p>
+<p>Then we can easily calculate accuracy as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Accuracy</span> <span class="pre">=</span> <span class="pre">True</span> <span class="pre">Positives</span> <span class="pre">+</span> <span class="pre">True</span> <span class="pre">Negatives</span> <span class="pre">/</span> <span class="pre">All</span> <span class="pre">Positive</span> <span class="pre">Predictions</span> <span class="pre">+</span> <span class="pre">All</span> <span class="pre">Negative</span> <span class="pre">Predictions</span></code></p>
+<p>Now let’s get into the reasons where this isn’t the best measure of performance. Imagine for example you’re researching an uncommon disease. Only about 1 in 1000 people have this disease. A new company DiagnosAI develops a model that just automatically predicts no one has the disease would be 99.9% accurate. Would you consider that a good model? Would recommended this model to doctors to help them diagnose patients?</p>
+<p>This is an example of class imbalance, where one class is much more prevalent than others. Class imbalance is a situation where accuracy won’t give a clear indication of a model’s performance.</p>
+<p>Continuing with the healthcare theme, imagine another model that identifies a disease like HIV infection. Think of the confusion matrix above. We have four possibilities:</p>
+<ul class="simple">
+<li><p>a patient predicted as HIV+ is actually HIV+</p></li>
+<li><p>a patient predicted as HIV+ is actually HIV-</p></li>
+<li><p>a patient predicted as HIV- is actually HIV-</p></li>
+<li><p>a patient predicted as HIV- is actually HIV+</p></li>
+</ul>
+<p>Two of those possibilities mean the model correctly identified patients’ HIV statuses. Focus on the other two possibilities.</p>
+<div class="admonition-question-which-type-of-incorrect-prediction-is-worse admonition">
+<p class="admonition-title">Question: Which type of incorrect prediction is worse?</p>
+<p>Is it worse for an HIV- patient to think they have HIV or for an HIV+ patient to think they’re healthy?</p>
+</div>
+<p>In this case, we’ll want to consider the two types of errors in our evaluation of the model. Our confusion matrix can also be used to calculate more nuanced metrics:</p>
+<ul class="simple">
+<li><p>Precision: Measures the proportion of true positive predictions among all positive predictions. It answers the question: “Of all the instances predicted as positive, how many were actually positive?” Calculated as:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Precision</span> <span class="pre">=</span> <span class="pre">True</span> <span class="pre">Positives</span> <span class="pre">/</span> <span class="pre">(True</span> <span class="pre">Positives</span> <span class="pre">+</span> <span class="pre">False</span> <span class="pre">Positives)</span></code></p>
+<ul class="simple">
+<li><p>Recall: Measures the proportion of true positive predictions among all actual positive instances. It answers the question: “Of all the actual positive instances, how many were correctly predicted?” Calculated as:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Recall</span> <span class="pre">=</span> <span class="pre">True</span> <span class="pre">Positives</span> <span class="pre">/</span> <span class="pre">(True</span> <span class="pre">Positives</span> <span class="pre">+</span> <span class="pre">False</span> <span class="pre">Negatives)</span></code></p>
+<div class="admonition-question-which-metric-should-we-try-to-maximize-in-our-hiv-example admonition">
+<p class="admonition-title">Question: Which metric should we try to maximize in our HIV example?</p>
+<p>Recall answers: of everyone identified as HIV+, how many actually were HIV+?
+Precision answers: of all people who have HIV, how many did we correctly identify?</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output text_html"><style>
+:root{
+  --asparagus: #87a878ff;
+  --terra-cotta: #e26d5aff;
+  --cyan-process: #5bc0ebff;
+  --dark-blue-gray: #666a86ff;
+  --snow: #fffafbff;
+  --rich-black-fogra-39: #090c08ff;
+}
+
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+  touch-action: pinch-zoom pan-y;
+}
+
+
+.flip-container.flip .flipper {
+    box-sizing: content-box;
+	  transform: rotateY(180deg);
+	/* transform: rotateY(180deg)  translateX(-6%);  */
+}
+
+
+.flip-container.slide .flipper.frontcard {
+    filter: brightness(90%);
+    position:absolute;
+    z-index: -20;
+    /* left: 20px; */
+}
+
+.flip-container.prepare .flipper.backcard {
+    opacity:1;
+    transition: display 0s;
+    transform:  translateX(20px); 
+}
+
+
+.flip-container.slide .flipper.backcard {
+    filter: brightness(115%);
+    /* height: 360px; */
+    opacity:1;
+	  transform:  rotateY(3deg)  translateX(700px) translateZ(20px) scale(1, 1.05) rotate(3deg);
+    z-index: 20;
+    /* left: -20px; */
+}
+
+
+
+
+.flip-container.slideback .flipper.backcard {
+    filter: brightness(100%);
+    opacity: 1;
+	  transform: translateX(0px) translateZ(20px) rotateY(0deg);
+    z-index: 10;
+}
+
+.flip-container.slideback .flipper.frontcard {
+    filter: brightness(90%);
+    transform: translateX(0px) translateZ(-20px);
+    z-index: -10;
+}
+
+
+.flip-container, .front, .back {
+	  height: 200px;
+	  width: 95%;
+}
+
+
+
+
+.flipper.frontcard {
+    position:absolute;
+	  transform: translateX(0px) rotateY(0deg) translateZ(20px);
+    z-index: 10;
+}
+
+.flipper.backcard {
+    filter: brightness(90%);
+    opacity:0;
+    position:absolute;
+    transform: translateX(0px) translateZ(-20px);
+    z-index: -10;
+}
+
+
+
+
+/* flip speed goes here */
+.flipper {
+    cursor:pointer;
+	  height: 200px;
+    margin-left:10px;
+	  position: absolute;
+    top: 0;
+	  transform-style: preserve-3d;
+	  transition: 0.6s;
+    /* width: 95%; */
+    width: 100%;
+}
+
+.flashcardtext{
+    color: var(--snow);
+    margin-left:3%;
+    position:absolute;
+    text-align:center;
+    top: 50%;
+    transform: translate(0, -50%);
+    width:90%;
+    font-size: 1.5em;
+}
+
+.back .flashcardtext{
+    font-size: 1.2em;
+}
+
+
+
+/* hide back of pane during swap */
+.front, .back {
+    -webkit-backface-visibility: hidden;
+	  backface-visibility: hidden;
+	  left: 0;
+	  position: absolute;
+	  top: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	  backface-visibility: hidden;
+    background: var(--asparagus);
+    transform: rotateY(0deg);
+	  z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+	  backface-visibility: hidden;
+    background: var(--dark-blue-gray);
+	  transform: rotateY(180deg);
+}
+
+.jp-OutputArea-output .back {
+	  transform: rotateY(180deg) translateX(7.5%);
+}
+
+.next {
+    color: var(--rich-black-fogra-39);
+    cursor:pointer;
+    font-size: 1.5em;
+    /*left:90%; */
+    margin-left: 70%;
+    width: 55pt;
+    height: 22pt;
+    opacity:0.3;
+    position:relative; 
+    top:-1em;
+}
+
+.next svg {
+    height:16pt;
+    width:16pt;
+    position:relative;
+    top:-2pt;
+}
+
+.jp-OutputArea-output .next svg {
+    top: 1pt;
+}
+
+.next.flipped {
+    opacity:1;
+}
+
+.next.hide {
+    opacity:0;
+}
+
+
+.flashcard{
+    border-radius: 10px;
+    outline: none;
+    color: #fafafa;
+    display:block;
+    padding:10px;
+  
+}
+
+.flashcardtext li{
+    text-align: left;
+}
+
+@media only screen and (min-width:1000px) {
+
+    .flip-container, .front, .back {
+	      height: 300px;
+	      width: min(95%, 640px);
+    }
+
+    .flipper {
+        margin-left:20px;
+	      height: 300px;
+    }
+
+    .flashcardtext{
+        font-size: 20pt;
+    }
+
+    .next {
+        font-size: 16pt;
+        left:min(80%, 450pt);
+        margin-left: 0;
+        width: 55pt;
+        height: 22pt;
+        top:-0.5em;
+    }
+
+    .back .flashcardtext{
+        font-size: 1.5em;
+    }
+
+}
+
+@media only screen and (min-width:660px) and (max-width:999px) {
+    .next {
+        left:0;
+        margin-left: 80%;
+    }
+
+}
+
+@media only screen and (max-width:680px) and (min-height:376px) {
+    .flip-container, .front, .back {
+	      height: 300px;
+    }
+
+    .flipper {
+	      height: 300px;
+    }
+
+}
+
+@media only screen and (max-width:330px) and (max-height:600px) {
+
+    .back .flashcardtext{
+        font-size: 1em;
+    }
+    .next {
+        margin-left: 65%;
+    }
+
+}
+
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="zhKVrsUGPAWA" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="zhKVrsUGPAWA-next" onclick="window.checkFlip('zhKVrsUGPAWA')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+ * swiped-events.js - v1.1.4
+ * Pure JavaScript swipe events
+ * https://github.com/john-doherty/swiped-events
+ * @inspiration https://stackoverflow.com/questions/16348031/disable-scrolling-when-touch-moving-certain-element
+ * @author John Doherty <www.johndoherty.info>
+ * @license MIT
+ */
+!function(t,e){"use strict";"function"!=typeof t.CustomEvent&&(t.CustomEvent=function(t,n){n=n||{bubbles:!1,cancelable:!1,detail:void 0};var a=e.createEvent("CustomEvent");return a.initCustomEvent(t,n.bubbles,n.cancelable,n.detail),a},t.CustomEvent.prototype=t.Event.prototype),e.addEventListener("touchstart",function(t){if("true"===t.target.getAttribute("data-swipe-ignore"))return;s=t.target,r=Date.now(),n=t.touches[0].clientX,a=t.touches[0].clientY,u=0,i=0},!1),e.addEventListener("touchmove",function(t){if(!n||!a)return;var e=t.touches[0].clientX,r=t.touches[0].clientY;u=n-e,i=a-r},!1),e.addEventListener("touchend",function(t){if(s!==t.target)return;var e=parseInt(l(s,"data-swipe-threshold","20"),10),o=parseInt(l(s,"data-swipe-timeout","500"),10),c=Date.now()-r,d="",p=t.changedTouches||t.touches||[];Math.abs(u)>Math.abs(i)?Math.abs(u)>e&&c<o&&(d=u>0?"swiped-left":"swiped-right"):Math.abs(i)>e&&c<o&&(d=i>0?"swiped-up":"swiped-down");if(""!==d){var b={dir:d.replace(/swiped-/,""),xStart:parseInt(n,10),xEnd:parseInt((p[0]||{}).clientX||-1,10),yStart:parseInt(a,10),yEnd:parseInt((p[0]||{}).clientY||-1,10)};s.dispatchEvent(new CustomEvent("swiped",{bubbles:!0,cancelable:!0,detail:b})),s.dispatchEvent(new CustomEvent(d,{bubbles:!0,cancelable:!0,detail:b}))}n=null,a=null,r=null},!1);var n=null,a=null,u=null,i=null,r=null,s=null;function l(t,n,a){for(;t&&t!==e.documentElement;){var u=t.getAttribute(n);if(u)return u;t=t.parentNode}return a}}(window,document);
+
+function jaxify(string) {
+    var mystring = string;
+    //console.log(mystring);
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+window.flipCard = function flipCard(ths) {
+    //console.log(ths);
+    //console.log(ths.id);
+    ths.classList.toggle("flip"); 
+    ths.focus();
+    var next=document.getElementById(ths.id+'-next');
+    next.style.pointerEvents='none';
+    /* ths.blur(); */
+    next.classList.add('flipped');
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        //console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([ths]);
+        }
+    } else {
+        //console.log('MathJax not detected');
+    }
+
+
+    setTimeout(reenableNext, 600, ths, next);
+}
+
+window.checkKey = function checkKey(container, event) {
+    event.stopPropagation();
+    /*
+    console.log(container);
+    console.log(event.key);
+    console.log(event.code);
+    */
+    /* JMS:  Working here*/
+    var next=document.getElementById(container.id+'-next');
+    /* Only react if not already sliding */
+    if (! next.classList.contains("hide")) {
+        if ((event.key == "j") || (event.key == "Enter") || (event.key == "ArrowRight")) {
+            window.checkFlip(container.id);
+        }
+        if (event.key == " ") {
+            window.flipCard(container);
+        }
+    }
+    event.preventDefault();
+}
+
+
+function reenableNext(ths, next) {
+    next.style.pointerEvents='auto';
+    /* ths.tabIndex= 0;*/
+    /* ths.focus(); */
+}
+
+
+
+function slide2(containerId) {
+    var container = document.getElementById(containerId);
+    var next=document.getElementById(containerId+'-next');
+    var frontcard = container.children[0];
+    var backcard = container.children[1];
+    container.style.pointerEvents='none';
+    /* container.removeAttribute("tabindex");*/
+    /* container.blur(); */
+    //backcard.style.pointerEvents='none';
+    next.style.pointerEvents='none';
+    next.classList.remove('flipped');
+    next.classList.add('hide');
+
+    //container.classList.add("prepare");
+    
+    container.className="flip-container slide";
+    backcard.parentElement.removeChild(frontcard);
+    backcard.parentElement.appendChild(frontcard);
+    setTimeout(slideback, 600, container, frontcard, backcard, next);
+    
+}
+
+
+window.checkFlip = function checkFlip(containerId) {
+    var container = document.getElementById(containerId);
+
+
+    if (container.classList.contains('flip')) {
+        container.classList.remove('flip');
+        setTimeout(slide2, 600, containerId);
+    } 
+    else {
+        slide2(containerId);
+    }
+}
+
+
+function slideback(container, frontcard, backcard, next) {
+    container.className="flip-container slideback";
+    setTimeout(cleanup, 550, container, frontcard, backcard, next);
+}
+
+function cleanup(container, frontcard, backcard, next) {
+    container.removeChild(frontcard);
+    backcard.className="flipper frontcard";
+    container.className="flip-container";
+
+    var cardnum=parseInt(container.dataset.cardnum);
+    var cards=eval('cards'+container.id);
+    var flipper=createOneCard(container, false, cards, cardnum);
+    container.append(flipper);
+    cardnum= (cardnum+1) % parseInt(container.dataset.numCards);
+    container.dataset.cardnum=cardnum;
+    if (cardnum != 1){
+        next.innerHTML="Next >";
+    } else {
+        //next.innerHTML="Reload \\(\\circlearrowleft\\) ";
+        next.innerHTML='Reload <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 25 26"> <path d="M7,6a10,10,0,1,0,9,0" style="fill:none;stroke:black;stroke-width:2px" id="e2_circleArc"/> <line id="e3_line" x1="17" y1="6.5" x2="17.5" y2="15" style="stroke:black;fill:none;stroke-width:2px"/> <line id="e4_line" x1="16.5" y1="6.5" x2="26" y2="8" style="stroke:black;fill:none;stroke-width:2px"/> </svg> '
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            //console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([next]);
+            }
+        } else {
+            //console.log('MathJax not detected');
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        //console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    } else {
+        //console.log('MathJax not detected');
+    }
+
+
+    next.style.pointerEvents='auto';
+    container.style.pointerEvents='auto';
+    /* container.tabIndex= 0; */
+    /* container.focus(); */
+    next.classList.remove('hide');
+    container.addEventListener('swiped-left', function(e) {
+        /*
+          console.log(e.detail);
+          console.log(id);
+        */
+        checkFlip(container.id);
+    }, {once: true });
+
+
+}
+
+
+function createOneCard  (mydiv, frontCard, cards, cardnum) {
+    var colors=eval('frontColors'+mydiv.id);
+    var backColors=eval('backColors'+mydiv.id);
+    var textColors=eval('textColors'+mydiv.id);
+    //console.log(backColors)
+
+    var flipper = document.createElement('div');
+    if (frontCard){
+        flipper.className="flipper frontcard";    
+    }
+    else {
+        flipper.className="flipper backcard";   
+    }
+
+    var front = document.createElement('div');
+    front.className='front flashcard';
+
+    var frontSpan= document.createElement('span');
+    frontSpan.className='flashcardtext';
+    frontSpan.innerHTML=jaxify(cards[cardnum]['front']);
+    frontSpan.style.color=textColors[cardnum % textColors.length];
+    //frontSpan.textContent=jaxify(cards[cardnum]['front']);
+    //front.style.background='var(' + colors[cardnum % colors.length] + ')';
+    front.style.background=colors[cardnum % colors.length];
+
+    front.append(frontSpan);
+    flipper.append(front);
+
+    var back = document.createElement('div');
+    back.className='back flashcard';
+    back.style.background=backColors[cardnum % backColors.length];
+
+    var backSpan= document.createElement('span');
+    backSpan.className='flashcardtext';
+    backSpan.innerHTML=jaxify(cards[cardnum]['back']);
+    backSpan.style.color=textColors[cardnum % textColors.length];
+    back.append(backSpan);
+
+    flipper.append(back);
+
+    return flipper;
+
+}
+
+
+
+
+
+function createCards(id, keyControl, grabFocus) {
+    console.log(id);
+
+    var mydiv=document.getElementById(id);
+    /*mydiv.onclick = window.flipCard(mydiv);*/
+    /*
+    mydiv.addEventListener('click', function(){window.flipCard(mydiv);}, false);
+    mydiv.addEventListener('keydown', function(event){window.checkKey(mydiv,event);}, true);
+    */
+    mydiv.onclick = function(){window.flipCard(mydiv);};
+    //console.log(keyControl);
+    if (keyControl == "True"){
+        mydiv.onkeydown = function(event){window.checkKey(mydiv,event);};
+    }
+    /* mydiv.addEventListener('keydown', function(event){event.stopPropagation(); console.log(event); event.preventDefault();}, true); */
+    /*mydiv.onkeypress = function(event){console.log(event); event.preventDefault();};*/
+
+    //console.log(mydiv);
+
+    var cards=eval('cards'+id);
+    mydiv.dataset.cardnum=0;
+    mydiv.dataset.numCards=cards.length;
+    mydiv.addEventListener('swiped-left', function(e) {
+        /*
+          console.log(e.detail);
+          console.log(id);
+        */
+        checkFlip(id);
+    }, {once: true});
+
+    var cardnum=0;
+    
+    for (var i=0; i<2; i++) {
+    
+        var flipper;
+        if (i==0){
+            flipper=createOneCard(mydiv, true, cards, cardnum);
+        }
+        else {
+            flipper=createOneCard(mydiv, false, cards, cardnum);
+        }
+
+        mydiv.append(flipper);
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            if (typeof version == 'undefined') {
+                setTimeout(function(){
+                    var version = MathJax.version;
+                    console.log('After sleep, MathJax version', version);
+                    if (version[0] == "2") {
+                        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                    } else if (version[0] == "3") {
+                        MathJax.typeset([flipper]);
+                    }
+                }, 500);
+            } else{
+                console.log('MathJax version', version);
+                if (version[0] == "2") {
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                } else if (version[0] == "3") {
+                    MathJax.typeset([flipper]);
+                }
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+
+
+        cardnum = (cardnum + 1) % mydiv.dataset.numCards;
+    }
+    mydiv.dataset.cardnum = cardnum;
+
+    var next=document.getElementById(id+'-next');
+    if (cards.length==1) {
+        // Don't show next if no other cards!
+        next.style.pointerEvents='none';
+        next.classList.add('hide');
+    } else {
+        next.innerHTML="Next >";
+    }
+
+    if (grabFocus == "True" )
+        mydiv.focus();
+
+    return flipper;
+}
+
+
+
+
+
+        function try_create() {
+          if(document.getElementById("zhKVrsUGPAWA")) {
+            createCards("zhKVrsUGPAWA", "True", "False");
+          } else {
+             setTimeout(try_create, 200);
+          }
+        };
+    
+var cardszhKVrsUGPAWA=[
+    {
+        "front": "Which is more important in our HIV example: precision or recall?",
+        "back": "Recall: of all the people who have HIV, we want as many as possible to know they have it."
+    }
+];
+var frontColorszhKVrsUGPAWA= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorszhKVrsUGPAWA= ["var(--dark-blue-gray)" ];
+var textColorszhKVrsUGPAWA= ["var(--snow)" ];
+try_create(); </script></div>
+</div>
+<p>Another way of looking at it is considering the cost or the problems that come from a wrong prediction. If someone is healthy but they are identified as HIV+, they will be upset, they might need to do follow up testing, they may need to take some precautions like avoiding sexual contact or blood donations until the diagnosis is corrected. None of that is pleasant for the person. On the other hand, telling someone who has HIV that they don’t have it, means they won’t get the follow up testing or treatment they need, they might expose their partner or others to the disease, ultimately their disease may progress to the point where treatment isn’t as effective anymore. This seems far worse for the patient, for their loved ones, and for the community at large.</p>
+<p>In this case, we would regard a model with higher recall as better. In some cases, we don’t have an obvious preference for one or the other, in which case we can use the F1-score, the harmonic mean of precision and recall, providing a balance between the two. It’s useful when you want to consider both false positives and false negatives. Calculated as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">F1-score</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">(Precision</span> <span class="pre">*</span> <span class="pre">Recall)</span> <span class="pre">/</span> <span class="pre">(Precision</span> <span class="pre">+</span> <span class="pre">Recall)</span></code></p>
+<p>When evaluating the performance of a classification model, accuracy alone can be misleading, especially when dealing with imbalanced datasets (where one class is much more prevalent than others). A model might achieve high overall accuracy simply by predicting the majority class most of the time, while still performing poorly on the minority class, which might be of greater interest. Therefore, it’s essential to use a variety of classification metrics to gain a comprehensive understanding of the model’s strengths and weaknesses.</p>
+<p>Another standard metric is ROC Curve and AUC: The Receiver Operating Characteristic (ROC) curve plots the true positive rate (sensitivity) against the false positive rate (1 - specificity) at various threshold settings. The Area Under the ROC Curve (AUC) provides a measure of the model’s ability to discriminate between classes. A higher AUC indicates better discrimination.</p>
+<p><img alt="roc" src="../_images/roc.JPG" /></p>
+<p>This displays the receiver operating characteristic curves for multiple models. Since the Y-axis represents True Positive Rate and the X-axis represents the False Positive Rate, the “best” place to be is the top left corner with 100% True Positive and 0% False Positive. On a plot like this, we can visually see which model’s curve is closest to the top left corner. AUC is the area under the curve, which will cover a larger area if the curve is closer to the top left.</p>
+<p>One final measure we’ll introduce here is lift. Lift measures how much better a model performs compared to a random baseline. It’s particularly useful in marketing campaigns to assess the effectiveness of a model in identifying target customers. Lift looks at the “most likely candidates” identified by a model. For example, if we take the top 5% based on predicted probability, how many of them are actually true? Calculated as:</p>
+<p>`Lift = (Precision of the model) / (Proportion of positive instances in the overall population)</p>
+<p><img alt="lift" src="../_images/lift.JPG" /></p>
+<p>Interpreting this Lift Chart</p>
+<p>The lift is the ratio of the blue line (model) to the red line (random). For example, if at 20% of the sample, the blue line is at 300 and the red line is at 100, the lift is 3. This means your model is 3 times better than random at identifying positive responders within that top 20%.</p>
+<p>The higher the blue line is above the red line, the better your model is at identifying positive responders early on. As you move to the right (targeting more of your audience), the lift typically decreases. This is because you start including people less likely to respond, and the model’s advantage over random diminishes.</p>
+<p>In the Context of the Travel Agency</p>
+<p>Let’s say Ada builds a model to predict which customers are most likely to book a luxury travel package. The lift chart helps her see if the model effectively identifies those high-potential customers. If the lift is high at the beginning, it means her model is doing a good job of prioritizing those who are more likely to book, allowing her to focus marketing efforts more effectively.</p>
+<section id="confusion-matrix-in-a-multiclass-situation">
+<h4>Confusion Matrix in a Multiclass Situation<a class="headerlink" href="#confusion-matrix-in-a-multiclass-situation" title="Permalink to this heading">#</a></h4>
+<p>So far, we’ve focused a lot on binary situations: yes/no, positive/negative, disease/healthy. But all of these can also be expanded to a multiclass situation, like package type - adventure, relaxation, or cultural.</p>
+<p><img alt="multiclass_confusion_matrix" src="../_images/multiclass_confusion_matrix.JPG" /></p>
+<p>The confusion matrix grows a column and a row with each new class. Calculating all of these metrics is then typically in terms of one class, for example, type is relaxation vs type is not relaxation. So we can calculate the precision of adventure-type as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Precision_adventure</span> <span class="pre">=</span> <span class="pre">Correctly</span> <span class="pre">Predicted</span> <span class="pre">Adventure</span> <span class="pre">/</span> <span class="pre">All</span> <span class="pre">Predicted</span> <span class="pre">Adventure</span></code></p>
+<p>Or the recall of relaxation-type as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Recall_relaxation</span> <span class="pre">=</span> <span class="pre">Correctly</span> <span class="pre">Predicted</span> <span class="pre">Relaxation</span> <span class="pre">/</span> <span class="pre">All</span> <span class="pre">Actual</span> <span class="pre">Relaxation</span></code></p>
+</section>
+<section id="summary-of-classification-performance-metrics">
+<h4>Summary of Classification Performance Metrics<a class="headerlink" href="#summary-of-classification-performance-metrics" title="Permalink to this heading">#</a></h4>
+<p>When evaluating the performance of a classification model, accuracy alone can be misleading, especially when dealing with imbalanced datasets (where one class is much more prevalent than others), errors with differing consequences, or when targeting only a portion of your population. Therefore, it’s essential to use a variety of classification metrics to gain a comprehensive understanding of the model’s strengths and weaknesses.</p>
+</section>
+</section>
+<section id="regression-metrics-measuring-predictive-accuracy">
+<h3>Regression Metrics: Measuring Predictive Accuracy<a class="headerlink" href="#regression-metrics-measuring-predictive-accuracy" title="Permalink to this heading">#</a></h3>
+<p>Remember the difference between classification and regression: the target variable is a numeric value instead of a categorical class.</p>
+<p>Now think of all the metrics we used for classification, which were based on the confusion matrix. At its simplest, we need to be able to say whether a prediction was correct or not.</p>
+<p>Now instead of predicting if someone has a disease, yes or no, we’re predicting for example how long a person will live. If the model predicts they will live for 72 years and they live to 70 years, would you say the prediction was correct? What if they actually lived to 73 years, is this one correct?</p>
+<p>What we actually need is a way to measure how close we are the to actual answer.</p>
+<section id="error-metrics">
+<h4>Error Metrics<a class="headerlink" href="#error-metrics" title="Permalink to this heading">#</a></h4>
+<p>Here are some commonly used regression metrics:</p>
+<ul class="simple">
+<li><p>Mean Absolute Error (MAE)</p></li>
+<li><p>MAE calculates the average of the absolute value of the differences between the predicted and actual values.</p></li>
+<li><p>Calculated as <code class="docutils literal notranslate"><span class="pre">MAE</span> <span class="pre">=</span> <span class="pre">(1/n)</span> <span class="pre">*</span> <span class="pre">Σ|yᵢ</span> <span class="pre">-</span> <span class="pre">ŷᵢ|</span></code></p></li>
+<li><p>Mean Squared Error (MSE)</p></li>
+<li><p>MSE calculates the average of the squared differences between the predicted values and the actual values.</p></li>
+<li><p>Calculated as <code class="docutils literal notranslate"><span class="pre">MSE</span> <span class="pre">=</span> <span class="pre">(1/n)</span> <span class="pre">*</span> <span class="pre">Σ(yᵢ</span> <span class="pre">-</span> <span class="pre">ŷᵢ)²</span></code> where:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of data points</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yᵢ</span></code> is the actual value for the i-th data point</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ŷᵢ</span></code> is the predicted value for the i-th data point</p></li>
+<li><p>Root Mean Squared Error (RMSE)</p></li>
+<li><p>RMSE is the square root of the MSE.</p></li>
+<li><p>Calculated as <code class="docutils literal notranslate"><span class="pre">RMSE</span> <span class="pre">=</span> <span class="pre">√MSE</span></code></p></li>
+</ul>
+<section id="interpretation">
+<h5>Interpretation:<a class="headerlink" href="#interpretation" title="Permalink to this heading">#</a></h5>
+<p>In all the error metrics, a lower value indicates better performance.</p>
+<p>MAE relies on absolute value of the differences and MSE squares the differences. Both of these serve to turn negative values into positive values. This is important because we will have predictions <em>above and below</em> the actual value. If we leave them as positive and negative numbers, adding them together will result in an error value closer to zero, which doesn’t accurately represent how far off the predictions really are.</p>
+<p>The difference between taking the absolute value and squaring a value is that squaring causes big differences to become bigger and small differences to become smaller. This means MSE can amplify large incorrect predictions. In some cases, this can be helpful, but it also makes MSE more sensitive to outliers.</p>
+<p>The other issue with MSE is that the units are squared so we aren’t evaluating on the same scale as the original values. This is why RMSE is often used, to return to the same units as the target variable.</p>
+</section>
+</section>
+<section id="variability-metrics">
+<h4>Variability Metrics<a class="headerlink" href="#variability-metrics" title="Permalink to this heading">#</a></h4>
+<p>Another commonly used measure is R-squared or the Coefficient of Determination. R-squared measures the proportion of variance in the target variable that’s explained by the model. It ranges from 0 to 1.</p>
+</section>
+<section id="id1">
+<h4>Interpretation:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<p>0: The model doesn’t explain any of the variability in the target variable.
+1: The model perfectly explains all the variability.
+Higher R-squared values generally indicate a better fit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Important Note: A high R-squared doesn’t always mean a good model, as it can be artificially inflated by adding more predictor variables, even if they aren’t truly relevant.</p>
+</div>
+</section>
+<section id="choosing-the-right-metrics">
+<h4>Choosing the Right Metrics<a class="headerlink" href="#choosing-the-right-metrics" title="Permalink to this heading">#</a></h4>
+<p>The choice of which metrics to use depends on the specific problem and your priorities.</p>
+<p>MSE and RMSE are good general-purpose metrics for measuring prediction accuracy.
+R-squared is useful for understanding how much of the target variable’s variability is explained by the model.</p>
+<p>By carefully considering these metrics and their implications, you can gain a more comprehensive understanding of your regression model’s performance.</p>
+</section>
+</section>
+<section id="training-and-test-sets-the-importance-of-separation">
+<h3>Training and Test Sets: The Importance of Separation<a class="headerlink" href="#training-and-test-sets-the-importance-of-separation" title="Permalink to this heading">#</a></h3>
+<p>In supervised learning, it’s crucial to evaluate your model on data it hasn’t seen during training. This is where the concept of training and test sets comes in.</p>
+<p>Why Separate?
+Imagine you’re studying for an exam. You wouldn’t want to assess your understanding solely based on the practice questions you’ve already seen, right? You’d want to try new questions to see how well you’ve grasped the concepts. Similarly, in machine learning, we need to evaluate our model on unseen data to get a true measure of its performance and generalization ability.</p>
+<p>Splitting the Data</p>
+<ul class="simple">
+<li><p>Training Set: The majority of your data (typically 70-80%) is used to train the model. The algorithm learns the patterns and relationships from this data.</p></li>
+<li><p>Test Set: The remaining portion of your data (typically 20-30%) is held back as the test set. This unseen data is used to evaluate the model’s performance after it has been trained.</p></li>
+</ul>
+<p>The Process</p>
+<ol class="arabic simple">
+<li><p>Split: Randomly divide your data into training and test sets. For classification problems, especially with imbalanced datasets, ensure that both sets have a similar distribution of classes (stratified sampling).</p></li>
+<li><p>Train: Use the training set to train your chosen machine learning algorithm. The algorithm learns the patterns and relationships from this data.</p></li>
+<li><p>Evaluate: Apply the trained model to the test set and evaluate its performance using appropriate metrics (accuracy, precision, recall, F1-score, MSE, RMSE, R-squared, etc.).</p></li>
+</ol>
+<p>Here’s a flowchart to show this first, simplest setup of a data science workflow:</p>
+<p><img alt="data_science_workflow" src="../_images/data_science_workflow_nocv.JPG" /></p>
+<p>By keeping the training and test sets separate, you can get a more realistic estimate of your model’s performance on new, unseen data. This helps you build models that are not only accurate on the data they were trained on but also generalize well to real-world scenarios.</p>
+</section>
+</section>
+<section id="overfitting-and-underfitting-finding-the-right-balance">
+<h2>Overfitting and Underfitting: Finding the Right Balance<a class="headerlink" href="#overfitting-and-underfitting-finding-the-right-balance" title="Permalink to this heading">#</a></h2>
+<p>In the world of machine learning, finding the right balance between model complexity and generalization is crucial. This balance is often framed as the challenge of avoiding overfitting and underfitting.</p>
+<section id="overfitting-memorizing-the-training-data">
+<h3>Overfitting: Memorizing the Training Data<a class="headerlink" href="#overfitting-memorizing-the-training-data" title="Permalink to this heading">#</a></h3>
+<p>Overfitting occurs when a model learns the training data too well, capturing noise and random fluctuations instead of the underlying patterns. Think of it as memorizing the answers to an exam instead of understanding the concepts. An overfit model will perform exceptionally well on the training data but poorly on new, unseen data.</p>
+<p>Signs of Overfitting:</p>
+<ul class="simple">
+<li><p>High accuracy on the training data but significantly lower accuracy on the test data.</p></li>
+<li><p>Complex decision boundaries that seem to “snake” around individual data points.</p></li>
+<li><p>The model relies heavily on specific features or values that might not generalize well.</p></li>
+</ul>
+</section>
+<section id="underfitting-missing-the-mark">
+<h3>Underfitting: Missing the Mark<a class="headerlink" href="#underfitting-missing-the-mark" title="Permalink to this heading">#</a></h3>
+<p>Underfitting occurs when a model is too simple to capture the underlying patterns in the data. It’s like trying to solve a complex problem with a basic tool. An underfit model will have low accuracy on both the training data and the test data.</p>
+<p>Signs of Underfitting:</p>
+<ul class="simple">
+<li><p>Low accuracy on both the training and test data.</p></li>
+<li><p>The model fails to capture obvious trends or patterns.</p></li>
+<li><p>Decision boundaries are too simplistic and don’t adequately separate the classes or predict the values.</p></li>
+</ul>
+</section>
+<section id="techniques-to-address-overfitting-and-underfitting">
+<h3>Techniques to Address Overfitting and Underfitting<a class="headerlink" href="#techniques-to-address-overfitting-and-underfitting" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Regularization:</p></li>
+<li><p>L1 and L2 regularization: These techniques add penalty terms to the model’s loss function, discouraging overly complex models and preventing overfitting.</p></li>
+<li><p>Adjusting Model Complexity:</p></li>
+<li><p>Decision Trees: Control tree depth, minimum samples per leaf, and other hyperparameters to limit complexity.</p></li>
+<li><p>KNN: Adjust the number of neighbors (k) to find a balance between overfitting (low k) and underfitting (high k).</p></li>
+<li><p>Linear/Logistic Regression: Consider using fewer features or simpler models if overfitting is a concern.</p></li>
+<li><p>Collecting More Data: More data can help the model learn a more robust and generalizable representation of the underlying patterns, reducing the risk of overfitting.</p></li>
+<li><p>Cross-Validation: Techniques like k-fold cross-validation can help you assess how well your model generalizes to unseen data and choose the best hyperparameters to prevent overfitting. We’ll see more of this in the next section.</p></li>
+</ul>
+<p>Finding the right balance between overfitting and underfitting is an iterative process that often involves experimentation and careful tuning of model hyperparameters. By understanding the causes and signs of these issues, you can take steps to mitigate them and build models that are both accurate and reliable.</p>
+</section>
+</section>
+<section id="cross-validation-robustness-and-generalization">
+<h2>Cross-Validation: Robustness and Generalization<a class="headerlink" href="#cross-validation-robustness-and-generalization" title="Permalink to this heading">#</a></h2>
+<p>Evaluating a model’s performance on the same data it was trained on can lead to overly optimistic results. A model might perform well on the training data simply because it has memorized it, but it might fail to generalize to new, unseen data. This is where cross-validation comes in.</p>
+<p>The Importance of Unseen Data</p>
+<p>Cross-validation is a technique for assessing how well a model generalizes to unseen data by systematically evaluating its performance on different subsets of the data. It helps us estimate how well the model is likely to perform in the real world when faced with new data points.</p>
+<p>Cross-Validation Techniques</p>
+<ul class="simple">
+<li><p>k-fold Cross-Validation:</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>The data is divided into k equally sized folds.</p></li>
+<li><p>The model is trained on k-1 folds and tested on the remaining fold.</p></li>
+<li><p>This process is repeated k times, with each fold serving as the test set once.</p></li>
+<li><p>The average performance across all folds is used as an estimate of the model’s generalization performance.</p></li>
+</ol>
+<p><img alt="cross_validation" src="../_images/cross_validation.JPG" /></p>
+<ul class="simple">
+<li><p>Leave-One-Out Cross-Validation:</p></li>
+<li><p>An extreme case of k-fold cross-validation where k is equal to the number of data points.</p></li>
+<li><p>Each data point is used as the test set once, with the model being trained on the remaining data.</p></li>
+<li><p>Computationally expensive but can be useful for small datasets.</p></li>
+<li><p>Stratified k-fold Cross-Validation:</p></li>
+<li><p>A variation of k-fold cross-validation that ensures each fold has a similar distribution of classes (for classification problems).</p></li>
+<li><p>Especially useful for imbalanced datasets where some classes are underrepresented.</p></li>
+</ul>
+<p>Using Cross-Validation</p>
+<p>Cross-validation serves two primary purposes:</p>
+<ol class="arabic simple">
+<li><p>Estimating Model Performance: It provides a more reliable estimate of how well a model is likely to perform on new, unseen data compared to just evaluating it on a single train-test split.</p></li>
+<li><p>Hyperparameter Tuning: Cross-validation can be used to compare the performance of different models or different hyperparameter settings (e.g., the value of k in KNN, the depth of a decision tree). By evaluating different models or settings on multiple folds, you can choose the one that generalizes best.</p></li>
+</ol>
+<p>We can adapt the flowchart we saw above to include cross-validation.</p>
+<p><img alt="data_science_workflow_with_cross-validation" src="../_images/data_science_workflow_cv.JPG" /></p>
+<p>Cross-validation is a valuable tool for building robust and reliable machine learning models. It helps you assess how well your model generalizes to unseen data and make informed decisions about model selection and hyperparameter tuning.</p>
+</section>
+<section id="the-bias-variance-trade-off">
+<h2>The Bias-Variance Trade-off<a class="headerlink" href="#the-bias-variance-trade-off" title="Permalink to this heading">#</a></h2>
+<p>In supervised learning, the bias-variance trade-off is a fundamental concept that describes the relationship between a model’s complexity and its ability to generalize to new data. It’s a balancing act between two sources of error: bias and variance.</p>
+<section id="bias-oversimplification">
+<h3>Bias: Oversimplification<a class="headerlink" href="#bias-oversimplification" title="Permalink to this heading">#</a></h3>
+<p>Bias refers to the error introduced by approximating a real-world problem, which may be extremely complex, with a simplified model. A model with high bias is too simplistic and makes strong assumptions about the data, leading to underfitting. It fails to capture the underlying patterns and relationships, resulting in poor predictions on both training and test data.  
+Think of it like trying to fit a straight line to a curved dataset. No matter how you adjust the line, it won’t capture the true shape of the data.</p>
+</section>
+<section id="variance-sensitivity-to-noise">
+<h3>Variance: Sensitivity to Noise<a class="headerlink" href="#variance-sensitivity-to-noise" title="Permalink to this heading">#</a></h3>
+<p>Variance refers to the error introduced by a model’s excessive sensitivity to fluctuations and noise in the training data. A model with high variance is too complex and overfits the training data, capturing random variations that are not representative of the true underlying patterns. It performs well on the training data but poorly on new, unseen data.</p>
+<p>Imagine trying to fit a highly flexible curve to a noisy dataset. The curve might perfectly capture every data point in the training set, including the noise, but it will likely fail to generalize to new data points.</p>
+</section>
+<section id="the-sweet-spot-finding-the-right-balance">
+<h3>The Sweet Spot: Finding the Right Balance<a class="headerlink" href="#the-sweet-spot-finding-the-right-balance" title="Permalink to this heading">#</a></h3>
+<p>The goal is to find the sweet spot between bias and variance, where the model is complex enough to capture the underlying patterns but not so complex that it overfits the noise. This optimal point minimizes the total error (bias + variance).</p>
+<ul class="simple">
+<li><p>Low Bias, Low Variance: The ideal scenario, but often difficult to achieve in practice.</p></li>
+<li><p>High Bias, Low Variance: Underfitting. The model is too simple.</p></li>
+<li><p>Low Bias, High Variance: Overfitting. The model is too complex.</p></li>
+</ul>
+<p>Visualizing the Bias-Variance Trade-off</p>
+<p><img alt="bias_and_variance" src="../_images/bias_variance.JPG" />
+<a class="reference external" href="https://scott.fortmann-roe.com/docs/BiasVariance.html">(source)</a></p>
+<p>Understanding the bias-variance trade-off is crucial for building effective machine learning models. By carefully adjusting model complexity and using techniques like regularization and cross-validation, you can find the sweet spot that minimizes both bias and variance, leading to models that generalize well to new data.</p>
+</section>
+</section>
+<section id="beyond-the-numbers-interpretability-and-explainability">
+<h2>Beyond the Numbers: Interpretability and Explainability<a class="headerlink" href="#beyond-the-numbers-interpretability-and-explainability" title="Permalink to this heading">#</a></h2>
+<p>While predictive accuracy is a primary goal in supervised learning, it’s often not enough. In many applications, understanding how a model makes its decisions is just as important, especially when those decisions have real-world consequences. This is where interpretability and explainability come into play.</p>
+<section id="the-importance-of-understanding">
+<h3>The Importance of Understanding<a class="headerlink" href="#the-importance-of-understanding" title="Permalink to this heading">#</a></h3>
+<p>Interpretability refers to the ability to understand the underlying mechanisms and logic of a model. It allows us to:</p>
+<ul class="simple">
+<li><p>Build Trust: If we can understand how a model works, we’re more likely to trust its predictions. This is crucial in areas like healthcare, finance, and criminal justice, where decisions based on AI models can have significant impacts on people’s lives.</p></li>
+<li><p>Debug and Improve: Interpretability helps us identify potential biases, errors, or limitations in the model, allowing us to debug and improve it.</p></li>
+<li><p>Ensure Fairness: Understanding how a model makes decisions is essential for ensuring that it’s not discriminating against certain groups or individuals.</p></li>
+</ul>
+</section>
+<section id="interpretable-models">
+<h3>Interpretable Models<a class="headerlink" href="#interpretable-models" title="Permalink to this heading">#</a></h3>
+<p>Some models are inherently more interpretable than others:</p>
+<ul class="simple">
+<li><p>Decision Trees: The tree-like structure of decision trees provides a clear visualization of the decision-making process. We can trace the path from the root node to the leaf nodes to understand how the model arrived at a particular prediction.</p></li>
+<li><p>Linear Regression: The coefficients in linear regression tell us the relationship between each predictor variable and the target variable. We can see which features are most important and how they influence the prediction.</p></li>
+<li><p>Rule-Based Systems: These models explicitly define rules for making predictions, making the decision-making process transparent.</p></li>
+</ul>
+</section>
+<section id="explainable-ai-xai-for-complex-models">
+<h3>Explainable AI (XAI) for Complex Models<a class="headerlink" href="#explainable-ai-xai-for-complex-models" title="Permalink to this heading">#</a></h3>
+<p>For more complex models like deep neural networks, interpretability can be challenging. This has led to the development of Explainable AI (XAI) techniques, which aim to provide insights into how these black-box models make decisions. Some popular XAI techniques include:</p>
+<ul class="simple">
+<li><p>SHAP (SHapley Additive exPlanations): SHAP values assign importance scores to each feature, showing how much each feature contributes to a prediction.</p></li>
+<li><p>LIME (Local Interpretable Model-agnostic Explanations): LIME creates a simple, interpretable model (like a linear model) that approximates the behavior of the complex model in the local neighborhood of a specific prediction.</p></li>
+</ul>
+</section>
+<section id="balancing-interpretability-and-performance">
+<h3>Balancing Interpretability and Performance<a class="headerlink" href="#balancing-interpretability-and-performance" title="Permalink to this heading">#</a></h3>
+<p>There’s often a trade-off between interpretability and predictive performance. Highly interpretable models (like decision trees or linear models) might not be as accurate as more complex models (like deep neural networks). The choice depends on the specific application and the relative importance of interpretability and accuracy.</p>
+<p>In some cases, interpretability might be paramount, even if it means sacrificing some accuracy. In other cases, high predictive performance might be the priority, and explainability techniques can be used to gain some insights into the model’s behavior.</p>
+<p>By carefully considering the interpretability of your models and using appropriate XAI techniques when needed, you can build AI systems that are not only accurate but also transparent and trustworthy.</p>
+</section>
+</section>
+<section id="data-quality-and-bias-garbage-in-garbage-out">
+<h2>Data Quality and Bias: Garbage In, Garbage Out<a class="headerlink" href="#data-quality-and-bias-garbage-in-garbage-out" title="Permalink to this heading">#</a></h2>
+<p>The old adage “garbage in, garbage out” holds true in machine learning. The quality of your data and the presence of biases can significantly impact the performance and fairness of your models.</p>
+<section id="the-impact-of-data-quality">
+<h3>The Impact of Data Quality<a class="headerlink" href="#the-impact-of-data-quality" title="Permalink to this heading">#</a></h3>
+<p>Data quality issues can manifest in various ways:</p>
+<ul class="simple">
+<li><p>Missing Values: Missing data can lead to incomplete or biased models. Strategies for handling missing values include imputation (filling in missing values) or removing rows/columns with missing data.</p></li>
+<li><p>Outliers: Extreme values can disproportionately influence model training, especially for algorithms sensitive to outliers (like linear regression). Identifying and handling outliers appropriately (e.g., through transformation or removal) is crucial.</p></li>
+<li><p>Inconsistent Data: Inconsistent data, such as different formats for dates or names, can lead to errors and inconsistencies in model training. Data cleaning and standardization are essential to address this.</p></li>
+<li><p>Biased Samples and Their Consequences</p></li>
+</ul>
+<p>Even with high-quality data, biased samples can lead to models that perpetuate and amplify existing societal biases. This can result in:</p>
+<ul class="simple">
+<li><p>Unfair or Discriminatory Outcomes: A model trained on biased data might make unfair predictions or decisions that disproportionately affect certain groups (e.g., denying loans to people based on their race or gender).</p></li>
+<li><p>Perpetuating Societal Biases: If a model is trained on data that reflects existing societal biases, it can reinforce and even worsen these biases, leading to a vicious cycle of discrimination.</p></li>
+</ul>
+<p>Example: Imagine a model trained on historical travel data that contains a bias towards recommending more expensive destinations to white customers and less expensive destinations to Black customers. This model would perpetuate harmful stereotypes and limit opportunities for both groups.</p>
+</section>
+<section id="strategies-for-mitigating-bias">
+<h3>Strategies for Mitigating Bias<a class="headerlink" href="#strategies-for-mitigating-bias" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Careful Data Collection: Ensure that your data is collected in a way that is representative of the population you’re interested in and that avoids systematic biases.</p></li>
+<li><p>Preprocessing: Use preprocessing techniques to identify and mitigate potential biases in the data. This might involve removing sensitive features, balancing class distributions, or applying fairness-aware data transformations.</p></li>
+<li><p>Fairness-Aware Algorithms: Explore algorithms and techniques specifically designed to address fairness concerns, such as fairness constraints or adversarial debiasing.</p></li>
+<li><p>Fairness Metrics: Use fairness metrics to evaluate your models and identify potential biases. These metrics can measure disparities in error rates, false positive rates, or other performance indicators across different groups.</p></li>
+</ul>
+<p>Addressing data quality and bias is not just a technical issue; it’s an ethical imperative. By being mindful of these challenges and taking proactive steps to mitigate them, you can build AI systems that are fair, equitable, and beneficial for everyone.</p>
+</section>
+</section>
+<section id="ethics-inclusion-and-diversity-in-ai">
+<h2>Ethics, Inclusion, and Diversity in AI<a class="headerlink" href="#ethics-inclusion-and-diversity-in-ai" title="Permalink to this heading">#</a></h2>
+<p>As AI systems become increasingly integrated into various aspects of our lives, it’s crucial to address the ethical considerations associated with their development and deployment. Building AI responsibly requires not only technical expertise but also a deep understanding of the potential impact on individuals and society.</p>
+<section id="ethical-considerations">
+<h3>Ethical Considerations<a class="headerlink" href="#ethical-considerations" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Privacy Concerns: AI models often rely on vast amounts of data, raising concerns about the privacy and security of personal information. It’s essential to ensure that data is collected and used responsibly, with appropriate safeguards in place to protect privacy.</p></li>
+<li><p>Accountability and Transparency: When AI systems make decisions that affect people’s lives, it’s important to establish clear lines of accountability and ensure that the decision-making process is transparent and explainable. This allows for scrutiny, identification of potential biases, and rectification of errors.</p></li>
+<li><p>Potential for Misuse: AI models can be misused for malicious purposes, such as creating deepfakes, spreading misinformation, or automating surveillance. It’s crucial to develop safeguards and ethical guidelines to prevent the misuse of AI and ensure its responsible development and deployment.</p></li>
+</ul>
+</section>
+<section id="promoting-inclusion-and-diversity">
+<h3>Promoting Inclusion and Diversity<a class="headerlink" href="#promoting-inclusion-and-diversity" title="Permalink to this heading">#</a></h3>
+<p>Building AI that benefits everyone requires a commitment to inclusion and diversity throughout the development process. This involves:</p>
+<ul class="simple">
+<li><p>Avoiding Biased Datasets and Algorithms: Biases in data can lead to biased models. It’s essential to carefully curate training data, ensuring that it’s representative of diverse populations and free from harmful stereotypes. Similarly, algorithms should be designed to be fairness-aware and avoid perpetuating existing biases.</p></li>
+<li><p>Ensuring Fair Representation: The teams developing AI systems should be diverse and inclusive, representing a wide range of perspectives and backgrounds. This helps to identify and address potential biases and ensures that the technology is developed with a broader understanding of its potential impact on different communities.</p></li>
+<li><p>Considering the Impact on Diverse Communities: It’s crucial to consider how AI systems might affect different communities, particularly marginalized or vulnerable groups. AI should be developed and deployed in a way that promotes equity and avoids exacerbating existing inequalities.</p></li>
+</ul>
+<p>Building ethical and inclusive AI is an ongoing process that requires collaboration between researchers, developers, policymakers, and the public. By prioritizing fairness, transparency, and accountability, we can harness the power of AI for good and create a future where technology benefits everyone.</p>
+</section>
+</section>
+<section id="conclusion-building-responsible-and-effective-ai">
+<h2>Conclusion: Building Responsible and Effective AI<a class="headerlink" href="#conclusion-building-responsible-and-effective-ai" title="Permalink to this heading">#</a></h2>
+<p>In this chapter, we’ve moved beyond simply building models to understanding what makes them truly “good.” We’ve explored a range of evaluation metrics, from accuracy and error measures to precision-recall trade-offs and lift. We’ve delved into the crucial concepts of bias and variance, overfitting and underfitting, and the importance of cross-validation for robust model assessment. We’ve also recognized that evaluation goes beyond numbers, encompassing interpretability, explainability, and the ethical considerations surrounding data quality, bias, and fairness.</p>
+<p>Building effective AI involves a multifaceted approach. It requires not only technical expertise in selecting and training algorithms but also a deep understanding of the data, the potential biases it might contain, and the impact our models can have on individuals and society. As we develop increasingly sophisticated AI systems, it’s essential to prioritize fairness, transparency, and accountability, ensuring that our models are used responsibly and ethically.</p>
+<p>But the journey of AI exploration doesn’t stop here. In the next chapter, we’ll venture into the fascinating world of deep learning, where complex neural networks with multiple layers unlock new possibilities for solving intricate problems. Get ready to dive into the depths of deep learning and discover how these powerful models can transform the way we interact with data and the world around us.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-beyond-accuracy">Introduction: Beyond Accuracy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-metrics">Performance Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-metrics-measuring-predictive-accuracy">Classification Metrics: Measuring Predictive Accuracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix-in-a-multiclass-situation">Confusion Matrix in a Multiclass Situation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-classification-performance-metrics">Summary of Classification Performance Metrics</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-metrics-measuring-predictive-accuracy">Regression Metrics: Measuring Predictive Accuracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#error-metrics">Error Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation:</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variability-metrics">Variability Metrics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interpretation:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-right-metrics">Choosing the Right Metrics</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-test-sets-the-importance-of-separation">Training and Test Sets: The Importance of Separation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-and-underfitting-finding-the-right-balance">Overfitting and Underfitting: Finding the Right Balance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-memorizing-the-training-data">Overfitting: Memorizing the Training Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underfitting-missing-the-mark">Underfitting: Missing the Mark</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#techniques-to-address-overfitting-and-underfitting">Techniques to Address Overfitting and Underfitting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-robustness-and-generalization">Cross-Validation: Robustness and Generalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bias-variance-trade-off">The Bias-Variance Trade-off</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-oversimplification">Bias: Oversimplification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-sensitivity-to-noise">Variance: Sensitivity to Noise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sweet-spot-finding-the-right-balance">The Sweet Spot: Finding the Right Balance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-the-numbers-interpretability-and-explainability">Beyond the Numbers: Interpretability and Explainability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-importance-of-understanding">The Importance of Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretable-models">Interpretable Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explainable-ai-xai-for-complex-models">Explainable AI (XAI) for Complex Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balancing-interpretability-and-performance">Balancing Interpretability and Performance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-and-bias-garbage-in-garbage-out">Data Quality and Bias: Garbage In, Garbage Out</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-impact-of-data-quality">The Impact of Data Quality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategies-for-mitigating-bias">Strategies for Mitigating Bias</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethics-inclusion-and-diversity-in-ai">Ethics, Inclusion, and Diversity in AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ethical-considerations">Ethical Considerations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#promoting-inclusion-and-diversity">Promoting Inclusion and Diversity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-building-responsible-and-effective-ai">Conclusion: Building Responsible and Effective AI</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Chidi Nweke, Aimée Backiel, Daan Nijs, and Kenric Borgelioen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
