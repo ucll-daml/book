@@ -10,3 +10,5 @@ chapters:
 - file: chapter_4/chapter4.ipynb
 - file: chapter_5/chapter5.ipynb
 - file: chapter_6/chapter6.ipynb
+- file: chapter_7/chapter7.ipynb
+- file: conclusion/conclusion.ipynb
