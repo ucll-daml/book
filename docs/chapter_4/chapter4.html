@@ -64,6 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_4/chapter4';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 5: What makes good models good and bad models bad?" href="../chapter_5/chapter5.html" />
     <link rel="prev" title="Chapter 3: Charting the unknown: stocking your explorer’s toolkit" href="../chapter_3/chapter3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -160,6 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_2/chapter2.html">Chapter 2: Bringing the right equipment to start your data adventure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_3/chapter3.html">Chapter 3: Charting the unknown: stocking your explorer’s toolkit</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 4: AI isn’t magic, but it’s okay if it feels like it</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5/chapter5.html">Chapter 5: What makes good models good and bad models bad?</a></li>
 </ul>
 
     </div>
@@ -353,50 +355,48 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-intuition-to-algorithms">From Intuition to Algorithms</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-basic-rules-capturing-relationships">Beyond Basic Rules: Capturing Relationships</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-vs-regression-predicting-categories-or-values">Classification vs. Regression: Predicting Categories or Values</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-predicting-categories">Classification: Predicting Categories</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-in-the-travel-agency-context">Examples in the Travel Agency Context:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-intuition-to-algorithms">From Intuition to Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-basic-rules-capturing-relationships">Beyond Basic Rules: Capturing Relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-vs-regression-predicting-categories-or-values">Classification vs. Regression: Predicting Categories or Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-predicting-categories">Classification: Predicting Categories</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-in-the-travel-agency-context">Examples in the Travel Agency Context:</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-predicting-values">Regression: Predicting Values</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Examples in the Travel Agency Context:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-predicting-values">Regression: Predicting Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Examples in the Travel Agency Context:</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-right-task">Choosing the Right Task</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-right-task">Choosing the Right Task</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-knn-intuition-and-implementation">K-Nearest Neighbors (KNN): Intuition and Implementation</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-similarity-distance-metrics">Defining Similarity: Distance Metrics</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-knn-algorithm-finding-the-neighbors">The KNN Algorithm: Finding the Neighbors</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-value-of-k">Choosing the Value of k</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-knn-intuition-and-implementation">K-Nearest Neighbors (KNN): Intuition and Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-similarity-distance-metrics">Defining Similarity: Distance Metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-knn-algorithm-finding-the-neighbors">The KNN Algorithm: Finding the Neighbors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-value-of-k">Choosing the Value of k</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-examples-with-travel-agency-data">Illustrative Examples with Travel Agency Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-examples-with-travel-agency-data">Illustrative Examples with Travel Agency Data</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detour-preprocessing-preparing-your-data-for-supervised-learning">Detour: Preprocessing - Preparing Your Data for Supervised Learning</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-scaling-leveling-the-playing-field">Feature Scaling: Leveling the Playing Field</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding-representing-categorical-variables">One-Hot Encoding: Representing Categorical Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detour-preprocessing-preparing-your-data-for-supervised-learning">Detour: Preprocessing - Preparing Your Data for Supervised Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-scaling-leveling-the-playing-field">Feature Scaling: Leveling the Playing Field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding-representing-categorical-variables">One-Hot Encoding: Representing Categorical Variables</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees-branching-paths-to-predictions">Decision Trees: Branching Paths to Predictions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-capturing-linear-relationships">Linear Regression: Capturing Linear Relationships</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-a-line">The Equation of a Line:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-best-fitting-line-minimizing-the-error">Finding the Best-Fitting Line: Minimizing the Error</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-coefficients">Interpreting the Coefficients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees-branching-paths-to-predictions">Decision Trees: Branching Paths to Predictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-capturing-linear-relationships">Linear Regression: Capturing Linear Relationships</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-a-line">The Equation of a Line:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-best-fitting-line-minimizing-the-error">Finding the Best-Fitting Line: Minimizing the Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-coefficients">Interpreting the Coefficients</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-predicting-probabilities">Logistic Regression: Predicting Probabilities</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sigmoid-function-mapping-values-to-probabilities">The Sigmoid Function: Mapping Values to Probabilities</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-for-binary-classification">Logistic Regression for Binary Classification</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-coefficients">Interpreting Coefficients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-predicting-probabilities">Logistic Regression: Predicting Probabilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sigmoid-function-mapping-values-to-probabilities">The Sigmoid Function: Mapping Values to Probabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-for-binary-classification">Logistic Regression for Binary Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-coefficients">Interpreting Coefficients</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-the-power-of-predictive-modeling">Conclusion: The Power of Predictive Modeling</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-the-power-of-predictive-modeling">Conclusion: The Power of Predictive Modeling</a></li>
 </ul>
             </nav>
         </div>
@@ -424,19 +424,20 @@ document.write(`
 <p>But this quickly becomes overwhelming. What if we could extract these decision-making rules directly from the data itself? This is the essence of supervised learning.</p>
 <p>The core intuition behind supervised learning is simple: similar inputs should lead to similar outputs. A young adventurer booking a trip to the mountains is likely to have similar preferences to another young adventurer. But how do we define “similar”? This leads us to algorithms like K-Nearest Neighbors (KNN), which classify new data points based on their proximity to known data points.</p>
 <p>This is where the magic of AI starts to emerge. We’re not explicitly programming the rules; we’re allowing the algorithm to learn them from the data. Sometimes, the output we want is a simple yes/no (classification, like predicting whether a customer will book a trip). Other times, it’s a continuous value (regression, like predicting the price a customer is willing to pay).</p>
+</section>
 <section id="beyond-basic-rules-capturing-relationships">
-<h3>Beyond Basic Rules: Capturing Relationships<a class="headerlink" href="#beyond-basic-rules-capturing-relationships" title="Permalink to this heading">#</a></h3>
+<h2>Beyond Basic Rules: Capturing Relationships<a class="headerlink" href="#beyond-basic-rules-capturing-relationships" title="Permalink to this heading">#</a></h2>
 <p>But we can be even smarter. Instead of just looking at similar inputs, what if we could learn a more general relationship between the input and output? This is where linear regression comes in. Remember those correlations we explored? Linear regression is like their sophisticated cousin, finding the best-fitting line to capture the relationship between two variables. It’s also related to the concept of variance, though the exact details of how these statistical concepts intertwine can remain a bit magical for now.</p>
 <p>In this chapter, we’ll delve into these fundamental supervised learning algorithms, exploring how they work, how to train them, and how to evaluate their performance. We’ll also learn about essential techniques like feature scaling, which ensures that all our variables are on a level playing field. Get ready to unlock the power of predictive modeling and witness how AI can transform data into actionable insights.</p>
 </section>
 <section id="classification-vs-regression-predicting-categories-or-values">
-<h3>Classification vs. Regression: Predicting Categories or Values<a class="headerlink" href="#classification-vs-regression-predicting-categories-or-values" title="Permalink to this heading">#</a></h3>
+<h2>Classification vs. Regression: Predicting Categories or Values<a class="headerlink" href="#classification-vs-regression-predicting-categories-or-values" title="Permalink to this heading">#</a></h2>
 <p>In the realm of supervised learning, there are two primary types of tasks: classification and regression. The choice between them depends on the nature of the output you’re trying to predict.</p>
 <section id="classification-predicting-categories">
-<h4>Classification: Predicting Categories<a class="headerlink" href="#classification-predicting-categories" title="Permalink to this heading">#</a></h4>
+<h3>Classification: Predicting Categories<a class="headerlink" href="#classification-predicting-categories" title="Permalink to this heading">#</a></h3>
 <p>Classification tasks involve predicting a categorical or discrete output. The goal is to assign a data point to one of several predefined categories or classes. Think of it as sorting things into different buckets.</p>
 <section id="examples-in-the-travel-agency-context">
-<h5>Examples in the Travel Agency Context:<a class="headerlink" href="#examples-in-the-travel-agency-context" title="Permalink to this heading">#</a></h5>
+<h4>Examples in the Travel Agency Context:<a class="headerlink" href="#examples-in-the-travel-agency-context" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Predicting whether a customer will book a trip (yes/no).</p></li>
 <li><p>Classifying customer reviews as positive, negative, or neutral.</p></li>
@@ -445,10 +446,10 @@ document.write(`
 </section>
 </section>
 <section id="regression-predicting-values">
-<h4>Regression: Predicting Values<a class="headerlink" href="#regression-predicting-values" title="Permalink to this heading">#</a></h4>
+<h3>Regression: Predicting Values<a class="headerlink" href="#regression-predicting-values" title="Permalink to this heading">#</a></h3>
 <p>Regression tasks involve predicting a continuous or numerical output. The goal is to estimate a value for a given input. Think of it as drawing a line or curve that best fits the data.</p>
 <section id="id1">
-<h5>Examples in the Travel Agency Context:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h5>
+<h4>Examples in the Travel Agency Context:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Predicting the cost of a trip.</p></li>
 <li><p>Predicting the length of stay for a customer.</p></li>
@@ -457,7 +458,7 @@ document.write(`
 </section>
 </section>
 <section id="choosing-the-right-task">
-<h4>Choosing the Right Task<a class="headerlink" href="#choosing-the-right-task" title="Permalink to this heading">#</a></h4>
+<h3>Choosing the Right Task<a class="headerlink" href="#choosing-the-right-task" title="Permalink to this heading">#</a></h3>
 <p>The choice between classification and regression depends on the specific question you’re trying to answer, but essentially it’s very straightforward:</p>
 <ul class="simple">
 <li><p>If you want to predict a category or label, use classification.</p></li>
@@ -468,7 +469,7 @@ document.write(`
 </section>
 </section>
 <section id="k-nearest-neighbors-knn-intuition-and-implementation">
-<h3>K-Nearest Neighbors (KNN): Intuition and Implementation<a class="headerlink" href="#k-nearest-neighbors-knn-intuition-and-implementation" title="Permalink to this heading">#</a></h3>
+<h2>K-Nearest Neighbors (KNN): Intuition and Implementation<a class="headerlink" href="#k-nearest-neighbors-knn-intuition-and-implementation" title="Permalink to this heading">#</a></h2>
 <p>Let’s start with a common supervised learning technique that illustrates how this all works.</p>
 <p>The core idea behind K-Nearest Neighbors (KNN) is remarkably simple yet surprisingly powerful. It’s based on the intuition that similar things tend to be located near each other. Think about your own experiences:</p>
 <ul class="simple">
@@ -478,7 +479,7 @@ document.write(`
 </ul>
 <p>KNN applies this same principle to data. It assumes that data points with similar characteristics (features) will be located close to each other in the feature space. This allows us to make predictions about a new data point by looking at its “nearest neighbors” – the data points that are most similar to it.</p>
 <section id="defining-similarity-distance-metrics">
-<h4>Defining Similarity: Distance Metrics<a class="headerlink" href="#defining-similarity-distance-metrics" title="Permalink to this heading">#</a></h4>
+<h3>Defining Similarity: Distance Metrics<a class="headerlink" href="#defining-similarity-distance-metrics" title="Permalink to this heading">#</a></h3>
 <p>But how do we measure “similarity” between data points? KNN uses distance metrics to quantify the similarity between data points in the feature space. Some common distance metrics include:</p>
 <ul class="simple">
 <li><p>Euclidean Distance: The straight-line distance between two points (like the Pythagorean theorem).</p></li>
@@ -488,7 +489,7 @@ document.write(`
 <p>The choice of distance metric can influence the performance of the KNN algorithm, and the best choice often depends on the specific characteristics of the data.</p>
 </section>
 <section id="the-knn-algorithm-finding-the-neighbors">
-<h4>The KNN Algorithm: Finding the Neighbors<a class="headerlink" href="#the-knn-algorithm-finding-the-neighbors" title="Permalink to this heading">#</a></h4>
+<h3>The KNN Algorithm: Finding the Neighbors<a class="headerlink" href="#the-knn-algorithm-finding-the-neighbors" title="Permalink to this heading">#</a></h3>
 <p>The KNN algorithm itself is straightforward:</p>
 <ol class="arabic simple">
 <li><p>Calculate Distances: Calculate the distance between the new data point and all other data points in the training set.</p></li>
@@ -500,23 +501,23 @@ document.write(`
 <li><p>Regression: For regression tasks, predict the value of the new data point by averaging the values of its k-nearest neighbors.</p></li>
 </ul>
 <section id="choosing-the-value-of-k">
-<h5>Choosing the Value of k<a class="headerlink" href="#choosing-the-value-of-k" title="Permalink to this heading">#</a></h5>
+<h4>Choosing the Value of k<a class="headerlink" href="#choosing-the-value-of-k" title="Permalink to this heading">#</a></h4>
 <p>The parameter k (the number of nearest neighbors to consider) is a crucial factor in the performance of the KNN algorithm. A small value of k can lead to overfitting (the model is too sensitive to noise in the data), while a large value of k can lead to underfitting (the model is too simplistic and misses important patterns). The optimal value of k often needs to be determined through experimentation and techniques like cross-validation.</p>
 <p>An alternative approach is to assign weights to the neighbors, so that the closest neighbors will influence the prediction the most and neighbors further away will have much less influence on the prediction.</p>
 </section>
 </section>
 <section id="illustrative-examples-with-travel-agency-data">
-<h4>Illustrative Examples with Travel Agency Data<a class="headerlink" href="#illustrative-examples-with-travel-agency-data" title="Permalink to this heading">#</a></h4>
+<h3>Illustrative Examples with Travel Agency Data<a class="headerlink" href="#illustrative-examples-with-travel-agency-data" title="Permalink to this heading">#</a></h3>
 <p>Let’s see how KNN can be applied to Ada’s travel agency data:</p>
 <p>Predicting Customer Satisfaction (Classification): Imagine Ada wants to predict whether a new customer will be satisfied with their trip based on their age, previous purchases, travel month, and other characteristics. KNN can be used to classify a new customer’s rating based on the rating levels of similar customers in the historical data.</p>
 <p>Predicting Trip Costs (Regression): Ada could also use KNN to predict the cost of a new trip based on factors like destination, duration, number of guests, and travel month. KNN would find similar trips in the past and average their costs to provide an estimate for the new trip.</p>
 </section>
 </section>
 <section id="detour-preprocessing-preparing-your-data-for-supervised-learning">
-<h3>Detour: Preprocessing - Preparing Your Data for Supervised Learning<a class="headerlink" href="#detour-preprocessing-preparing-your-data-for-supervised-learning" title="Permalink to this heading">#</a></h3>
+<h2>Detour: Preprocessing - Preparing Your Data for Supervised Learning<a class="headerlink" href="#detour-preprocessing-preparing-your-data-for-supervised-learning" title="Permalink to this heading">#</a></h2>
 <p>Before feeding our data to a supervised learning algorithm, it’s often (read: almost always) crucial to preprocess it. Preprocessing involves transforming the data into a format that is more suitable for the algorithm, improving its performance, and ensuring reliable results. Here are two common preprocessing techniques: feature scaling and one-hot encoding.</p>
 <section id="feature-scaling-leveling-the-playing-field">
-<h4>Feature Scaling: Leveling the Playing Field<a class="headerlink" href="#feature-scaling-leveling-the-playing-field" title="Permalink to this heading">#</a></h4>
+<h3>Feature Scaling: Leveling the Playing Field<a class="headerlink" href="#feature-scaling-leveling-the-playing-field" title="Permalink to this heading">#</a></h3>
 <p>Many machine learning algorithms, including KNN, are sensitive to the scale of the features (variables). If one feature has a much larger range of values than others, it can dominate the distance calculations and unfairly influence the model. Feature scaling helps to address this issue by bringing all features to a similar scale.</p>
 <p>Common Scaling Techniques:</p>
 <ul class="simple">
@@ -535,7 +536,7 @@ document.write(`
 </ul>
 </section>
 <section id="one-hot-encoding-representing-categorical-variables">
-<h4>One-Hot Encoding: Representing Categorical Variables<a class="headerlink" href="#one-hot-encoding-representing-categorical-variables" title="Permalink to this heading">#</a></h4>
+<h3>One-Hot Encoding: Representing Categorical Variables<a class="headerlink" href="#one-hot-encoding-representing-categorical-variables" title="Permalink to this heading">#</a></h3>
 <p>Many machine learning algorithms require numerical input. If your data contains categorical variables (like destination type, travel month, etc.), you need to convert them into a numerical format. One-hot encoding is a common technique for this.</p>
 <p>How One-Hot Encoding Works:</p>
 <ol class="arabic simple">
@@ -558,7 +559,7 @@ Let’s say you have a package_type variable with categories ‘adventure’, �
 </section>
 </section>
 <section id="decision-trees-branching-paths-to-predictions">
-<h3>Decision Trees: Branching Paths to Predictions<a class="headerlink" href="#decision-trees-branching-paths-to-predictions" title="Permalink to this heading">#</a></h3>
+<h2>Decision Trees: Branching Paths to Predictions<a class="headerlink" href="#decision-trees-branching-paths-to-predictions" title="Permalink to this heading">#</a></h2>
 <p>Decision trees are a popular supervised learning algorithm known for their interpretability and ability to handle both classification and regression tasks. They visually resemble a tree, with branches representing decision rules and leaves representing outcomes.</p>
 <p>Building a Decision Tree
 The process of building a decision tree involves recursively splitting the data based on features to create increasingly homogeneous subsets. The goal is to find the features and splitting points that best separate the data into groups with similar target values. Common algorithms for building decision trees include ID3, C4.5, and CART.</p>
@@ -586,10 +587,10 @@ Imagine a decision tree for predicting customer satisfaction. The root node migh
 </ul>
 </section>
 <section id="linear-regression-capturing-linear-relationships">
-<h3>Linear Regression: Capturing Linear Relationships<a class="headerlink" href="#linear-regression-capturing-linear-relationships" title="Permalink to this heading">#</a></h3>
+<h2>Linear Regression: Capturing Linear Relationships<a class="headerlink" href="#linear-regression-capturing-linear-relationships" title="Permalink to this heading">#</a></h2>
 <p>Linear regression is a fundamental supervised learning algorithm used for predicting a continuous target variable based on a linear relationship with one or more predictor variables (features). That is to say it is a regression technique, as the name suggests. It’s a cornerstone of statistical modeling and machine learning, providing a simple yet powerful way to capture and quantify relationships between variables.</p>
 <section id="the-equation-of-a-line">
-<h4>The Equation of a Line:<a class="headerlink" href="#the-equation-of-a-line" title="Permalink to this heading">#</a></h4>
+<h3>The Equation of a Line:<a class="headerlink" href="#the-equation-of-a-line" title="Permalink to this heading">#</a></h3>
 <p>At its core, linear regression seeks to find the best-fitting line that represents the relationship between the predictor variable(s) and the target variable. The equation of a line is typically represented as:
 <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">mx</span> <span class="pre">+</span> <span class="pre">b</span></code>
 where:</p>
@@ -602,11 +603,11 @@ In the context of our travel agency, y could be the cost of a trip, and x could 
 </ul>
 </section>
 <section id="finding-the-best-fitting-line-minimizing-the-error">
-<h4>Finding the Best-Fitting Line: Minimizing the Error<a class="headerlink" href="#finding-the-best-fitting-line-minimizing-the-error" title="Permalink to this heading">#</a></h4>
+<h3>Finding the Best-Fitting Line: Minimizing the Error<a class="headerlink" href="#finding-the-best-fitting-line-minimizing-the-error" title="Permalink to this heading">#</a></h3>
 <p>Linear regression aims to find the values of m and c that minimize the difference between the predicted values (y) and the actual values in the training data. This difference is typically measured using the Mean Squared Error (MSE) or the Root Mean Squared Error (RMSE). The most common method for finding the best-fitting line is the least squares method, which minimizes the sum of the squared errors.</p>
 </section>
 <section id="interpreting-the-coefficients">
-<h4>Interpreting the Coefficients<a class="headerlink" href="#interpreting-the-coefficients" title="Permalink to this heading">#</a></h4>
+<h3>Interpreting the Coefficients<a class="headerlink" href="#interpreting-the-coefficients" title="Permalink to this heading">#</a></h3>
 <p>Once the best-fitting line is found, the coefficients (m and b) provide valuable insights into the relationship between the variables:</p>
 <ul class="simple">
 <li><p>Slope (m): Indicates the direction and magnitude of the relationship. A positive slope means that as x increases, y also tends to increase. A negative slope means that as x increases, y tends to decrease. The magnitude of the slope tells you how much y changes for a one-unit change in x.</p></li>
@@ -615,17 +616,17 @@ In the context of our travel agency, y could be the cost of a trip, and x could 
 </section>
 </section>
 <section id="logistic-regression-predicting-probabilities">
-<h3>Logistic Regression: Predicting Probabilities<a class="headerlink" href="#logistic-regression-predicting-probabilities" title="Permalink to this heading">#</a></h3>
+<h2>Logistic Regression: Predicting Probabilities<a class="headerlink" href="#logistic-regression-predicting-probabilities" title="Permalink to this heading">#</a></h2>
 <p>Logistic regression is a powerful supervised learning algorithm used for binary classification tasks, where the goal is to predict the probability of a data point belonging to a particular category. Unlike linear regression, which predicts a continuous output, logistic regression predicts a categorical output (typically 0 or 1). So in this case, the name can be misleading.</p>
 <section id="the-sigmoid-function-mapping-values-to-probabilities">
-<h4>The Sigmoid Function: Mapping Values to Probabilities<a class="headerlink" href="#the-sigmoid-function-mapping-values-to-probabilities" title="Permalink to this heading">#</a></h4>
+<h3>The Sigmoid Function: Mapping Values to Probabilities<a class="headerlink" href="#the-sigmoid-function-mapping-values-to-probabilities" title="Permalink to this heading">#</a></h3>
 <p>The key to logistic regression is the sigmoid function, which takes any input value (positive or negative) and maps it to a value between 0 and 1. This allows us to interpret the output of the logistic regression model as a probability.</p>
 <p>The sigmoid function is defined as:
 <code class="docutils literal notranslate"><span class="pre">sigmoid(z)</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">/</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">exp(-z))</span></code>
 where z is a linear combination of the input features and their weights, similar to the linear equation in linear regression.</p>
 </section>
 <section id="logistic-regression-for-binary-classification">
-<h4>Logistic Regression for Binary Classification<a class="headerlink" href="#logistic-regression-for-binary-classification" title="Permalink to this heading">#</a></h4>
+<h3>Logistic Regression for Binary Classification<a class="headerlink" href="#logistic-regression-for-binary-classification" title="Permalink to this heading">#</a></h3>
 <p>In logistic regression, the sigmoid function is applied to the output of a linear equation to produce a probability. This probability is then used to make a classification decision. A threshold determines whether an instance is considered positive or not. While it can be any number between 0 and 1, let’s assume a threshold of 0.5 is used here:</p>
 <ul class="simple">
 <li><p>If the predicted probability is greater than or equal to 0.5, the data point is classified as 1 (e.g., “customer will book”).</p></li>
@@ -633,17 +634,16 @@ where z is a linear combination of the input features and their weights, similar
 </ul>
 </section>
 <section id="interpreting-coefficients">
-<h4>Interpreting Coefficients<a class="headerlink" href="#interpreting-coefficients" title="Permalink to this heading">#</a></h4>
+<h3>Interpreting Coefficients<a class="headerlink" href="#interpreting-coefficients" title="Permalink to this heading">#</a></h3>
 <p>The coefficients in a logistic regression model can be interpreted in terms of odds ratios. An odds ratio represents the change in the odds of the outcome (belonging to class 1) for a one-unit change in the predictor variable. Odds ratios greater than 1 indicate a positive association, while odds ratios less than 1 indicate a negative association.</p>
 </section>
 </section>
 <section id="conclusion-the-power-of-predictive-modeling">
-<h3>Conclusion: The Power of Predictive Modeling<a class="headerlink" href="#conclusion-the-power-of-predictive-modeling" title="Permalink to this heading">#</a></h3>
+<h2>Conclusion: The Power of Predictive Modeling<a class="headerlink" href="#conclusion-the-power-of-predictive-modeling" title="Permalink to this heading">#</a></h2>
 <p>In this chapter, we’ve ventured into the world of supervised learning, exploring powerful algorithms that enable us to predict outcomes and make informed decisions based on data. We discussed the difference between classification and regression and saw some techniques, like KNN and Decision Trees that can do both, and others, like Linear Regression and Logistic Regression, that are specific for either regression or classification.</p>
 <p>As we’ve seen, each algorithm comes with its own set of assumptions and limitations. KNN relies on the notion of similarity, requiring careful consideration of distance metrics and the optimal number of neighbors. Linear regression assumes a linear relationship between variables, and logistic regression is specifically designed for binary classification tasks. Understanding these nuances is crucial for selecting the right tool for the job and interpreting the results accurately.</p>
 <p>But the power of predictive modeling extends beyond mere technical proficiency. As we build AI systems that increasingly influence our lives, it’s essential to consider the ethical implications of our work. We must strive to create models that are fair, unbiased, and transparent, ensuring that they are used responsibly and do not perpetuate harmful societal biases.</p>
 <p>The journey of supervised learning doesn’t end here. In the next chapter, we’ll look at model evaluation. What distinguishes good models from bad ones? How can we assess their performance, diagnose their weaknesses, and refine them for optimal accuracy and reliability? Get ready to unlock the secrets of model evaluation.</p>
-</section>
 </section>
 </section>
 
@@ -687,6 +687,15 @@ where z is a linear combination of the input features and their weights, similar
         <p class="prev-next-title">Chapter 3: Charting the unknown: stocking your explorer’s toolkit</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../chapter_5/chapter5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 5: What makes good models good and bad models bad?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -705,50 +714,48 @@ where z is a linear combination of the input features and their weights, similar
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-intuition-to-algorithms">From Intuition to Algorithms</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-basic-rules-capturing-relationships">Beyond Basic Rules: Capturing Relationships</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-vs-regression-predicting-categories-or-values">Classification vs. Regression: Predicting Categories or Values</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-predicting-categories">Classification: Predicting Categories</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-in-the-travel-agency-context">Examples in the Travel Agency Context:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-intuition-to-algorithms">From Intuition to Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-basic-rules-capturing-relationships">Beyond Basic Rules: Capturing Relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-vs-regression-predicting-categories-or-values">Classification vs. Regression: Predicting Categories or Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-predicting-categories">Classification: Predicting Categories</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-in-the-travel-agency-context">Examples in the Travel Agency Context:</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-predicting-values">Regression: Predicting Values</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Examples in the Travel Agency Context:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-predicting-values">Regression: Predicting Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Examples in the Travel Agency Context:</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-right-task">Choosing the Right Task</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-right-task">Choosing the Right Task</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-knn-intuition-and-implementation">K-Nearest Neighbors (KNN): Intuition and Implementation</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-similarity-distance-metrics">Defining Similarity: Distance Metrics</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-knn-algorithm-finding-the-neighbors">The KNN Algorithm: Finding the Neighbors</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-value-of-k">Choosing the Value of k</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-knn-intuition-and-implementation">K-Nearest Neighbors (KNN): Intuition and Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-similarity-distance-metrics">Defining Similarity: Distance Metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-knn-algorithm-finding-the-neighbors">The KNN Algorithm: Finding the Neighbors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-value-of-k">Choosing the Value of k</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-examples-with-travel-agency-data">Illustrative Examples with Travel Agency Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-examples-with-travel-agency-data">Illustrative Examples with Travel Agency Data</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detour-preprocessing-preparing-your-data-for-supervised-learning">Detour: Preprocessing - Preparing Your Data for Supervised Learning</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-scaling-leveling-the-playing-field">Feature Scaling: Leveling the Playing Field</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding-representing-categorical-variables">One-Hot Encoding: Representing Categorical Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detour-preprocessing-preparing-your-data-for-supervised-learning">Detour: Preprocessing - Preparing Your Data for Supervised Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-scaling-leveling-the-playing-field">Feature Scaling: Leveling the Playing Field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding-representing-categorical-variables">One-Hot Encoding: Representing Categorical Variables</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees-branching-paths-to-predictions">Decision Trees: Branching Paths to Predictions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-capturing-linear-relationships">Linear Regression: Capturing Linear Relationships</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-a-line">The Equation of a Line:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-best-fitting-line-minimizing-the-error">Finding the Best-Fitting Line: Minimizing the Error</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-coefficients">Interpreting the Coefficients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees-branching-paths-to-predictions">Decision Trees: Branching Paths to Predictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-capturing-linear-relationships">Linear Regression: Capturing Linear Relationships</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-a-line">The Equation of a Line:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-best-fitting-line-minimizing-the-error">Finding the Best-Fitting Line: Minimizing the Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-coefficients">Interpreting the Coefficients</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-predicting-probabilities">Logistic Regression: Predicting Probabilities</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sigmoid-function-mapping-values-to-probabilities">The Sigmoid Function: Mapping Values to Probabilities</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-for-binary-classification">Logistic Regression for Binary Classification</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-coefficients">Interpreting Coefficients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-predicting-probabilities">Logistic Regression: Predicting Probabilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sigmoid-function-mapping-values-to-probabilities">The Sigmoid Function: Mapping Values to Probabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-for-binary-classification">Logistic Regression for Binary Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-coefficients">Interpreting Coefficients</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-the-power-of-predictive-modeling">Conclusion: The Power of Predictive Modeling</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-the-power-of-predictive-modeling">Conclusion: The Power of Predictive Modeling</a></li>
 </ul>
   </nav></div>
 

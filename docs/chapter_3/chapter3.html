@@ -161,6 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_2/chapter2.html">Chapter 2: Bringing the right equipment to start your data adventure</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 3: Charting the unknown: stocking your explorer’s toolkit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_4/chapter4.html">Chapter 4: AI isn’t magic, but it’s okay if it feels like it</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5/chapter5.html">Chapter 5: What makes good models good and bad models bad?</a></li>
 </ul>
 
     </div>
@@ -360,22 +361,24 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-visualization-powerhouse-expanding-your-eda-toolkit">Python’s Visualization Powerhouse: Expanding Your EDA Toolkit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-analysis-understanding-individual-variables">Univariate Analysis: Understanding Individual Variables</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">Categorical Variables</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-results">Interpretation of results</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-charts">Pie Charts</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-variables">Numeric Variables</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-read-a-histogram">How to Read a Histogram:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-read-a-box-plot">How to Read a Box Plot:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-statistical-distributions">Intermezzo: Statistical Distributions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-analysis-and-visualization-unraveling-complex-relationships">Multivariate Analysis and Visualization: Unraveling Complex Relationships</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-data-visualization-communicating-insights-effectively">Best Practices for Data Visualization: Communicating Insights Effectively</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-charting-a-course-to-insight">Conclusion: Charting a Course to Insight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-analysis-understanding-individual-variables">Univariate Analysis: Understanding Individual Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">Categorical Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-results">Interpretation of results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-charts">Pie Charts</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-variables">Numeric Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-read-a-histogram">How to Read a Histogram:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-read-a-box-plot">How to Read a Box Plot:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-statistical-distributions">Intermezzo: Statistical Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-analysis-and-visualization-unraveling-complex-relationships">Multivariate Analysis and Visualization: Unraveling Complex Relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-data-visualization-communicating-insights-effectively">Best Practices for Data Visualization: Communicating Insights Effectively</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-charting-a-course-to-insight">Conclusion: Charting a Course to Insight</a></li>
 </ul>
             </nav>
         </div>
@@ -437,8 +440,9 @@ document.write(`
 </li>
 </ul>
 </section>
+</section>
 <section id="univariate-analysis-understanding-individual-variables">
-<h3>Univariate Analysis: Understanding Individual Variables<a class="headerlink" href="#univariate-analysis-understanding-individual-variables" title="Permalink to this heading">#</a></h3>
+<h2>Univariate Analysis: Understanding Individual Variables<a class="headerlink" href="#univariate-analysis-understanding-individual-variables" title="Permalink to this heading">#</a></h2>
 <p>Remember that univariate analysis focuses on examining a single variable at a time. It’s like getting to know each member of your travel agency team individually before trying to understand how they work together. This initial exploration helps us understand the distribution, central tendency, and spread of each variable, revealing its unique characteristics.</p>
 <p>Let’s continue our adventure with Ada and her parents’ travel agency data, focusing on factors that influence trip prices. We’ll use Python with Pandas, Matplotlib, and Seaborn to explore these individual variables.</p>
 <p>As a reminder, here are the variables Ada has in her dataset:</p>
@@ -461,7 +465,7 @@ document.write(`
 </ul>
 <p>Recall from chapter 2 that these can be divided into categorical and numeric variables. As with our summary statistics in that chapter, we can also create different visualizations for categorical and numeric variables.</p>
 <section id="categorical-variables">
-<h4>Categorical Variables<a class="headerlink" href="#categorical-variables" title="Permalink to this heading">#</a></h4>
+<h3>Categorical Variables<a class="headerlink" href="#categorical-variables" title="Permalink to this heading">#</a></h3>
 <p>Categorical variables represent qualities or characteristics. Examples in our travel data might include package type (e.g., adventure, relaxation, cultural) or travel season (e.g., summer, winter, spring, fall).</p>
 <p>For categorical variables, we often use:</p>
 <ul class="simple">
@@ -587,7 +591,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="interpretation-of-results">
-<h4>Interpretation of results<a class="headerlink" href="#interpretation-of-results" title="Permalink to this heading">#</a></h4>
+<h3>Interpretation of results<a class="headerlink" href="#interpretation-of-results" title="Permalink to this heading">#</a></h3>
 <p>What can we say based on these visualizations?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -849,7 +853,7 @@ Name: count, dtype: int64
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="hjPXKkbSgzlW" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="hjPXKkbSgzlW-next" onclick="window.checkFlip('hjPXKkbSgzlW')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="HzKXZOzPEAjB" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="HzKXZOzPEAjB-next" onclick="window.checkFlip('HzKXZOzPEAjB')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -1196,22 +1200,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("hjPXKkbSgzlW")) {
-            createCards("hjPXKkbSgzlW", "True", "False");
+          if(document.getElementById("HzKXZOzPEAjB")) {
+            createCards("HzKXZOzPEAjB", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardshjPXKkbSgzlW=[
+var cardsHzKXZOzPEAjB=[
     {
         "front": "What can Ada say about how popular each package type is?",
         "back": "They seem to be about the same. Adventure seems slightly less popular."
     }
 ];
-var frontColorshjPXKkbSgzlW= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorshjPXKkbSgzlW= ["var(--dark-blue-gray)" ];
-var textColorshjPXKkbSgzlW= ["var(--snow)" ];
+var frontColorsHzKXZOzPEAjB= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsHzKXZOzPEAjB= ["var(--dark-blue-gray)" ];
+var textColorsHzKXZOzPEAjB= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -1474,7 +1478,7 @@ try_create(); </script></div>
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="vucUCpmglRPP" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="vucUCpmglRPP-next" onclick="window.checkFlip('vucUCpmglRPP')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="MqVNkyLAsgEO" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="MqVNkyLAsgEO-next" onclick="window.checkFlip('MqVNkyLAsgEO')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -1821,28 +1825,28 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("vucUCpmglRPP")) {
-            createCards("vucUCpmglRPP", "True", "False");
+          if(document.getElementById("MqVNkyLAsgEO")) {
+            createCards("MqVNkyLAsgEO", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsvucUCpmglRPP=[
+var cardsMqVNkyLAsgEO=[
     {
         "front": "What do we see about travel months?",
         "back": "We only have trips in the months of January, February, June, July, August, and December. This means we only sell Winter and Summer trips."
     }
 ];
-var frontColorsvucUCpmglRPP= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsvucUCpmglRPP= ["var(--dark-blue-gray)" ];
-var textColorsvucUCpmglRPP= ["var(--snow)" ];
+var frontColorsMqVNkyLAsgEO= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsMqVNkyLAsgEO= ["var(--dark-blue-gray)" ];
+var textColorsMqVNkyLAsgEO= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <p>So after looking at our first two categorical variables, we’ve already learned something interesting about travel seasons. This should raise some questions, such as why don’t we sell trips during Spring and Autumn? Unfortunately, we can’t answer this based on the data alone. We only have information about the trips we have sold. We don’t have any view on trips that haven’t been recorded in our dataset. So this question is something to ask people who work in the travel agency. Are those trips not popular? Not marketed enough? Do we have agreements with hotels which are only open for beach and ski holidays? This is all considered domain knowledge, that is knowledge and expertise gained by working in this field. Combining what we learn from data analysis with domain knowledge shared by experts can help enrich a study, but for the purposed of this course, we’re fousing primarily on the data side of things.</p>
 </section>
 <section id="pie-charts">
-<h4>Pie Charts<a class="headerlink" href="#pie-charts" title="Permalink to this heading">#</a></h4>
+<h3>Pie Charts<a class="headerlink" href="#pie-charts" title="Permalink to this heading">#</a></h3>
 <p>Sometimes students opt for pie charts to visualize categorical variables. While visually appealing, pie charts have several limitations that make them less ideal than other chart types for many data visualization scenarios. They struggle to effectively represent a large number of categories, as the slices become difficult to distinguish and label clearly. Comparing slice sizes can be challenging, especially when slices are of similar size or when the chart has many slices, making it hard to accurately assess proportions. Furthermore, pie charts are not well-suited for showing trends or changes over time. They primarily focus on part-to-whole relationships at a single point in time. Finally, pie charts are less effective than bar charts or other chart types for conveying precise quantitative information, as the viewer must estimate proportions based on angles and area, which can be difficult for humans and therefore less accurate than comparing bar lengths. For these reasons, pie charts should be used sparingly and only when they effectively communicate a simple part-to-whole relationship with a small number of distinct categories.</p>
 <div class="admonition-question-look-at-the-examples-below admonition">
 <p class="admonition-title">Question: Look at the examples below.</p>
@@ -1860,8 +1864,9 @@ try_create(); </script></div>
 </div>
 </div>
 </section>
+</section>
 <section id="numeric-variables">
-<h4>Numeric Variables<a class="headerlink" href="#numeric-variables" title="Permalink to this heading">#</a></h4>
+<h2>Numeric Variables<a class="headerlink" href="#numeric-variables" title="Permalink to this heading">#</a></h2>
 <p>Numeric variables represent quantities. In our travel data, examples might include trip duration (in days), cost (in euros), or number of guests.</p>
 <p>For numeric variables, we often use:</p>
 <ul class="simple">
@@ -1919,9 +1924,8 @@ Name: stay_length, dtype: float64
 </div>
 </div>
 <p>This is a histogram. Let’s break down how to read histograms, one essential visualization for understanding numerical data.</p>
-</section>
 <section id="how-to-read-a-histogram">
-<h4>How to Read a Histogram:<a class="headerlink" href="#how-to-read-a-histogram" title="Permalink to this heading">#</a></h4>
+<h3>How to Read a Histogram:<a class="headerlink" href="#how-to-read-a-histogram" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>X-axis (Horizontal): This axis represents the range of values for the variable you’re analyzing. The axis is divided into bins or intervals. Each bin represents a specific range of values (e.g., trip durations from 0-5 days, 5-10 days, 10-15 days, etc.).</p></li>
 <li><p>Y-axis (Vertical): This axis represents the frequency or count. It shows how many data points fall within each bin. The higher the bar, the more data points fall within that range of values.</p></li>
@@ -1955,7 +1959,7 @@ Name: stay_length, dtype: float64
 <p>This is a box plot, another very commonly used visualization for numeric variables.</p>
 </section>
 <section id="how-to-read-a-box-plot">
-<h4>How to Read a Box Plot:<a class="headerlink" href="#how-to-read-a-box-plot" title="Permalink to this heading">#</a></h4>
+<h3>How to Read a Box Plot:<a class="headerlink" href="#how-to-read-a-box-plot" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Box: The box itself represents the interquartile range (IQR), which contains the middle 50% of the data.</p></li>
 <li><p>Line inside the Box: This line represents the median, the middle value of the data.</p></li>
@@ -1967,8 +1971,9 @@ Name: stay_length, dtype: float64
 </ul>
 <p>Ada is now looking at the box plot of the trip cost. She sees that the box is relatively short, meaning that the prices for most trips are clustered together. Look at those points (shown as small circles) above the upper whisker; these represent some very expensive trips that are considered <em>outliers</em>. The median line is closer to the bottom of the box, so the distribution is likely right skewed.</p>
 </section>
+</section>
 <section id="outliers">
-<h4>Outliers<a class="headerlink" href="#outliers" title="Permalink to this heading">#</a></h4>
+<h2>Outliers<a class="headerlink" href="#outliers" title="Permalink to this heading">#</a></h2>
 <p>We learned about outliers in chapter 2. Here we’ll see how we can determine whether a value should be considered an outlier. It fits well here because the most common method for determining outliers is based on box plots and the Interquartile Range (IQR). Here’s the formula and how it works:</p>
 <ul class="simple">
 <li><p>Calculate the IQR: The IQR is the difference between the 75th percentile (Q3) and the 25th percentile (Q1) of your data. It represents the range containing the middle 50% of your data.</p></li>
@@ -1984,9 +1989,8 @@ Name: stay_length, dtype: float64
  
 Not Always Bad: Outliers are not always bad data. Sometimes they represent genuine extreme values that are important to understand. Don’t automatically delete outliers without careful consideration. They might be indicative of a rare event or an important insight.</p>
 </section>
-</section>
 <section id="intermezzo-statistical-distributions">
-<h3>Intermezzo: Statistical Distributions<a class="headerlink" href="#intermezzo-statistical-distributions" title="Permalink to this heading">#</a></h3>
+<h2>Intermezzo: Statistical Distributions<a class="headerlink" href="#intermezzo-statistical-distributions" title="Permalink to this heading">#</a></h2>
 <p>Understanding statistical distributions is fundamental to interpreting visualizations and performing sound data analysis. A statistical distribution describes how data points are spread across a range of values. Some common distributions include the normal (or Gaussian) distribution, characterized by its bell shape and symmetry around the mean; the uniform distribution, where all values are equally likely; and skewed distributions, where the data is concentrated towards one end of the range. Knowing the underlying distribution of your data helps you understand its characteristics, calculate probabilities, and choose appropriate statistical methods. For instance, many statistical tests assume that the data follows a normal distribution. Visualizations like histograms and density plots provide a visual representation of the distribution, allowing you to assess its shape and identify any deviations from expected patterns. By recognizing and understanding different distributions, you can gain deeper insights from your data and make more informed decisions.</p>
 <p>Here are some common distributions:</p>
 <ol class="arabic simple">
@@ -2000,7 +2004,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/bae6cdad9dd962c94ae18e65b86fd23d44ec6b4ecc11ffe0f51e41260aa735ec.png" src="../_images/bae6cdad9dd962c94ae18e65b86fd23d44ec6b4ecc11ffe0f51e41260aa735ec.png" />
+<img alt="../_images/301599666ff66b4cc7971e0bc8e59469c18e2f5a599e7ac67fd78eac5d63f8ae.png" src="../_images/301599666ff66b4cc7971e0bc8e59469c18e2f5a599e7ac67fd78eac5d63f8ae.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -2014,7 +2018,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/24a09e038ae2ed7085d05cabefd518b175012b383dd4e73f267ed7d8b578725b.png" src="../_images/24a09e038ae2ed7085d05cabefd518b175012b383dd4e73f267ed7d8b578725b.png" />
+<img alt="../_images/b0e201df020fa2465278722ddefe01c6a59cf31420cecd2b344e0788ba620fad.png" src="../_images/b0e201df020fa2465278722ddefe01c6a59cf31420cecd2b344e0788ba620fad.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -2028,7 +2032,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/bd20ecf75f833e5716f5e3cf07191cc0e7ab33c4627c6c6f6ee612316aacde50.png" src="../_images/bd20ecf75f833e5716f5e3cf07191cc0e7ab33c4627c6c6f6ee612316aacde50.png" />
+<img alt="../_images/d4a8564edae2af7e199bd05575f025681b56e731add457dc5432ab5db46ae258.png" src="../_images/d4a8564edae2af7e199bd05575f025681b56e731add457dc5432ab5db46ae258.png" />
 </div>
 </div>
 <ol class="arabic simple" start="4">
@@ -2042,7 +2046,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/88da4be105a790b80ab74c7ddcdabbf2f8b9e10a84cdfad2894e375d473a87a4.png" src="../_images/88da4be105a790b80ab74c7ddcdabbf2f8b9e10a84cdfad2894e375d473a87a4.png" />
+<img alt="../_images/37fbc4d3b22cf1b611ea9d3ac0f0719f45137b48ed7ce23d994069afd4e5a8f2.png" src="../_images/37fbc4d3b22cf1b611ea9d3ac0f0719f45137b48ed7ce23d994069afd4e5a8f2.png" />
 </div>
 </div>
 <ol class="arabic simple" start="5">
@@ -2056,13 +2060,13 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/dfcbaa1862c506437fc9bbbb90acdf6161f1c97c26dfbbb312e5c216c112d9a4.png" src="../_images/dfcbaa1862c506437fc9bbbb90acdf6161f1c97c26dfbbb312e5c216c112d9a4.png" />
+<img alt="../_images/816dce2cdfa962a5dab92d909a7cf9f99f52924e5da0e4660118fc034ef56fb4.png" src="../_images/816dce2cdfa962a5dab92d909a7cf9f99f52924e5da0e4660118fc034ef56fb4.png" />
 </div>
 </div>
 <p>Understanding these distributions is crucial for choosing appropriate statistical methods and interpreting your results. Visualizing your data using histograms is essential for getting a sense of which distribution might be a good fit. Remember that these are just a few of the many statistical distributions available. The best distribution to use depends on the specific nature of your data and the questions you are trying to answer.</p>
 </section>
 <section id="multivariate-analysis-and-visualization-unraveling-complex-relationships">
-<h3>Multivariate Analysis and Visualization: Unraveling Complex Relationships<a class="headerlink" href="#multivariate-analysis-and-visualization-unraveling-complex-relationships" title="Permalink to this heading">#</a></h3>
+<h2>Multivariate Analysis and Visualization: Unraveling Complex Relationships<a class="headerlink" href="#multivariate-analysis-and-visualization-unraveling-complex-relationships" title="Permalink to this heading">#</a></h2>
 <p>As we delve deeper into our data adventure, we often encounter scenarios where understanding the interplay between multiple variables is crucial. Multivariate analysis allows us to explore these complex relationships, uncovering hidden patterns and dependencies that would be missed by examining variables in isolation. Visualizations play a vital role in making these multi-dimensional relationships understandable and insightful.</p>
 <p>Here are some key visualization techniques for exploring multivariate data:</p>
 <ol class="arabic simple">
@@ -2412,7 +2416,7 @@ Not Always Bad: Outliers are not always bad data. Sometimes they represent genui
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="WRrAlGnqUeJr" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="WRrAlGnqUeJr-next" onclick="window.checkFlip('WRrAlGnqUeJr')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="RnWSrGDwAMxf" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="RnWSrGDwAMxf-next" onclick="window.checkFlip('RnWSrGDwAMxf')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -2759,22 +2763,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("WRrAlGnqUeJr")) {
-            createCards("WRrAlGnqUeJr", "True", "False");
+          if(document.getElementById("RnWSrGDwAMxf")) {
+            createCards("RnWSrGDwAMxf", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsWRrAlGnqUeJr=[
+var cardsRnWSrGDwAMxf=[
     {
         "front": "Which pair of variables has the strongest positive correlation?",
         "back": "Two pairs of variables have a 0.99 correlation coefficient:<br>stay_length and cost<br>margin and cost"
     }
 ];
-var frontColorsWRrAlGnqUeJr= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsWRrAlGnqUeJr= ["var(--dark-blue-gray)" ];
-var textColorsWRrAlGnqUeJr= ["var(--snow)" ];
+var frontColorsRnWSrGDwAMxf= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsRnWSrGDwAMxf= ["var(--dark-blue-gray)" ];
+var textColorsRnWSrGDwAMxf= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <div class="cell docutils container">
@@ -2807,7 +2811,7 @@ try_create(); </script></div>
 <p>Choosing the right visualization depends on the specific data and the questions you want to answer. For example, if you want to see how trip price, duration, and the number of travelers relate, a 3D scatter plot (or even better, an interactive one) might be appropriate. If you want to explore all pairwise correlations between many numerical variables, a scatter plot matrix is a better choice. Heatmaps are excellent for visualizing correlation matrices. Parallel coordinate plots are useful for comparing observations across multiple variables. Treemaps help visualize hierarchical data, and network graphs are ideal for showing relationships between entities. By mastering these techniques, you can effectively analyze and visualize complex multivariate data, unlocking deeper insights and driving better decisions.</p>
 </section>
 <section id="best-practices-for-data-visualization-communicating-insights-effectively">
-<h3>Best Practices for Data Visualization: Communicating Insights Effectively<a class="headerlink" href="#best-practices-for-data-visualization-communicating-insights-effectively" title="Permalink to this heading">#</a></h3>
+<h2>Best Practices for Data Visualization: Communicating Insights Effectively<a class="headerlink" href="#best-practices-for-data-visualization-communicating-insights-effectively" title="Permalink to this heading">#</a></h2>
 <p>Creating effective data visualizations is not just about generating a chart; it’s about communicating insights clearly and accurately. Following best practices ensures that your visualizations are easily understood, avoid misleading interpretations, and are accessible to a wider audience.</p>
 <ol class="arabic simple">
 <li><p>Choosing the Right Visualization: The most crucial step is selecting the chart type that best suits your data and the message you want to convey. Consider:</p>
@@ -2838,11 +2842,10 @@ try_create(); </script></div>
 <p>By adhering to these best practices, you can create data visualizations that are not only visually appealing but also effective in communicating insights clearly, accurately, and ethically. Remember that the goal of data visualization is to inform and enlighten, not to mislead or confuse.</p>
 </section>
 <section id="conclusion-charting-a-course-to-insight">
-<h3>Conclusion: Charting a Course to Insight<a class="headerlink" href="#conclusion-charting-a-course-to-insight" title="Permalink to this heading">#</a></h3>
+<h2>Conclusion: Charting a Course to Insight<a class="headerlink" href="#conclusion-charting-a-course-to-insight" title="Permalink to this heading">#</a></h2>
 <p>This chapter has equipped you with the essential tools and techniques for Exploratory Data Analysis (EDA) with a strong focus on data visualization. We’ve journeyed from univariate analysis, understanding the individual characteristics of each variable, to bivariate exploration, uncovering relationships between pairs of variables, and finally, to multivariate analysis, unraveling the complex interplay of multiple factors. We’ve explored a variety of visualization methods, from histograms and box plots for numerical data to bar charts and pie charts for categorical data, and delved into the world of heatmaps, 3D scatter plots, and other advanced techniques for multivariate exploration. We’ve also emphasized the critical importance of best practices in data visualization, ensuring that your charts are not only visually appealing but also clearly communicate the story your data has to tell, avoiding misleading representations and prioritizing accessibility.</p>
 <p>EDA and visualization are not merely preliminary steps in a data analysis project; they are integral to the entire process. They provide the foundation for sound statistical modeling, hypothesis generation, and informed decision-making. By mastering the techniques presented here, you’re now well-prepared to embark on your own data adventures, confidently exploring the data landscape, uncovering hidden treasures of insight, and effectively communicating your findings. Remember that EDA is an iterative process. Don’t be afraid to experiment with different visualizations, explore your data from various angles, and refine your understanding as you go. The ability to visualize and interpret data effectively is a powerful skill, and one that will serve you well in any data-driven endeavor.</p>
 <p>But what happens when we want to go beyond simply exploring and describing our data? What if we want to build models that can predict future outcomes or classify data points into different categories? This is where the exciting world of supervised learning comes in. In the next chapter, we’ll begin to explore how we can use our data to train algorithms that can learn from past experiences and make accurate predictions about new, unseen data. Get ready to dive into the realm of predictive modeling, where we’ll equip ourselves with the tools to build intelligent systems that can make sense of the world around us.</p>
-</section>
 </section>
 </section>
 
@@ -2919,22 +2922,24 @@ try_create(); </script></div>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-visualization-powerhouse-expanding-your-eda-toolkit">Python’s Visualization Powerhouse: Expanding Your EDA Toolkit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-analysis-understanding-individual-variables">Univariate Analysis: Understanding Individual Variables</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">Categorical Variables</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-results">Interpretation of results</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-charts">Pie Charts</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-variables">Numeric Variables</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-read-a-histogram">How to Read a Histogram:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-read-a-box-plot">How to Read a Box Plot:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-statistical-distributions">Intermezzo: Statistical Distributions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-analysis-and-visualization-unraveling-complex-relationships">Multivariate Analysis and Visualization: Unraveling Complex Relationships</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-data-visualization-communicating-insights-effectively">Best Practices for Data Visualization: Communicating Insights Effectively</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-charting-a-course-to-insight">Conclusion: Charting a Course to Insight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-analysis-understanding-individual-variables">Univariate Analysis: Understanding Individual Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">Categorical Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-results">Interpretation of results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-charts">Pie Charts</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-variables">Numeric Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-read-a-histogram">How to Read a Histogram:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-read-a-box-plot">How to Read a Box Plot:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-statistical-distributions">Intermezzo: Statistical Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-analysis-and-visualization-unraveling-complex-relationships">Multivariate Analysis and Visualization: Unraveling Complex Relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-data-visualization-communicating-insights-effectively">Best Practices for Data Visualization: Communicating Insights Effectively</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-charting-a-course-to-insight">Conclusion: Charting a Course to Insight</a></li>
 </ul>
   </nav></div>
 

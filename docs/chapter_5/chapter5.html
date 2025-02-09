@@ -736,7 +736,7 @@ Precision answers: of all people who have HIV, how many did we correctly identif
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="lLXTCRRWevoO" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="lLXTCRRWevoO-next" onclick="window.checkFlip('lLXTCRRWevoO')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="DjctguBWdxeq" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="DjctguBWdxeq-next" onclick="window.checkFlip('DjctguBWdxeq')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -1083,22 +1083,22 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("lLXTCRRWevoO")) {
-            createCards("lLXTCRRWevoO", "True", "False");
+          if(document.getElementById("DjctguBWdxeq")) {
+            createCards("DjctguBWdxeq", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardslLXTCRRWevoO=[
+var cardsDjctguBWdxeq=[
     {
         "front": "Which is more important in our HIV example: precision or recall?",
         "back": "Recall: of all the people who have HIV, we want as many as possible to know they have it."
     }
 ];
-var frontColorslLXTCRRWevoO= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorslLXTCRRWevoO= ["var(--dark-blue-gray)" ];
-var textColorslLXTCRRWevoO= ["var(--snow)" ];
+var frontColorsDjctguBWdxeq= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsDjctguBWdxeq= ["var(--dark-blue-gray)" ];
+var textColorsDjctguBWdxeq= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <p>Another way of looking at it is considering the cost or the problems that come from a wrong prediction. If someone is healthy but they are identified as HIV+, they will be upset, they might need to do follow up testing, they may need to take some precautions like avoiding sexual contact or blood donations until the diagnosis is corrected. None of that is pleasant for the person. On the other hand, telling someone who has HIV that they don’t have it, means they won’t get the follow up testing or treatment they need, they might expose their partner or others to the disease, ultimately their disease may progress to the point where treatment isn’t as effective anymore. This seems far worse for the patient, for their loved ones, and for the community at large.</p>
@@ -1109,7 +1109,7 @@ try_create(); </script></div>
 <p><img alt="roc" src="../_images/roc.JPG" /></p>
 <p>This displays the receiver operating characteristic curves for multiple models. Since the Y-axis represents True Positive Rate and the X-axis represents the False Positive Rate, the “best” place to be is the top left corner with 100% True Positive and 0% False Positive. On a plot like this, we can visually see which model’s curve is closest to the top left corner. AUC is the area under the curve, which will cover a larger area if the curve is closer to the top left.</p>
 <p>One final measure we’ll introduce here is lift. Lift measures how much better a model performs compared to a random baseline. It’s particularly useful in marketing campaigns to assess the effectiveness of a model in identifying target customers. Lift looks at the “most likely candidates” identified by a model. For example, if we take the top 5% based on predicted probability, how many of them are actually true? Calculated as:</p>
-<p>`Lift = (Precision of the model) / (Proportion of positive instances in the overall population)</p>
+<p><code class="docutils literal notranslate"><span class="pre">Lift</span> <span class="pre">=</span> <span class="pre">(Precision</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">model)</span> <span class="pre">/</span> <span class="pre">(Proportion</span> <span class="pre">of</span> <span class="pre">positive</span> <span class="pre">instances</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">overall</span> <span class="pre">population)</span></code></p>
 <p><img alt="lift" src="../_images/lift.JPG" /></p>
 <p>Interpreting this Lift Chart</p>
 <p>The lift is the ratio of the blue line (model) to the red line (random). For example, if at 20% of the sample, the blue line is at 300 and the red line is at 100, the lift is 3. This means your model is 3 times better than random at identifying positive responders within that top 20%.</p>
